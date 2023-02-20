@@ -1,0 +1,39 @@
+variables:
+  RELEASE_FOLDER: '/var/www/tg-notify'
+  SERVICE_NAME: 'tg.notify.api'
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - "dotnet restore -s http://nuget.neftm.local/nuget -s https://api.nuget.org/v3/index.json"
+
+build_job:
+  stage: build
+  script:
+    - echo "starting build"
+    - "dotnet build"
+
+test_job:
+  stage: test
+  script:
+    - echo "starting tests"
+
+deploy_job_prod:
+  stage: deploy
+  script:
+    - echo "starting production deploy"
+    - echo "starting deploy"
+    - cd src/Presentation/WebApi/
+    - dotnet publish -c Release --no-restore
+    - cd ../../
+    - rm src/Presentation/WebApi/bin/Release/net7.0/publish/appsettings*.json
+    - rm src/Presentation/WebApi/bin/Release/net7.0/publish/*.pdb
+    - cp -r -rf src/Presentation/WebApi/bin/Release/net7.0/publish/* $RELEASE_FOLDER/prod/api
+  after_script:
+    - sudo systemctl restart $SERVICE_NAME.prod.service
+    - sudo systemctl status $SERVICE_NAME.prod.service
+  only:
+    - deploy
