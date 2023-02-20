@@ -6,7 +6,16 @@ namespace WebApi.Http.Requests;
 
 public sealed class SendToGroupsRequest : SendRequestBase
 {
-	public List<int> Groups { get; set; }
+	public IEnumerable<int> Groups { get; set; }
+
+	public SendToGroupsRequest()
+	{
+		
+	}
+	public SendToGroupsRequest(string text, bool isDisableNotification, IEnumerable<int> groups) : base(text, isDisableNotification)
+	{
+		this.Groups = groups;
+	}
 }
 
 public class SendToGroupsRequestValidator : SendRequestBaseValidator<SendToGroupsRequest>
