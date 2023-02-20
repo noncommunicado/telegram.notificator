@@ -10,7 +10,7 @@ using WebApi.Http.Requests;
 
 namespace WebApi.Controllers;
 
-[ApiController, Route("[controller]")]
+[ApiController, Route("api/[controller]")]
 public sealed class GroupController : ControllerBase
 {
 	private readonly IMediator _mediator;

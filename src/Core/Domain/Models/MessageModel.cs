@@ -1,17 +1,20 @@
 
 namespace Domain.Models;
 
-public class MessageModel
+public class MessageBase
 {
-	public Guid Id { get; set; }
-	
 	/// <summary>
 	/// Maximum Length 1500 symbols
 	/// </summary>
-	public string Text { get; set; }
+	public virtual string Text { get; set; }
 	
 	/// <summary>
 	/// Is send without notification (push & sound)
 	/// </summary>
-	public bool DisableNotification { get; set; } = false;
+	public virtual bool DisableNotification { get; set; } = false;
+}
+
+public class MessageModel : MessageBase
+{
+	public Guid Id { get; set; }
 }

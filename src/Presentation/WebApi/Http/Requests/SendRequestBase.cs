@@ -9,7 +9,7 @@ namespace WebApi.Http.Requests;
 /// </summary>
 public abstract class SendRequestBase
 {
-	public virtual MessageModel Message { get; set; }
+	public virtual MessageBase Message { get; set; }
 }
 
 
