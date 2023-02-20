@@ -29,6 +29,7 @@ deploy_job_prod:
     - cd src/Presentation/WebApi/
     - dotnet publish -c Release --no-restore
     - cd ../../
+    - pwd
     - rm src/Presentation/WebApi/bin/Release/net7.0/publish/appsettings*.json
     - rm src/Presentation/WebApi/bin/Release/net7.0/publish/*.pdb
     - cp -r -rf src/Presentation/WebApi/bin/Release/net7.0/publish/* $RELEASE_FOLDER/prod/api
