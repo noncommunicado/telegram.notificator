@@ -16,6 +16,5 @@ public sealed class CreateGroupRequestValidator : AbstractValidator<CreateGroupR
 	{
 		RuleFor(x => x.Name).NotEmpty().NotNull().MaximumLength(128);
 		RuleFor(x => x.Code).NotEmpty().NotNull().MaximumLength(24);
-		RuleFor(x => x.Chats).NotEmpty().NotNull();
 	}
 }
