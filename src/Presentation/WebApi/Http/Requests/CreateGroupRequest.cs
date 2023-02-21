@@ -7,7 +7,7 @@ public  class CreateGroupRequest
 {
 	public string Name { get; set; }
 	public string Code { get; set; }
-	public IEnumerable<long> Chats { get; set; }
+	public IEnumerable<long>? Chats { get; set; }
 }
 
 public sealed class CreateGroupRequestValidator : AbstractValidator<CreateGroupRequest>
