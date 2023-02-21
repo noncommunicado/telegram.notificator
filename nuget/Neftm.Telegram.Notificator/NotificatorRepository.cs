@@ -1,6 +1,6 @@
+using Neftm.Telegram.Notificator.Requests;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
-using WebApi.Http.Requests;
 
 namespace Neftm.Telegram.Notificator;
 

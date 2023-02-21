@@ -13,7 +13,6 @@ public sealed class BotService : IBotHostedService
 	public BotService(TelegramBotOptions options)
 	{
 		_botClient = new TelegramBotClient(options.Token);
-		
 	}
 
 	// all contol for exceptions will be outside
@@ -53,7 +52,6 @@ public sealed class BotService : IBotHostedService
 	{
 		 await _botClient.CloseAsync(cancellationToken: cancellationToken);
 	}
-
 	~BotService()
 	{
 		_botClient.CloseAsync().Wait();

@@ -1,5 +1,5 @@
+using Neftm.Telegram.Notificator.Requests;
 using RestSharp;
-using WebApi.Http.Requests;
 
 namespace Neftm.Telegram.Notificator;
 
