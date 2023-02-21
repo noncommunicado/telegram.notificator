@@ -1,4 +1,5 @@
 using Application.CQRS.Commands.Groups;
+using Application.CQRS.Commands.Groups.GroupMembersCommands;
 using Application.CQRS.Queries.Groups;
 using AutoMapper;
 using Domain.Dto;
@@ -10,7 +11,10 @@ using WebApi.Http.Requests;
 
 namespace WebApi.Controllers;
 
-[ApiController, Route("[controller]")]
+/// <summary>
+/// Управление группами рассылки
+/// </summary>
+[ApiController, Route("api/[controller]")]
 public sealed class GroupController : ControllerBase
 {
 	private readonly IMediator _mediator;
@@ -53,6 +57,12 @@ public sealed class GroupController : ControllerBase
 		return Ok(await _mediator.Send(command, ct));
 	}
 	
+	/// <summary>
+	/// Обновить группу пользователей, в том числе самих пользователей
+	/// </summary>
+	/// <remarks>
+	/// Полностью обновляет пользователей, удаляет невключенных в новый список и создает новых
+	/// </remarks>
 	[HttpPut]
 	public async Task<IActionResult> Update(
 		[FromBody] UpdateGroupRequest request, 
@@ -64,7 +74,34 @@ public sealed class GroupController : ControllerBase
 		await _mediator.Send(command, ct);
 		return Ok();
 	}
+
 	
+	/// <summary>
+	/// Add members to Group
+	/// </summary>
+	[HttpPut("Members")]
+	public async Task<IActionResult> AddMembers(
+		[FromBody] AddOrRemoveMembersRequest request,
+		IValidator<AddOrRemoveMembersRequest> validator,
+		CancellationToken ct
+	) {
+		await validator.ValidateAndThrowAsync(request, ct);
+		return Ok(await _mediator.Send(_mapper.Map<AddMembersCommand>(request), ct));
+	}
+	
+	/// <summary>
+	/// Delete members to Group
+	/// </summary>
+	[HttpDelete("Members")]
+	public async Task<IActionResult> DeleteMembers(
+		[FromBody] AddOrRemoveMembersRequest request,
+		IValidator<AddOrRemoveMembersRequest> validator,
+		CancellationToken ct
+	) {
+		await validator.ValidateAndThrowAsync(request, ct);
+		return Ok(await _mediator.Send(_mapper.Map<RemoveMembersCommand>(request), ct));
+	}
+
 	/// <summary>
 	/// Удалить группу
 	/// </summary>

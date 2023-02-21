@@ -11,7 +11,7 @@ namespace WebApi.Controllers;
 /// <summary>
 /// Отправка сообщений в Telegram
 /// </summary>
-[ApiController, Route("[controller]")]
+[ApiController, Route("api/[controller]")]
 public sealed class TelegramController : ControllerBase
 {
 	private readonly IMediator _mediator;

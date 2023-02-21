@@ -1,5 +1,5 @@
 
-namespace Domain.Models;
+namespace Neftm.Telegram.Notificator.Requests;
 
 public class MessageBase
 {
@@ -12,9 +12,4 @@ public class MessageBase
 	/// Is send without notification (push & sound)
 	/// </summary>
 	public virtual bool DisableNotification { get; set; } = false;
-}
-
-public class MessageModel : MessageBase
-{
-	public Guid Id { get; set; }
 }

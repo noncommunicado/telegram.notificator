@@ -8,7 +8,7 @@ stages:
   - deploy
 
 before_script:
-  - "dotnet restore -s http://nuget.neftm.local/nuget -s https://api.nuget.org/v3/index.json"
+  - "dotnet restore"
 
 build_job:
   stage: build
@@ -28,7 +28,8 @@ deploy_job_prod:
     - echo "starting deploy"
     - cd src/Presentation/WebApi/
     - dotnet publish -c Release --no-restore
-    - cd ../../
+    - cd ../../../
+    - pwd
     - rm src/Presentation/WebApi/bin/Release/net7.0/publish/appsettings*.json
     - rm src/Presentation/WebApi/bin/Release/net7.0/publish/*.pdb
     - cp -r -rf src/Presentation/WebApi/bin/Release/net7.0/publish/* $RELEASE_FOLDER/prod/api

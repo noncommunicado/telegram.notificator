@@ -27,8 +27,8 @@ builder.Services.AddEndpointsApiExplorer().AddCors();
 builder.Services.AddSwaggerGen(opt =>
 {
 	opt.IncludeXmlComments(
-		Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, $"{Assembly.GetExecutingAssembly()!.GetName().Name}.xml"), true);
-	opt.OrderActionsBy(x => x.HttpMethod);
+		Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, $"{Assembly.GetExecutingAssembly()!.GetName().Name}.xml"), true); 
+	opt.EnableAnnotations();
 });
 
 builder.Services.AddMainDbContext(builder.Configuration.GetConnectionString("Main")!);
