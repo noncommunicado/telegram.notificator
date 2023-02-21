@@ -4,12 +4,16 @@ using Serilog;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using TelegramBot.Cache;
+using TelegramBot.UpdateHandlers;
 
 namespace TelegramBot;
 
 public sealed class BotService : IBotHostedService
 {
-	private readonly TelegramBotClient _botClient; 
+	private readonly TelegramBotClient _botClient;
+	private readonly BaseUpdateHandler _baseUpdateHandler = new();
+
 	public BotService(TelegramBotOptions options)
 	{
 		_botClient = new TelegramBotClient(options.Token);
@@ -21,18 +25,6 @@ public sealed class BotService : IBotHostedService
 		return Task.CompletedTask;
 	}
 
-	private async Task UpdateHandler(ITelegramBotClient client, Update update, CancellationToken ct)
-	{
-		if (update.Type == UpdateType.Message) {
-			try {
-				await client.SendTextMessageAsync(update.Message!.Chat.Id, $"Ваш ID:{Environment.NewLine}<pre>{update.Message.Chat.Id}</pre>", ParseMode.Html, cancellationToken: ct).ConfigureAwait(false);
-			}
-			catch (Exception e) {
-				Log.Error(e, "Can't send chat-id response");
-			}
-		}
-	}
-
 	public async Task SendAsync(SendMessageModel request, CancellationToken ct)
 		=> await _botClient.SendTextMessageAsync(
 				request.ChatId,
@@ -42,10 +34,18 @@ public sealed class BotService : IBotHostedService
 				cancellationToken: ct)
 			.ConfigureAwait(false);
 
-	public Task StartAsync(CancellationToken cancellationToken)
+	public async  Task StartAsync(CancellationToken cancellationToken)
 	{
-		_botClient.StartReceiving(updateHandler: UpdateHandler, pollingErrorHandler: PollingErrorHandler, cancellationToken: cancellationToken);
-		return Task.CompletedTask;
+		_botClient.StartReceiving(updateHandler:
+			_baseUpdateHandler.UpdateHandler, 
+			pollingErrorHandler: PollingErrorHandler,
+			cancellationToken: cancellationToken
+		);
+
+		// setting global tg-bot-user context for access from handlers
+		BotIdentityCache.Instance.SetIdentity(await _botClient.GetMeAsync(cancellationToken));
+
+		Log.Information("Bot {Name} start receiving", BotIdentityCache.Instance.BotUser!.Username);
 	}
 
 	public async Task StopAsync(CancellationToken cancellationToken)
