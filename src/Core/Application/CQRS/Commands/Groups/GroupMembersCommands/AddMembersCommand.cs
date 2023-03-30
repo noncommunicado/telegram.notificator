@@ -12,7 +12,7 @@ public sealed class AddMembersCommandHandler : IRequestHandler<AddMembersCommand
 	public AddMembersCommandHandler(IMainDbContext context) {
 		_context = context;
 	}
-	public Task<Unit> Handle(AddMembersCommand request, CancellationToken ct) {
+	public Task Handle(AddMembersCommand request, CancellationToken ct) {
 		return new ManipulateGroupMembersCommandBaseHandler(_context).Handle(request, EntityState.Added, ct);
 	}
 }

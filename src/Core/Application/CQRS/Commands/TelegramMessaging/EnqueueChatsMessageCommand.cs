@@ -18,12 +18,10 @@ public sealed class EnqueueChatsMessageCommandHandler : IRequestHandler<EnqueueC
 		_mediator = mediator;
 	}
 
-	public async Task<Unit> Handle(EnqueueChatsMessageCommand request, CancellationToken ct)
+	public async Task Handle(EnqueueChatsMessageCommand request, CancellationToken ct)
 	{
 		var messageId = await _mediator.Send(new CreateMessageCommand(request.Message), ct);
 		foreach (var chatId in request.Chats)
 			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chatId, messageId), ct);
-
-		return Unit.Value;
 	}
 }

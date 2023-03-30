@@ -18,7 +18,7 @@ public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageComman
 		_messageCache = messageCache;
 	}
 
-	public async Task<Unit> Handle(SendMessageCommand request, CancellationToken ct)
+	public async Task Handle(SendMessageCommand request, CancellationToken ct)
 	{
 		var msg = await _messageCache.GetById(request.MessageId, ct);
 		Log.Information("Sending Telegram message {MessageId} to chat {ChatId}", request.MessageId, request.ChatId);
@@ -37,7 +37,5 @@ public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageComman
 			Log.Error(arex, "Telegram API is currently unavailable or overloaded");
 			throw;
 		}
-		
-		return Unit.Value;
 	}
 }

@@ -17,8 +17,7 @@ public sealed class RemoveMembersCommandHandler : IRequestHandler<RemoveMembersC
 		_context = context;
 	}
 
-
-	public Task<Unit> Handle(RemoveMembersCommand request, CancellationToken ct) {
+	public Task Handle(RemoveMembersCommand request, CancellationToken ct) {
 		return new ManipulateGroupMembersCommandBaseHandler(_context).Handle(request, EntityState.Deleted, ct);
 	}
 }

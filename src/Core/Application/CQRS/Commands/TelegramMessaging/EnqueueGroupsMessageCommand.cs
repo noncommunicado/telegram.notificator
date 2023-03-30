@@ -25,7 +25,7 @@ public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<Enqueue
 		_context = context;
 	}
 	
-	public async Task<Unit> Handle(EnqueueGroupsMessageCommand request, CancellationToken ct)
+	public async Task Handle(EnqueueGroupsMessageCommand request, CancellationToken ct)
 	{
 		var messageId = await _mediator.Send(new CreateMessageCommand(request.Message), ct);
 		var groupIds = request.GroupIds.Distinct().ToHashSet();
@@ -41,7 +41,5 @@ public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<Enqueue
 
 		foreach (var chatId in users)
 			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chatId, messageId), ct);
-
-		return Unit.Value;
 	}
 }

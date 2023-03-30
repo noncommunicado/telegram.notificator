@@ -24,7 +24,7 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 		_context = context;
 	}
 	
-	public async Task<Unit> Handle(ManipulateGroupMembersCommandBase request, EntityState entityState, CancellationToken ct) {
+	public async Task Handle(ManipulateGroupMembersCommandBase request, EntityState entityState, CancellationToken ct) {
 		await using var transaction = await _context.Database.BeginTransactionAsync(ct);
 		try {
 			(int? groupId, IEnumerable<long> dbChats) groupTuple = await GetGroupChatsAsync(request, ct);
@@ -49,7 +49,7 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 			throw;
 		}
 
-		return Unit.Value;
+		return;
 	}
 
 	private async Task<(int? groupId, IEnumerable<long> dbChats)> GetGroupChatsAsync(ManipulateGroupMembersCommandBase request, CancellationToken ct) {

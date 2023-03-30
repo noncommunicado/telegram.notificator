@@ -16,11 +16,11 @@ public sealed class DeleteGroupByIdCommandHandler : IRequestHandler<DeleteGroupB
 		_context = context;
 	}
 
-	public async Task<Unit> Handle(DeleteGroupByIdCommand request, CancellationToken ct)
+	public async Task Handle(DeleteGroupByIdCommand request, CancellationToken ct)
 	{
 		_context.Groups.Entry(new GroupEntity {Id = request.Id}).State = EntityState.Deleted;
 		await _context.SaveChangesAsync(ct);
 		Log.Information("Group deleted. Id: {GroupId}", request.Id);
-		return Unit.Value;
+		return;
 	}
 }

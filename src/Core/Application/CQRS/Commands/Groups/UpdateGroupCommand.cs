@@ -15,7 +15,7 @@ public sealed class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupComma
 	{
 		_context = context;
 	}
-	public async Task<Unit> Handle(UpdateGroupCommand request, CancellationToken ct)
+	public async Task Handle(UpdateGroupCommand request, CancellationToken ct)
 	{
 		var entity = new GroupEntity
 		{
@@ -27,7 +27,7 @@ public sealed class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupComma
 		
 		// если чаты не были указаны - пропускаем
 		if(request.Chats == null || request.Chats.Any() == false)
-			return Unit.Value;
+			return;
 		
 		var requestChats = request.Chats.ToHashSet();
 		var dbChats = await _context.GroupMembers.Where(x => x.GroupId == request.Id).ToArrayAsync(ct);
@@ -45,6 +45,6 @@ public sealed class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupComma
 			}), ct);
 		
 		await _context.SaveChangesAsync(ct);
-		return Unit.Value;
+		return;
 	}
 }

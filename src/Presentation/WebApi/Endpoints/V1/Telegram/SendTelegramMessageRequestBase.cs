@@ -1,20 +1,19 @@
-
 using Domain.Models;
 using FluentValidation;
 
-namespace WebApi.Http.Requests;
+namespace WebApi.Endpoints.V1.Telegram;
 
 /// <summary>
 /// Базовый запрос на отправку сообщения
 /// </summary>
-public abstract class SendRequestBase
+public abstract class SendTelegramMessageRequestBase
 {
-	public SendRequestBase()
+	public SendTelegramMessageRequestBase()
 	{
 		
 	}
 
-	public SendRequestBase(string text, bool isDisableNotification)
+	public SendTelegramMessageRequestBase(string text, bool isDisableNotification)
 	{
 		Message = new MessageBase
 		{
@@ -28,7 +27,7 @@ public abstract class SendRequestBase
 /// <summary>
 /// Базовый валидатор запроса на отправку сообщения
 /// </summary>
-public abstract class SendRequestBaseValidator<T> : AbstractValidator<T> where T : SendRequestBase
+public abstract class SendRequestBaseValidator<T> : AbstractValidator<T> where T : SendTelegramMessageRequestBase
 {
 	public SendRequestBaseValidator()
 	{

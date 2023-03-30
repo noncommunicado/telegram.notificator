@@ -22,7 +22,7 @@ public static class DependencyInjection
 					x.Exponential(int.MaxValue, TimeSpan.FromSeconds(3), TimeSpan.FromMinutes(30), TimeSpan.FromSeconds(10));
 				});
 			});
-
+		
 			x.UsingRabbitMq((context, cfg) => {
 				cfg.Durable = true;
 				cfg.ConfigureEndpoints(context);

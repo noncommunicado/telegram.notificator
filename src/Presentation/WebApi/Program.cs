@@ -1,15 +1,15 @@
 using System.Globalization;
 using System.Reflection;
 using Application.Interfaces;
+using FastEndpoints.ClientGen;
+using FastEndpoints.Swagger;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore.Diagnostics.Internal;
 using Persistence;
 using TelegramBot;
-using MediatR;
 using Neftm.Telegram.Notificator.Rabbit;
-using Quartz;
 using Services;
 using WebApi.Configuration;
-using WebApi.Jobs;
 using WebApi.Middlewares;
 
 CultureInfo.CurrentUICulture = new CultureInfo("ru-RU");
@@ -22,44 +22,54 @@ builder.Configuration
 
 builder.ConfigureLogging();
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer().AddCors();
-builder.Services.AddSwaggerGen(opt =>
-{
-	opt.IncludeXmlComments(
-		Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, $"{Assembly.GetExecutingAssembly()!.GetName().Name}.xml"), true); 
-	opt.EnableAnnotations();
+builder.Services.AddFastEndpoints(o => {
+	o.IncludeAbstractValidators = true;
+	o.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All;
 });
+
+builder.Services.AddSwaggerDoc(
+	maxEndpointVersion: 1,
+	shortSchemaNames: true,
+	removeEmptySchemas: true,
+	settings: s => {
+		s.DocumentName = "Release 1.0";
+		s.Version = "v1.0";
+
+		var clientDirectory = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly()!.Location).DirectoryName!, "Clients");
+		if (!Directory.Exists(clientDirectory))
+			Directory.CreateDirectory(clientDirectory);
+		s.GenerateCSharpClient(
+			settings: z => z.ClassName = "ApiClient",
+			destination: Path.Combine(clientDirectory, "ClientCSharp.cs"));
+		s.GenerateTypeScriptClient(
+			settings: z => z.ClassName = "ApiClient",
+			destination: Path.Combine(clientDirectory, "ClientJS.ts"));
+	});
 
 builder.Services.AddMainDbContext(builder.Configuration.GetConnectionString("Main")!);
 builder.Services.AddTgBotSender(builder.Configuration.GetSection("Telegram").Get<TelegramBotOptions>()!);
 builder.Services.AddMassTransitConfiguration(builder.Configuration);
-builder.Services.AddMediatR(new [] {typeof(Application.AssemblyInfo).Assembly});
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Application.AssemblyInfo).Assembly));
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddAutoMapper(typeof(Program), typeof(Domain.AssemblyInfo), typeof(Application.AssemblyInfo));
 builder.Services.AddSingleton<IMessageCache, MessageCache>();
 builder.Services.AddSingleton<ExceptionMiddleware>();
 
 // quartz
-builder.Services.AddQuartz(q =>
-{
-	q.UseMicrosoftDependencyInjectionJobFactory();
-	var rmMsgJobKey = new JobKey(nameof(RemoveOldMessagesJob));
-	q.AddJob<RemoveOldMessagesJob>(opts => opts.WithIdentity(rmMsgJobKey));
-	q.AddTrigger(opt => opt.ForJob(rmMsgJobKey)
-		.WithIdentity(nameof(RemoveOldMessagesJob)).WithSimpleSchedule(b => b.WithIntervalInMinutes(60))
-	);
-});
-builder.Services.AddQuartzHostedService(options => {
-	options.WaitForJobsToComplete = true;
-});
+builder.Services.ConfigureQuartz();
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
-
-app.MapControllers();
+app.UseRouting();
+app.UseAuthorization();
+app.UseFastEndpoints(c => {
+	c.Endpoints.RoutePrefix = "api";
+	c.Endpoints.ShortNames = true;
+	c.Versioning.Prefix = "v";
+	c.Versioning.PrependToRoute = true;
+	c.Versioning.DefaultVersion = 1;
+});
+app.UseSwaggerGen();
 app.UseMiddleware<ExceptionMiddleware>();
 
 // set listen addresses

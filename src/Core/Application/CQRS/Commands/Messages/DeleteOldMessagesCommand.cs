@@ -18,13 +18,13 @@ public sealed class DeleteOldMessagesCommandHandler : IRequestHandler<DeleteOldM
 		_mediator = mediator;
 	}
 
-	public async Task<Unit> Handle(DeleteOldMessagesCommand request, CancellationToken cancellationToken)
+	public async Task Handle(DeleteOldMessagesCommand request, CancellationToken cancellationToken)
 	{
 		var messagesId = await _context.Messages.AsNoTracking()
 			.Where(x => x.SysCreated == null || Math.Abs((DateTime.Now - x.SysCreated).Value.TotalHours) > 10)
 			.Select(x => x.Id)
 			.ToArrayAsync(cancellationToken);
 		await _mediator.Send(new DeleteMessagesCommand(messagesId), cancellationToken);
-		return Unit.Value;
+		return;
 	}
 }

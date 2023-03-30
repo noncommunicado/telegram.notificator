@@ -1,7 +1,8 @@
 
 using Application.CQRS.Commands.Groups;
 using AutoMapper;
-using WebApi.Http.Requests;
+using WebApi.Endpoints.V1.Group.Create;
+using WebApi.Endpoints.V1.Group.Update;
 
 namespace WebApi.Mappings;
 
