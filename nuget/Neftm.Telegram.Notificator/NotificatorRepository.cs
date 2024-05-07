@@ -9,8 +9,10 @@ public class NotificatorRepository : INotificatorRepository
 	private readonly RestClient _client;
 	public NotificatorRepository(IHttpClientFactory httpClientFactory)
 	{
-		_client = new RestClient(httpClientFactory.CreateClient(Constants.HttpClientName));
-		_client.UseNewtonsoftJson();
+		_client = new RestClient(httpClientFactory.CreateClient(Constants.HttpClientName), configureSerialization:
+			config => {
+				config.UseNewtonsoftJson();
+			});
 	}
 
 	public async Task<RestResponse> SendToChatsAsync(SendToChatsRequest request, CancellationToken ct)

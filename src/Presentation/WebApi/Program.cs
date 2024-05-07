@@ -1,10 +1,7 @@
 using System.Globalization;
-using System.Reflection;
 using Application.Interfaces;
-using FastEndpoints.ClientGen;
 using FastEndpoints.Swagger;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore.Diagnostics.Internal;
 using Persistence;
 using TelegramBot;
 using Neftm.Telegram.Notificator.Rabbit;
@@ -16,35 +13,15 @@ CultureInfo.CurrentUICulture = new CultureInfo("ru-RU");
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration
-	.AddJsonFile("appsettings.json", false, false)
-	.AddJsonFile( $"appsettings.{builder.Environment.EnvironmentName}.json", true, false);
+builder.Configuration.AddJsonFile("appsettings.json", false, false);
+#if DEBUG
+builder.Configuration.AddJsonFile( $"appsettings.{builder.Environment.EnvironmentName}.json", true, false);
+#endif
 
 builder.ConfigureLogging();
 
-builder.Services.AddFastEndpoints(o => {
-	o.IncludeAbstractValidators = true;
-	o.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All;
-});
-
-builder.Services.AddSwaggerDoc(
-	maxEndpointVersion: 1,
-	shortSchemaNames: true,
-	removeEmptySchemas: true,
-	settings: s => {
-		s.DocumentName = "Release 1.0";
-		s.Version = "v1.0";
-
-		var clientDirectory = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly()!.Location).DirectoryName!, "Clients");
-		if (!Directory.Exists(clientDirectory))
-			Directory.CreateDirectory(clientDirectory);
-		s.GenerateCSharpClient(
-			settings: z => z.ClassName = "ApiClient",
-			destination: Path.Combine(clientDirectory, "ClientCSharp.cs"));
-		s.GenerateTypeScriptClient(
-			settings: z => z.ClassName = "ApiClient",
-			destination: Path.Combine(clientDirectory, "ClientJS.ts"));
-	});
+// api
+builder.Services.AddFastEndpointsConfiguration(builder.Configuration);
 
 builder.Services.AddMainDbContext(builder.Configuration.GetConnectionString("Main")!);
 builder.Services.AddTgBotSender(builder.Configuration.GetSection("Telegram").Get<TelegramBotOptions>()!);
@@ -60,8 +37,9 @@ builder.Services.ConfigureQuartz();
 
 var app = builder.Build();
 
-app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.UseFastEndpoints(c => {
 	c.Endpoints.RoutePrefix = "api";
 	c.Endpoints.ShortNames = true;

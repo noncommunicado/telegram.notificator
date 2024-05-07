@@ -29,7 +29,7 @@ public sealed class BotService : IBotHostedService
 		=> await _botClient.SendTextMessageAsync(
 				request.ChatId,
 				request.Message.Text,
-				ParseMode.Html,
+				parseMode: ParseMode.Html,
 				disableNotification: request.Message.DisableNotification, 
 				cancellationToken: ct)
 			.ConfigureAwait(false);
