@@ -10,25 +10,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{6579F1B7-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{346A0695-FB93-42F1-8857-AB3F9211336C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "src\Infrastructure\Persistence\Persistence.csproj", "{68B98814-DCF5-47BB-93D2-FA33C44AB115}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "src\infrastructure\Persistence\Persistence.csproj", "{68B98814-DCF5-47BB-93D2-FA33C44AB115}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Core\Domain\Domain.csproj", "{4483A7CD-EB22-4A99-BBA7-67448E8B1660}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\core\Domain\Domain.csproj", "{4483A7CD-EB22-4A99-BBA7-67448E8B1660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "src\Presentation\WebApi\WebApi.csproj", "{4280D47A-4DEF-4B8E-B4CF-56F2FF7F00C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "src\presentation\WebApi\WebApi.csproj", "{4280D47A-4DEF-4B8E-B4CF-56F2FF7F00C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Core\Application\Application.csproj", "{DC12A28D-E399-4ABB-BDD1-7EFC9FC762A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\core\Application\Application.csproj", "{DC12A28D-E399-4ABB-BDD1-7EFC9FC762A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot", "src\Infrastructure\TelegramBot\TelegramBot.csproj", "{A3A3ABFB-C531-42D2-9259-C6D5AC6D0231}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot", "src\infrastructure\TelegramBot\TelegramBot.csproj", "{A3A3ABFB-C531-42D2-9259-C6D5AC6D0231}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neftm.Telegram.Notificator.Rabbit", "src\Core\Neftm.Telegram.Notificator.Rabbit\Neftm.Telegram.Notificator.Rabbit.csproj", "{887CCCA2-4B75-4EE6-BEFA-7FBB07AF74E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neftm.Telegram.Notificator.Rabbit", "src\core\Neftm.Telegram.Notificator.Rabbit\Neftm.Telegram.Notificator.Rabbit.csproj", "{887CCCA2-4B75-4EE6-BEFA-7FBB07AF74E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "src\Infrastructure\Services\Services.csproj", "{E4BE5DBE-9F8F-4E5E-84FC-9EBB6CA5C5AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "src\infrastructure\Services\Services.csproj", "{E4BE5DBE-9F8F-4E5E-84FC-9EBB6CA5C5AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{C08C6176-6968-4929-8184-F0EA44C3B903}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neftm.Telegram.Notificator", "nuget\Neftm.Telegram.Notificator\Neftm.Telegram.Notificator.csproj", "{3662716B-6D43-41F6-8110-F2EC2848DBDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitlab", "src\Infrastructure\Gitlab\Gitlab.csproj", "{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitlab", "src\infrastructure\Gitlab\Gitlab.csproj", "{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
