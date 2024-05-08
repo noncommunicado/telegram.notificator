@@ -59,7 +59,7 @@ docker_image_publishing:
 #    - 'docker compose up -d'
 
 deploy prod:
-  stage: deploy_prod
+  stage: deploy
   environment: production
   when: manual
   needs:
