@@ -16,11 +16,9 @@ CultureInfo.CurrentUICulture = new CultureInfo("ru-RU");
 try {
 	var builder = WebApplication.CreateBuilder(args);
 
-	builder.ConfigureLogging().ConfigureAppSettings();
+	builder.ConfigureLogging().ConfigureAppSettings().AddFastEndpointsConfiguration();
 
 // api
-	builder.Services.AddFastEndpointsConfiguration(builder.Configuration);
-
 	builder.Services.AddMainDbContext(builder.Configuration.GetConnectionString("Main")!);
 	builder.Services.AddTgBotSender(builder.Configuration.GetSection("Telegram").Get<TelegramBotOptions>()!);
 	builder.Services.AddMassTransitConfiguration(builder.Configuration);
@@ -48,6 +46,7 @@ try {
 	app.UseSwaggerGen();
 	app.UseMiddleware<ExceptionMiddleware>();
 
+	Log.Information("Application Start");
 	await app.RunAsync();
 }
 catch (Exception ex) {

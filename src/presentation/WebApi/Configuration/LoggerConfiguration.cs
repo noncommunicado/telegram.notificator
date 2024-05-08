@@ -18,23 +18,12 @@ internal static class LoggerConfiguration
 				.Enrich.FromLogContext()
 				.Enrich.WithExceptionDetails()
 				.WriteTo.Logger(c => c
-					.Filter.ByIncludingOnly(e => e.Level == LogEventLevel.Information)
 					.Filter.ByExcluding(le => le.Properties.GetValueOrDefault("SourceContext") is ScalarValue sv
 					                          && ((bool) sv.Value?.ToString()?.StartsWith("Microsoft") ||
 					                              (bool) sv.Value?.ToString()?.StartsWith("System")))
-					.WriteTo.File(Path.Combine(basePath, "Logs", "Info", "_.log"), rollingInterval: RollingInterval.Day)
+					.WriteTo.File(Path.Combine(basePath, "logs", "_.log"), rollingInterval: RollingInterval.Day)
 				)
-				.WriteTo.Logger(c => c
-					.Filter.ByIncludingOnly(e => e.Level == LogEventLevel.Warning)
-					.WriteTo.File(Path.Combine(basePath, "Logs", "Warning", "_.log"),
-						rollingInterval: RollingInterval.Day)
-				)
-				.WriteTo.Logger(c => c
-					.Filter.ByIncludingOnly(e => e.Level == LogEventLevel.Error || e.Level == LogEventLevel.Fatal)
-					.WriteTo.File(Path.Combine(basePath, "Logs", "Error", "_.log"),
-						rollingInterval: RollingInterval.Day)
-					.WriteTo.Console()
-				);
+				.WriteTo.Console();
 		});
 		return builder;
 	}
