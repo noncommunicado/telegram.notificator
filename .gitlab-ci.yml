@@ -41,7 +41,7 @@ docker_image_publishing:
     - build
     - test
   script:
-    - 'docker build -f ./src/presentation/Yandex.Weather.Integration.Api/Dockerfile --tag "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA" --tag "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest" .'
+    - 'docker build -f ./src/presentation/WebApi/Dockerfile --tag "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA" --tag "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest" .'
     - 'docker push "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA"'
     - 'docker push "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest"'
 
