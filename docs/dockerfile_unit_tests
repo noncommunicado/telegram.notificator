@@ -1,0 +1,8 @@
+FROM registry.neftm.local/dotnet/sdk:8.0 as build
+## up to src folder
+COPY . /src
+WORKDIR /src
+
+RUN dotnet restore --source http://nuget.neftm.local/nuget --source https://api.nuget.org/v3/index.json
+RUN dotnet build -c Release --no-restore
+ENTRYPOINT [ "dotnet", "test", "--no-restore" ]
