@@ -10,7 +10,6 @@ public static class QuartzConfiguration
 	{
 		services.AddQuartz(q =>
 		{
-			q.UseMicrosoftDependencyInjectionJobFactory();
 			var rmMsgJobKey = new JobKey(nameof(RemoveOldMessagesJob));
 			q.AddJob<RemoveOldMessagesJob>(opts => opts.WithIdentity(rmMsgJobKey));
 			q.AddTrigger(opt => opt.ForJob(rmMsgJobKey)

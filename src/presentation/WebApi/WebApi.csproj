@@ -54,12 +54,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Core\Application\Application.csproj" />
-      <ProjectReference Include="..\..\Core\Neftm.Telegram.Notificator.Rabbit\Neftm.Telegram.Notificator.Rabbit.csproj" />
-      <ProjectReference Include="..\..\Core\Neftm.Telegram.Notificator.Rabbit\Neftm.Telegram.Notificator.Rabbit.csproj" />
-      <ProjectReference Include="..\..\Infrastructure\Persistence\Persistence.csproj" />
-      <ProjectReference Include="..\..\Infrastructure\Services\Services.csproj" />
-      <ProjectReference Include="..\..\Infrastructure\TelegramBot\TelegramBot.csproj" />
+      <ProjectReference Include="..\..\core\Application\Application.csproj" />
+      <ProjectReference Include="..\..\core\Neftm.Telegram.Notificator.Rabbit\Neftm.Telegram.Notificator.Rabbit.csproj" />
+      <ProjectReference Include="..\..\core\Neftm.Telegram.Notificator.Rabbit\Neftm.Telegram.Notificator.Rabbit.csproj" />
+      <ProjectReference Include="..\..\infrastructure\Persistence\Persistence.csproj" />
+      <ProjectReference Include="..\..\infrastructure\Services\Services.csproj" />
+      <ProjectReference Include="..\..\infrastructure\TelegramBot\TelegramBot.csproj" />
     </ItemGroup>
 
 </Project>

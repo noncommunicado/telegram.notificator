@@ -1,39 +1,80 @@
-variables:
-  RELEASE_FOLDER: '/var/www/tg-notify'
-  SERVICE_NAME: 'tg.notify.api'
-
 stages:
   - build
   - test
+  - docker_image
   - deploy
+  - cleanup
 
-before_script:
-  - "dotnet restore"
+variables:
+  OBJECTS_DIRECTORY: 'obj'
+  NUGET_PACKAGES_DIRECTORY: '.nuget'
+  DOCKER_REGISTRY: 'registry.neftm.local'
+  DOCKER_REPOSITORY_NAME: 'neftm/notificator'
+  SERVER_APP_FOLDER_DEV: '/opt/docker/notificator/dev'
+  SERVER_APP_FOLDER_PROD: '/opt/docker/notificator/prod'
 
-build_job:
+
+cache:
+  key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
+  paths:
+    - '$SOURCE_CODE_PATH$OBJECTS_DIRECTORY/project.assets.json'
+    - '$SOURCE_CODE_PATH$OBJECTS_DIRECTORY/*.csproj.nuget.*'
+    - '$NUGET_PACKAGES_DIRECTORY'
+  policy: pull-push
+
+## ----------------------------------------------------------------------------------
+
+build:
   stage: build
   script:
-    - echo "starting build"
-    - "dotnet build"
+    - docker build -t $DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA -f ./docs/dockerfile_unit_tests .
 
-test_job:
+test:
   stage: test
   script:
-    - echo "starting tests"
+    - docker run --rm $DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA test --no-restore
 
-deploy_job_prod:
-  stage: deploy
+docker_image_publishing:
+  stage: docker_image
+  environment: production
+  needs:
+    - build
+    - test
   script:
-    - echo "starting production deploy"
-    - echo "starting deploy"
-    - cd src/Presentation/WebApi/
-    - dotnet publish -c Release --no-restore
-    - cd ../../../
-    - pwd
-    - rm src/Presentation/WebApi/bin/Release/net8.0/publish/appsettings*.json
-    - rm src/Presentation/WebApi/bin/Release/net8.0/publish/*.pdb
-    - cp -r -rf src/Presentation/WebApi/bin/Release/net8.0/publish/* $RELEASE_FOLDER/prod/api
-  after_script:
-    - sudo systemctl restart $SERVICE_NAME.prod.service
-    - sudo systemctl status $SERVICE_NAME.prod.service
+    - 'docker build -f ./src/presentation/Yandex.Weather.Integration.Api/Dockerfile --tag "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA" --tag "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest" .'
+    - 'docker push "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA"'
+    - 'docker push "$DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest"'
+
+#deploy dev:
+#  stage: deploy_dev
+#  environment: production
+#  needs:
+#    - build
+#    - test
+#    - docker_image_publishing
+#  script:
+#    - 'cd $SERVER_APP_FOLDER_DEV'
+#    - 'docker pull $DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest'
+#    - 'docker compose down'
+#    - 'docker compose up -d'
+
+deploy prod:
+  stage: deploy_prod
+  environment: production
   when: manual
+  needs:
+    - build
+    - test
+    - docker_image_publishing
+  script:
+    - 'cd $SERVER_APP_FOLDER_PROD'
+    - 'docker pull $DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:latest'
+    - 'docker compose down'
+    - 'docker compose up -d'
+
+cleanup:
+  stage: cleanup
+  when: always
+  script:
+    - docker image rm $DOCKER_REGISTRY/$DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA -f
+    - docker image rm $DOCKER_REPOSITORY_NAME:$CI_COMMIT_SHORT_SHA -f

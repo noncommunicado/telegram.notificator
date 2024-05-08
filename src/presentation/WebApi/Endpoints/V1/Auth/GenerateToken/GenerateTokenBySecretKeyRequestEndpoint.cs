@@ -9,4 +9,9 @@ public sealed class GenerateTokenBySecretKeyRequestEndpoint : Endpoint<GenerateT
 		Put("auth/token/by/secret");
 		Version(1);
 	}
+
+	public override async Task HandleAsync(GenerateTokenBySecretKeyRequest req, CancellationToken ct)
+	{
+		await SendOkAsync(ct);
+	}
 }
