@@ -5,4 +5,4 @@ WORKDIR /src
 
 RUN dotnet restore --source http://nuget.neftm.local/nuget --source https://api.nuget.org/v3/index.json
 RUN dotnet build -c Release --no-restore
-ENTRYPOINT [ "dotnet", "test", "--no-restore" ]
+ENTRYPOINT [ "dotnet", "--version" ]
