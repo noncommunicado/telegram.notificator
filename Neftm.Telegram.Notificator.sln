@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neftm.Telegram.Notificator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitlab", "src\infrastructure\Gitlab\Gitlab.csproj", "{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll", "src\Infrastructure\Bll\Bll.csproj", "{AAEF010F-1760-4698-AA47-48361BDFA3E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll", "src\infrastructure\Bll\Bll.csproj", "{AAEF010F-1760-4698-AA47-48361BDFA3E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
