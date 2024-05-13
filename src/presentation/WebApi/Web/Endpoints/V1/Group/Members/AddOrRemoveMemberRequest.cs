@@ -5,7 +5,7 @@ namespace WebApi.Web.Endpoints.V1.Group.Members;
 
 public sealed class AddOrRemoveMembersRequest
 {
-	public int? GroupId { get; set; }
+	public Guid? GroupId { get; set; }
 	public string? GroupCode { get; set; }
 	public IEnumerable<long> Chats { get; set; }
 }
