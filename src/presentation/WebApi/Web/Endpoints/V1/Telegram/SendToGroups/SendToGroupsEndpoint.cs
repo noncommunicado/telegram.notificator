@@ -1,8 +1,7 @@
-
 using Application.CQRS.Commands.TelegramMessaging;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace WebApi.Endpoints.V1.Telegram.SendToGroups;
+namespace WebApi.Web.Endpoints.V1.Telegram.SendToGroups;
 
 /// <summary>
 /// Отправить сообщение всем чатам в группах, если есть пересечение - отправится всего одно сообщение

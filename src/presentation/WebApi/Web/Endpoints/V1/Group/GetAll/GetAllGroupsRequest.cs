@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Endpoints.V1.Group.GetAll;
+namespace WebApi.Web.Endpoints.V1.Group.GetAll;
 
 public sealed class GetAllGroupsRequest
 {

@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Endpoints.V1.Telegram.SendToChats;
+namespace WebApi.Web.Endpoints.V1.Telegram.SendToChats;
 
 public sealed class SendTelegramMessageToChatsRequest : SendTelegramMessageRequestBase
 {

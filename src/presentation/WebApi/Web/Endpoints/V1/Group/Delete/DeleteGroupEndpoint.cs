@@ -1,7 +1,7 @@
 
 using Application.CQRS.Commands.Groups;
 
-namespace WebApi.Endpoints.V1.Group.Delete;
+namespace WebApi.Web.Endpoints.V1.Group.Delete;
 
 /// <summary>
 /// Удалить группу

@@ -42,8 +42,10 @@ try {
 		c.Versioning.Prefix = "v";
 		c.Versioning.PrependToRoute = true;
 		c.Versioning.DefaultVersion = 1;
+	}).UseSwaggerGen(settings => {
+
 	});
-	app.UseSwaggerGen();
+	
 	app.UseMiddleware<ExceptionMiddleware>();
 
 	Log.Information("Application Start");

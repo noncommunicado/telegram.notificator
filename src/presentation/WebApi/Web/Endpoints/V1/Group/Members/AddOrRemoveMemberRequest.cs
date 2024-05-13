@@ -1,7 +1,7 @@
 
 using FluentValidation;
 
-namespace WebApi.Endpoints.V1.Group.Members;
+namespace WebApi.Web.Endpoints.V1.Group.Members;
 
 public sealed class AddOrRemoveMembersRequest
 {

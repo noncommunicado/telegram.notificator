@@ -1,7 +1,7 @@
 
 using FluentValidation;
 
-namespace WebApi.Endpoints.V1.Group.Create;
+namespace WebApi.Web.Endpoints.V1.Group.Create;
 
 public  class CreateGroupRequest
 {

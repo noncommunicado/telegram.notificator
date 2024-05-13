@@ -1,7 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Endpoints.V1.Group.Delete;
+namespace WebApi.Web.Endpoints.V1.Group.Delete;
 
 public sealed class DeleteGroupByIdRequest
 {

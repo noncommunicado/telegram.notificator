@@ -1,7 +1,7 @@
 using Application.CQRS.Commands.TelegramMessaging;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace WebApi.Endpoints.V1.Telegram.SendToChats;
+namespace WebApi.Web.Endpoints.V1.Telegram.SendToChats;
 
 /// <summary>
 /// Отправить сообщение конкретным чатам

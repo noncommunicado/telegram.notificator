@@ -1,6 +1,6 @@
 using Application.CQRS.Commands.Groups.GroupMembersCommands;
 
-namespace WebApi.Endpoints.V1.Group.Members;
+namespace WebApi.Web.Endpoints.V1.Group.Members;
 
 /// <summary>
 /// Remove members from Group

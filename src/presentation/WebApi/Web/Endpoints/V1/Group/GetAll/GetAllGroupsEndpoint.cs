@@ -1,6 +1,7 @@
 using Application.CQRS.Queries.Groups;
 using Domain.Dto;
-namespace WebApi.Endpoints.V1.Group.GetAll;
+
+namespace WebApi.Web.Endpoints.V1.Group.GetAll;
 
 /// <summary>
 /// Все группы

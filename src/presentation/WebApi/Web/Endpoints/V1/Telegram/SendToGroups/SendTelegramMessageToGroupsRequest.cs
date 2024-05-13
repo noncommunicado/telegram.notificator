@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Endpoints.V1.Telegram.SendToGroups;
+namespace WebApi.Web.Endpoints.V1.Telegram.SendToGroups;
 
 public sealed class SendTelegramMessageToGroupsRequest : SendTelegramMessageRequestBase
 {

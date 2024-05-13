@@ -1,7 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Endpoints.V1.Group.GetById;
+namespace WebApi.Web.Endpoints.V1.Group.GetById;
 
 public sealed class GetGroupByIdRequest
 {

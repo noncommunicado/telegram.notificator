@@ -1,7 +1,7 @@
 using Domain.Models;
 using FluentValidation;
 
-namespace WebApi.Endpoints.V1.Telegram;
+namespace WebApi.Web.Endpoints.V1.Telegram;
 
 /// <summary>
 /// Базовый запрос на отправку сообщения

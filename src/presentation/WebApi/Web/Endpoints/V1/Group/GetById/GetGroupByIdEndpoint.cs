@@ -1,7 +1,7 @@
 using Application.CQRS.Queries.Groups;
 using Domain.Dto;
 
-namespace WebApi.Endpoints.V1.Group.GetById;
+namespace WebApi.Web.Endpoints.V1.Group.GetById;
 
 /// <summary>
 /// Данные группы с ее участниками

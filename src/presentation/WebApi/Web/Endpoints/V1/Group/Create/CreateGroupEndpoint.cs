@@ -1,6 +1,6 @@
 using Application.CQRS.Commands.Groups;
 
-namespace WebApi.Endpoints.V1.Group.Create;
+namespace WebApi.Web.Endpoints.V1.Group.Create;
 
 /// <summary>
 /// Создать новую группу пользователей

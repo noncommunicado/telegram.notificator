@@ -1,7 +1,6 @@
 using Application.CQRS.Commands.Groups;
-using Microsoft.AspNetCore.Authorization;
 
-namespace WebApi.Endpoints.V1.Group.Update;
+namespace WebApi.Web.Endpoints.V1.Group.Update;
 
 /// <summary>
 /// Обновить группу пользователей, в том числе самих пользователей
