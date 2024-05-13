@@ -58,7 +58,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\core\Application\Application.csproj"/>
-        <ProjectReference Include="..\..\Infrastructure\Bll\Bll.csproj"/>
+        <ProjectReference Include="..\..\infrastructure\Bll\Bll.csproj"/>
         <ProjectReference Include="..\..\infrastructure\Persistence\Persistence.csproj"/>
         <ProjectReference Include="..\..\infrastructure\Services\Services.csproj"/>
         <ProjectReference Include="..\..\infrastructure\TelegramBot\TelegramBot.csproj"/>
