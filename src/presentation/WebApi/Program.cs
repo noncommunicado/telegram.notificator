@@ -39,7 +39,6 @@ try {
 
 	app.UseFastEndpoints(c => {
 		c.Endpoints.RoutePrefix = "api";
-		c.Endpoints.ShortNames = true;
 		c.Versioning.Prefix = "v";
 		c.Versioning.PrependToRoute = true;
 		c.Versioning.DefaultVersion = 1;

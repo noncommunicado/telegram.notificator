@@ -5,12 +5,12 @@ namespace WebApi.Web.Endpoints.V1.Group.Create;
 /// <summary>
 ///     Создать новую группу пользователей
 /// </summary>
-public sealed class CreateGroupEndpoint : Endpoint<CreateGroupRequest, Guid>
+public sealed class Endpoint : Endpoint<CreateGroupRequest, Guid>
 {
 	private readonly IMapper _mapper;
 	private readonly IMediator _mediator;
 
-	public CreateGroupEndpoint(IMediator mediator, IMapper mapper)
+	public Endpoint(IMediator mediator, IMapper mapper)
 	{
 		_mediator = mediator;
 		_mapper = mapper;

@@ -25,7 +25,9 @@ public static class FastEndpointsConfiguration
 
 		builder.Services.AddSingleton<JwtTokenGenerator>();
 
-		builder.Services.AddFastEndpoints(o => { o.IncludeAbstractValidators = true; });
+		builder.Services.AddFastEndpoints(o => {
+			o.IncludeAbstractValidators = true;
+		});
 		builder.Services.SwaggerDocument(x => {
 			x.MaxEndpointVersion = 1;
 			x.ShortSchemaNames = true;

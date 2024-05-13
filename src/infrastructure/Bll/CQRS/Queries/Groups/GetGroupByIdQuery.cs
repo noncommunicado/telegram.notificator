@@ -8,20 +8,20 @@ using Persistence.Contexts;
 
 namespace Bll.CQRS.Queries.Groups;
 
-public sealed record GetGroupQuery(Guid GroupId) : IRequest<GroupExtendedDto>;
+public sealed record GetGroupByIdQuery(Guid GroupId) : IRequest<GroupExtendedDto>;
 
-public sealed class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, GroupExtendedDto>
+public sealed class GetGroupByIdQueryHandler : IRequestHandler<GetGroupByIdQuery, GroupExtendedDto>
 {
 	private readonly MainDbContext _context;
 	private readonly IMapper _mapper;
 
-	public GetGroupQueryHandler(MainDbContext context, IMapper mapper)
+	public GetGroupByIdQueryHandler(MainDbContext context, IMapper mapper)
 	{
 		_context = context;
 		_mapper = mapper;
 	}
 
-	public async Task<GroupExtendedDto> Handle(GetGroupQuery request, CancellationToken ct)
+	public async Task<GroupExtendedDto> Handle(GetGroupByIdQuery request, CancellationToken ct)
 	{
 		var entity = await _context.Groups.AsNoTrackingWithIdentityResolution()
 			.Include(x => x.Members)

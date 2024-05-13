@@ -1,15 +1,14 @@
 using Bll.CQRS.Commands.TelegramMessaging;
 using Domain.MqModels;
 using MassTransit;
-using MassTransit.Mediator;
 
 namespace Bll.Mq.Consumers;
 
 public sealed class SendTelegramNotifyConsumer : IConsumer<SendTelegramNotifyMqMessage>
 {
-	private readonly IMediator _mediator;
+	private readonly MediatR.IMediator _mediator;
 
-	public SendTelegramNotifyConsumer(IMediator mediator)
+	public SendTelegramNotifyConsumer(MediatR.IMediator mediator)
 	{
 		_mediator = mediator;
 	}

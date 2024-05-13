@@ -5,11 +5,11 @@ namespace WebApi.Web.Endpoints.V1.Group.Delete;
 /// <summary>
 ///     Удалить группу
 /// </summary>
-public sealed class DeleteGroupEndpoint : Endpoint<DeleteGroupByIdRequest>
+public sealed class Endpoint : Endpoint<DeleteGroupByIdRequest>
 {
 	private readonly IMediator _mediator;
 
-	public DeleteGroupEndpoint(IMediator mediator)
+	public Endpoint(IMediator mediator)
 	{
 		_mediator = mediator;
 	}
