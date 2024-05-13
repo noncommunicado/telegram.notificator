@@ -1,4 +1,3 @@
-
 namespace Neftm.Telegram.Notificator;
 
 internal sealed class Constants

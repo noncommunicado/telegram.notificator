@@ -6,7 +6,7 @@ public static class AppSettingsConfiguration
 	{
 		builder.Configuration.AddJsonFile(Path.Combine("appsettings", "appsettings.json"), false);
 		builder.Configuration.AddJsonFile(Path.Combine("appsettings", "appsettings.Development.json"), true);
-		
+
 		return builder;
 	}
 }

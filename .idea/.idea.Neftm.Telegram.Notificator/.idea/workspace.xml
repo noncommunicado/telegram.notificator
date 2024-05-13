@@ -8,7 +8,127 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="" />
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator.Rabbit/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator.Rabbit/Consumers/SendTelegramNotifyConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator.Rabbit/DependencyInjection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator.Rabbit/Neftm.Telegram.Notificator.Rabbit.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/NotificatorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/NotificatorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/MessageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/MessageModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendRequestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendRequestBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToChatsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToChatsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToGroupsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToGroupsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IBotHostedService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/Interfaces/IBotHostedService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IBotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/Interfaces/IBotService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IDbContextBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/Interfaces/IDbContextBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IMessageCache.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/Interfaces/IMessageCache.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/BotService/SendMessageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/BotService/SendMessageModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Dto/GroupDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Dto/GroupDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Dto/GroupExtendedDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Dto/GroupExtendedDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/Base/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/Base/EntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/Base/ICreatedDateTimeEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/Base/ICreatedDateTimeEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/GroupEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/GroupEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/GroupMemberEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/GroupMemberEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/MessageEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/MessageEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Exceptions/DomainException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Exceptions/DomainException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Mappings/EntityMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Mappings/EntityMappings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Mappings/MqMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Mappings/MqMappings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Models/MessageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Models/MessageModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Models/NotificationModelBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Models/NotificationModelBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/MqModels/SendTelegramNotifyMqMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/MqModels/SendTelegramNotifyMqMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Neftm.Telegram.Notificator.Rabbit/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Neftm.Telegram.Notificator.Rabbit/Consumers/SendTelegramNotifyConsumer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Neftm.Telegram.Notificator.Rabbit/DependencyInjection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Neftm.Telegram.Notificator.Rabbit/Neftm.Telegram.Notificator.Rabbit.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/CreateGroupCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/CreateGroupCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/DeleteGroupByIdCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/DeleteGroupByIdCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/AddMembersCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/AddMembersCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/ManipulateGroupMembersCommandBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/ManipulateGroupMembersCommandBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/RemoveMembersCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/RemoveMembersCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/UpdateGroupCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/UpdateGroupCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Messages/DeleteMessagesCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Messages/DeleteMessagesCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Messages/DeleteOldMessagesCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Messages/DeleteOldMessagesCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/CreateMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/CreateMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueChatsMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueChatsMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueGroupsMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueGroupsMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetAllGroupsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetAllGroupsQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetGroupQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetGroupQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Gitlab.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Gitlab.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Assignee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Assignee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Author.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Author.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Changes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Changes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Current.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Current.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/GitlabUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/GitlabUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/LastCommit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/LastCommit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/ObjectAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/ObjectAttributes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Project.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Source.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Source.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/Target.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/TotalTimeSpent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Models/TotalTimeSpent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Gitlab/Requests/MergeRequestRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Gitlab/Requests/MergeRequestRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/MainDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/MainDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/MessageCache.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Services/MessageCache.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/Cache/BotIdentityCache.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/Cache/BotIdentityCache.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/StaticSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/StaticSender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBotOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBotOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/Common/UpdateHandlerContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/Common/UpdateHandlerContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/AppSettingsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/AppSettingsConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/QuartzConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/QuartzConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Jobs/RemoveOldMessagesJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Jobs/RemoveOldMessagesJob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Middlewares/ExceptionMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Middlewares/ExceptionMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Middlewares/ExceptionResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Middlewares/ExceptionResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Services/JwtTokenGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Services/JwtTokenGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Settings/AuthorizationSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Settings/AuthorizationSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Settings/JwtSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Settings/JwtSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Settings/StaticKeySettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Settings/StaticKeySettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WarmUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WarmUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/AuthSchemes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/AuthSchemes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/CustomHeaderNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/CustomHeaderNames.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Auth/GenerateToken/GenerateTokenBySecretKeyRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Auth/GenerateToken/GenerateTokenBySecretKeyRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Auth/GenerateToken/GenerateTokenBySecretKeyRequestEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Auth/GenerateToken/GenerateTokenBySecretKeyRequestEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Delete/DeleteGroupByIdRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Delete/DeleteGroupByIdRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Delete/DeleteGroupEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Delete/DeleteGroupEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetAll/GetAllGroupsEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetAll/GetAllGroupsEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetAll/GetAllGroupsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetAll/GetAllGroupsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetGroupByIdEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetGroupByIdEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetGroupByIdRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetGroupByIdRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddMembersEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddMembersEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddOrRemoveMemberRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddOrRemoveMemberRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/RemoveMembersEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/RemoveMembersEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Update/UpdateGroupEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Update/UpdateGroupEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendTelegramMessageRequestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendTelegramMessageRequestBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToChats/SendTelegramMessageToChatsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToChats/SendTelegramMessageToChatsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToChats/SendToChatsEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToChats/SendToChatsEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToGroups/SendTelegramMessageToGroupsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToGroups/SendTelegramMessageToGroupsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToGroups/SendToGroupsEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToGroups/SendToGroupsEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,27 +165,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.WebApi.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "migrate__to__fastendpoints",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.WebApi.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;migrate__to__fastendpoints&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/hamaronooo/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/hamaronooo/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/hamaronooo/Library/Application Support/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/hamaronooo/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/hamaronooo/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/hamaronooo/Library/Application Support/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.WebApi">
     <configuration name="WebApi" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/presentation/WebApi/bin/Debug/net8.0/WebApi.dll" />
@@ -115,6 +235,7 @@
       <updated>1715588072850</updated>
       <workItem from="1715588074592" duration="1107000" />
       <workItem from="1715589186959" duration="11069000" />
+      <workItem from="1715608585550" duration="1651000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -140,7 +261,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715607624680</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="case">
+      <option name="closed" value="true" />
+      <created>1715608594030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715608594030</updated>
+    </task>
+    <task id="LOCAL-00005" summary="case issue fix">
+      <option name="closed" value="true" />
+      <created>1715609853157</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715609853157</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +302,8 @@
     <MESSAGE value="stable" />
     <MESSAGE value="Bll proj added" />
     <MESSAGE value="folders renamed" />
-    <option name="LAST_COMMIT_MESSAGE" value="folders renamed" />
+    <MESSAGE value="case" />
+    <MESSAGE value="case issue fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="case issue fix" />
   </component>
 </project>

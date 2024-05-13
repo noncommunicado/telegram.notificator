@@ -2,7 +2,6 @@ using Application.Interfaces;
 using Domain.BotService;
 using Serilog;
 using Telegram.Bot;
-using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using TelegramBot.Cache;
 using TelegramBot.UpdateHandlers;
@@ -11,34 +10,29 @@ namespace TelegramBot;
 
 public sealed class BotService : IBotHostedService
 {
-	private readonly TelegramBotClient _botClient;
 	private readonly BaseUpdateHandler _baseUpdateHandler = new();
+	private readonly TelegramBotClient _botClient;
 
 	public BotService(TelegramBotOptions options)
 	{
 		_botClient = new TelegramBotClient(options.Token);
 	}
 
-	// all contol for exceptions will be outside
-	private Task PollingErrorHandler(ITelegramBotClient client, Exception ex, CancellationToken ct)
-	{
-		return Task.CompletedTask;
-	}
-
 	public async Task SendAsync(SendMessageModel request, CancellationToken ct)
-		=> await _botClient.SendTextMessageAsync(
+	{
+		await _botClient.SendTextMessageAsync(
 				request.ChatId,
 				request.Message.Text,
 				parseMode: ParseMode.Html,
-				disableNotification: request.Message.DisableNotification, 
+				disableNotification: request.Message.DisableNotification,
 				cancellationToken: ct)
 			.ConfigureAwait(false);
+	}
 
-	public async  Task StartAsync(CancellationToken cancellationToken)
+	public async Task StartAsync(CancellationToken cancellationToken)
 	{
-		_botClient.StartReceiving(updateHandler:
-			_baseUpdateHandler.UpdateHandler, 
-			pollingErrorHandler: PollingErrorHandler,
+		_botClient.StartReceiving(_baseUpdateHandler.UpdateHandler,
+			PollingErrorHandler,
 			cancellationToken: cancellationToken
 		);
 
@@ -50,8 +44,15 @@ public sealed class BotService : IBotHostedService
 
 	public async Task StopAsync(CancellationToken cancellationToken)
 	{
-		 await _botClient.CloseAsync(cancellationToken: cancellationToken);
+		await _botClient.CloseAsync(cancellationToken);
 	}
+
+	// all contol for exceptions will be outside
+	private Task PollingErrorHandler(ITelegramBotClient client, Exception ex, CancellationToken ct)
+	{
+		return Task.CompletedTask;
+	}
+
 	~BotService()
 	{
 		_botClient.CloseAsync().Wait();

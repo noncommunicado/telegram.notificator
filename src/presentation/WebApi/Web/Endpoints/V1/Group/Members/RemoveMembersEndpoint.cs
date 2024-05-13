@@ -3,18 +3,19 @@ using Bll.CQRS.Commands.Groups.GroupMembersCommands;
 namespace WebApi.Web.Endpoints.V1.Group.Members;
 
 /// <summary>
-/// Remove members from Group
+///     Remove members from Group
 /// </summary>
 public sealed class RemoveMembersEndpoint : Endpoint<AddOrRemoveMembersRequest>
 {
-	private readonly IMediator _mediator;
 	private readonly IMapper _mapper;
+	private readonly IMediator _mediator;
+
 	public RemoveMembersEndpoint(IMediator mediator, IMapper mapper)
 	{
 		_mediator = mediator;
 		_mapper = mapper;
 	}
-	
+
 	public override void Configure()
 	{
 		AllowAnonymous();

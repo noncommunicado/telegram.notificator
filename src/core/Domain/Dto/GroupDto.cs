@@ -1,4 +1,3 @@
-
 namespace Domain.Dto;
 
 public record GroupDto

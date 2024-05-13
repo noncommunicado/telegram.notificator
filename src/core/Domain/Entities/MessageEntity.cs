@@ -5,15 +5,14 @@ using Domain.Entities.Base;
 namespace Domain.Entities;
 
 [Table("message")]
-public sealed class MessageEntity :  ICreatedDateTimeEntity
+public sealed class MessageEntity : ICreatedDateTimeEntity
 {
-	[Key]
-	public Guid Id { get; set; }
-	
+	[Key] public Guid Id { get; set; }
+
 	public string Text { get; set; }
-	
+
 	/// <summary>
-	/// Is send without notification (push & sound)
+	///     Is send without notification (push & sound)
 	/// </summary>
 	public bool DisableNotification { get; set; } = false;
 

@@ -7,10 +7,12 @@ using Persistence.Contexts;
 namespace Bll.CQRS.Queries.Groups;
 
 public sealed record GetAllGroupsQuery(long? chatId = null) : IRequest<IEnumerable<GroupDto>>;
+
 public sealed class GetAllGroupsQueryHandler : IRequestHandler<GetAllGroupsQuery, IEnumerable<GroupDto>>
 {
 	private readonly MainDbContext _context;
 	private readonly IMapper _mapper;
+
 	public GetAllGroupsQueryHandler(MainDbContext context, IMapper mapper)
 	{
 		_context = context;

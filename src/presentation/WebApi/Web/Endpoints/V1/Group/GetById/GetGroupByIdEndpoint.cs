@@ -1,15 +1,15 @@
-
 using Bll.CQRS.Queries.Groups;
 using Domain.Dto;
 
 namespace WebApi.Web.Endpoints.V1.Group.GetById;
 
 /// <summary>
-/// Данные группы с ее участниками
+///     Данные группы с ее участниками
 /// </summary>
-public sealed class GetGroupByIdEndpoint : Endpoint<GetGroupByIdRequest,GroupExtendedDto>
+public sealed class GetGroupByIdEndpoint : Endpoint<GetGroupByIdRequest, GroupExtendedDto>
 {
 	private readonly IMediator _mediator;
+
 	public GetGroupByIdEndpoint(IMediator mediator)
 	{
 		_mediator = mediator;

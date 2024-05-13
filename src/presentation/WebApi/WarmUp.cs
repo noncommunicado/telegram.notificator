@@ -1,4 +1,3 @@
-
 using Persistence.Contexts;
 using Serilog;
 

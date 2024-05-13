@@ -6,10 +6,12 @@ namespace Persistence;
 
 public static class DependencyInjection
 {
-	public static IServiceCollection AddMainDbContext(this IServiceCollection serviceCollection, string connectionString)
+	public static IServiceCollection AddMainDbContext(this IServiceCollection serviceCollection,
+		string connectionString)
 	{
-		serviceCollection.AddDbContext<MainDbContext>(o 
+		serviceCollection.AddDbContext<MainDbContext>(o
 			=> o.UseNpgsql(connectionString).UseSnakeCaseNamingConvention());
 		return serviceCollection;
 	}
+	
 }

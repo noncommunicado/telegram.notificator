@@ -1,20 +1,14 @@
-
 using Newtonsoft.Json;
 
 namespace Gitlab.Models;
 
 public class GitlabUser
 {
-    [JsonProperty("name")]
-    public string Name { get; set; }
+	[JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("username")]
-    public string Username { get; set; }
+	[JsonProperty("username")] public string Username { get; set; }
 
-    [JsonProperty("avatar_url")]
-    public string AvatarUrl { get; set; }
+	[JsonProperty("avatar_url")] public string AvatarUrl { get; set; }
 
-    [JsonProperty("email")]
-    public string Email { get; set; }
+	[JsonProperty("email")] public string Email { get; set; }
 }
-

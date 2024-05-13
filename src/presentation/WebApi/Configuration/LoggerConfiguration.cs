@@ -11,9 +11,8 @@ internal static class LoggerConfiguration
 	{
 		var basePath = new FileInfo(Assembly.GetEntryAssembly()!.Location).Directory!.FullName;
 		builder.Logging.ClearProviders();
-		
-		builder.Host.UseSerilog((context, services, configuration) =>
-		{
+
+		builder.Host.UseSerilog((context, services, configuration) => {
 			configuration
 				.Enrich.FromLogContext()
 				.Enrich.WithExceptionDetails()
@@ -30,10 +29,8 @@ internal static class LoggerConfiguration
 
 	internal static WebApplication UseHttpRequestsLogging(this WebApplication app)
 	{
-		app.UseSerilogRequestLogging(options =>
-		{
-			options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
-			{
+		app.UseSerilogRequestLogging(options => {
+			options.EnrichDiagnosticContext = (diagnosticContext, httpContext) => {
 				var ipHeader = httpContext.Request.Headers.FirstOrDefault(x => x.Key.Equals("X-Real-IP"));
 				var forwardedHeader = httpContext.Request.Headers.FirstOrDefault(x => x.Key.Equals("X-Forwarded-For"));
 

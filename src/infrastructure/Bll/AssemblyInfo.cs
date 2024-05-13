@@ -1,7 +1,3 @@
-
 namespace Bll;
 
-public abstract record AssemblyInfo
-{
-	
-}
+public abstract record AssemblyInfo { }

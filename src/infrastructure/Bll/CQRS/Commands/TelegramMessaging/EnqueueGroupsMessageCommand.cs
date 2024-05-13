@@ -7,24 +7,27 @@ using Persistence.Contexts;
 
 namespace Bll.CQRS.Commands.TelegramMessaging;
 
-public sealed record EnqueueGroupsMessageCommand(IEnumerable<Guid> GroupIds, IEnumerable<string> GroupCodes, MessageModel Message) : IRequest;
+public sealed record EnqueueGroupsMessageCommand(
+	IEnumerable<Guid> GroupIds,
+	IEnumerable<string> GroupCodes,
+	MessageModel Message) : IRequest;
 
 public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<EnqueueGroupsMessageCommand>
 {
 	private readonly MainDbContext _context;
-	private readonly IPublishEndpoint _pEnd;
 	private readonly IMediator _mediator;
+	private readonly IPublishEndpoint _pEnd;
 
 	public EnqueueGroupsMessageCommandHandler(
 		IPublishEndpoint pEnd,
-		IMediator mediator, 
+		IMediator mediator,
 		MainDbContext context)
 	{
 		_pEnd = pEnd;
 		_mediator = mediator;
 		_context = context;
 	}
-	
+
 	public async Task Handle(EnqueueGroupsMessageCommand request, CancellationToken ct)
 	{
 		var messageId = await _mediator.Send(new CreateMessageCommand(request.Message), ct);

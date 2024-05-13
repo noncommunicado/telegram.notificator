@@ -10,22 +10,24 @@ namespace Services;
 
 public sealed class MessageCache : IMessageCache
 {
-	private readonly IMapper _mapper;
-	private readonly MainDbContext _context;
 	private readonly MemoryCache _cache;
-	private SemaphoreSlim Semaphore = new(1);
+	private readonly MainDbContext _context;
+	private readonly IMapper _mapper;
+	private readonly SemaphoreSlim Semaphore = new(1);
+
 	public MessageCache(IServiceScopeFactory scopeFactory)
 	{
 		var scope = scopeFactory.CreateScope();
 		_mapper = scope.ServiceProvider.GetService<IMapper>()!;
 		_context = scope.ServiceProvider.GetService<MainDbContext>()!;
-		_cache = new(new MemoryDistributedCacheOptions());
+		_cache = new MemoryCache(new MemoryDistributedCacheOptions());
 	}
+
 	public async Task<MessageModel?> GetById(Guid messageId, CancellationToken ct)
 	{
-		if (_cache.TryGetValue<MessageModel>(messageId, out MessageModel cacheItem))
+		if (_cache.TryGetValue(messageId, out MessageModel cacheItem))
 			return cacheItem;
-		
+
 		await Semaphore.WaitAsync(ct);
 		try {
 			var dbMsg = await _context.Messages.FirstOrDefaultAsync(x => x.Id == messageId, ct);
@@ -37,15 +39,14 @@ public sealed class MessageCache : IMessageCache
 			});
 			return model;
 		}
-		finally { 
+		finally {
 			Semaphore.Release();
 		}
 	}
 
 	public void Set(MessageModel model)
 	{
-		_cache.Set(model.Id, model, new MemoryCacheEntryOptions
-		{
+		_cache.Set(model.Id, model, new MemoryCacheEntryOptions {
 			SlidingExpiration = TimeSpan.FromMinutes(10),
 			Size = 0
 		});

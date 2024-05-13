@@ -14,11 +14,13 @@ public sealed class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, GroupE
 {
 	private readonly MainDbContext _context;
 	private readonly IMapper _mapper;
+
 	public GetGroupQueryHandler(MainDbContext context, IMapper mapper)
 	{
 		_context = context;
 		_mapper = mapper;
 	}
+
 	public async Task<GroupExtendedDto> Handle(GetGroupQuery request, CancellationToken ct)
 	{
 		var entity = await _context.Groups.AsNoTrackingWithIdentityResolution()

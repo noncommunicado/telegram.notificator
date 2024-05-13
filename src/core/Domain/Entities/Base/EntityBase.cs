@@ -11,10 +11,9 @@ public abstract class EntityBase : IIdEntity<Guid>, ICreatedDateTimeEntity
 	{
 		Id = id;
 	}
-	
-	[Key]
-	public Guid Id { get; set; }
-	
+
 	[Column(TypeName = "timestamp without time zone")]
-	public  DateTime? SysCreated { get; set; } = DateTime.Now;
+	public DateTime? SysCreated { get; set; } = DateTime.Now;
+
+	[Key] public Guid Id { get; set; }
 }

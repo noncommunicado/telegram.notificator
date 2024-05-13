@@ -1,12 +1,8 @@
-
 namespace Domain.Models;
 
 public abstract class NotificationModelBase
 {
-	public NotificationModelBase()
-	{
-		
-	}
+	public NotificationModelBase() { }
 
 	public NotificationModelBase(IEnumerable<long> chats, MessageModel message)
 	{

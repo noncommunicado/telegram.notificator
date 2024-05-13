@@ -1,4 +1,3 @@
-
 namespace Domain.Dto;
 
 public sealed record GroupExtendedDto : GroupDto

@@ -1,4 +1,3 @@
-
 using FluentValidation;
 
 namespace WebApi.Web.Endpoints.V1.Group.Members;
@@ -19,7 +18,7 @@ public sealed class AddOrRemoveMemberRequestValidator : AbstractValidator<AddOrR
 			.NotNull().When(x => x.GroupId == null)
 			.WithMessage("Нужно указать Id группы или ее код");
 		RuleFor(x => x.GroupId)
-			.NotNull().When(x => string.IsNullOrEmpty( x.GroupCode))
+			.NotNull().When(x => string.IsNullOrEmpty(x.GroupCode))
 			.WithMessage("Нужно указать Id группы или ее код");
 	}
 }

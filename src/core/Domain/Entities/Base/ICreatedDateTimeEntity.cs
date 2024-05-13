@@ -1,4 +1,3 @@
-
 namespace Domain.Entities.Base;
 
 public interface ICreatedDateTimeEntity

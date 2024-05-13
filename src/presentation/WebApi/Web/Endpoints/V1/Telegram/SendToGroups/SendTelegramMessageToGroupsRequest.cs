@@ -6,8 +6,8 @@ public sealed class SendTelegramMessageToGroupsRequest : SendTelegramMessageRequ
 {
 	public SendTelegramMessageToGroupsRequest() { }
 
-	public SendTelegramMessageToGroupsRequest(string text, bool isDisableNotification, IEnumerable<int> groupsIds) 
-		: base(text, isDisableNotification) 
+	public SendTelegramMessageToGroupsRequest(string text, bool isDisableNotification, IEnumerable<int> groupsIds)
+		: base(text, isDisableNotification)
 	{
 		GroupIds = groupsIds;
 	}
@@ -18,9 +18,10 @@ public sealed class SendTelegramMessageToGroupsRequest : SendTelegramMessageRequ
 
 public class SendToGroupsRequestValidator : SendRequestBaseValidator<SendTelegramMessageToGroupsRequest>
 {
-	public SendToGroupsRequestValidator() {
+	public SendToGroupsRequestValidator()
+	{
 		RuleFor(x => x.GroupIds)
-			.NotEmpty().When(x =>  x.GroupCodes== null || x.GroupCodes.Any() == false)
+			.NotEmpty().When(x => x.GroupCodes == null || x.GroupCodes.Any() == false)
 			.WithMessage("Как минимум одна группа должна быть указана");
 		RuleFor(x => x.GroupCodes)
 			.NotEmpty().When(x => x.GroupIds == null || x.GroupIds.Any() == false)

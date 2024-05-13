@@ -10,19 +10,16 @@ public sealed class ExceptionMiddleware : IMiddleware
 {
 	public async Task InvokeAsync(HttpContext context, RequestDelegate next)
 	{
-		try
-		{
+		try {
 			await next(context);
 		}
-		catch (HttpRequestException re)
-		{
+		catch (HttpRequestException re) {
 			Log.Error(re, "HttpRequestException");
 			context.Response.StatusCode = (int) re.StatusCode!;
 			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode,
 				re.Message));
 		}
-		catch (ValidationException re)
-		{
+		catch (ValidationException re) {
 			Log.Error(re, "ValidationException");
 			context.Response.StatusCode = 400;
 
@@ -31,23 +28,21 @@ public sealed class ExceptionMiddleware : IMiddleware
 					Errors: re.Errors.Select(x => new ExceptionResponseError(x.PropertyName, x.ErrorMessage)))
 			);
 		}
-		catch (DbUpdateException ex) when (ex.InnerException is PostgresException {SqlState: "23505"})
-		{
+		catch (DbUpdateException ex) when (ex.InnerException is PostgresException {SqlState: "23505"}) {
 			context.Response.StatusCode = 409;
 			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode,
 				"Такой объект уже существует"));
 		}
-		catch (DomainException ex)
-		{
+		catch (DomainException ex) {
 			Log.Error(ex, "Domain exception");
 			context.Response.StatusCode = ex.HttpStatusCode;
 			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode, ex.Message));
 		}
-		catch (Exception ex)
-		{
+		catch (Exception ex) {
 			Log.Error(ex, "Unhandled exception");
 			context.Response.StatusCode = 500;
-			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode, "Unhandled server exception"));
+			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode,
+				"Unhandled server exception"));
 		}
 	}
 }

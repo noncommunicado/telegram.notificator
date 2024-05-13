@@ -4,13 +4,13 @@ using Persistence.Contexts;
 
 namespace Bll.CQRS.Commands.Messages;
 
-
 public sealed record DeleteOldMessagesCommand : IRequest;
 
 public sealed class DeleteOldMessagesCommandHandler : IRequestHandler<DeleteOldMessagesCommand>
 {
 	private readonly MainDbContext _context;
 	private readonly IMediator _mediator;
+
 	public DeleteOldMessagesCommandHandler(MainDbContext context, IMediator mediator)
 	{
 		_context = context;
@@ -24,6 +24,5 @@ public sealed class DeleteOldMessagesCommandHandler : IRequestHandler<DeleteOldM
 			.Select(x => x.Id)
 			.ToArrayAsync(cancellationToken);
 		await _mediator.Send(new DeleteMessagesCommand(messagesId), cancellationToken);
-		return;
 	}
 }

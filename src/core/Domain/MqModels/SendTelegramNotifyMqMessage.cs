@@ -1,14 +1,8 @@
-
-using Domain.Models;
-
 namespace Domain.MqModels;
 
 public sealed class SendTelegramNotifyMqMessage
 {
-	public SendTelegramNotifyMqMessage()
-	{
-		
-	}
+	public SendTelegramNotifyMqMessage() { }
 
 	public SendTelegramNotifyMqMessage(long chatId, Guid messageId)
 	{

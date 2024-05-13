@@ -4,18 +4,20 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace WebApi.Web.Endpoints.V1.Telegram.SendToGroups;
 
 /// <summary>
-/// Отправить сообщение всем чатам в группах, если есть пересечение - отправится всего одно сообщение
+///     Отправить сообщение всем чатам в группах, если есть пересечение - отправится всего одно сообщение
 /// </summary>
-[SwaggerResponse(StatusCodes.Status200OK, description: "Поставлено в очередь на отправку")]
+[SwaggerResponse(StatusCodes.Status200OK, "Поставлено в очередь на отправку")]
 public sealed class SendToGroupsEndpoint : Endpoint<SendTelegramMessageToGroupsRequest>
 {
-	private readonly IMediator _mediator;
 	private readonly IMapper _mapper;
+	private readonly IMediator _mediator;
+
 	public SendToGroupsEndpoint(IMapper mapper, IMediator mediator)
 	{
 		_mapper = mapper;
 		_mediator = mediator;
 	}
+
 	public override void Configure()
 	{
 		AllowAnonymous();

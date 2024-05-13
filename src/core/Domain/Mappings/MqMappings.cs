@@ -1,4 +1,3 @@
-
 using AutoMapper;
 using Domain.Models;
 using Domain.MqModels;

@@ -3,7 +3,7 @@ using Bll.CQRS.Commands.Groups;
 namespace WebApi.Web.Endpoints.V1.Group.Delete;
 
 /// <summary>
-/// Удалить группу
+///     Удалить группу
 /// </summary>
 public sealed class DeleteGroupEndpoint : Endpoint<DeleteGroupByIdRequest>
 {
@@ -13,7 +13,7 @@ public sealed class DeleteGroupEndpoint : Endpoint<DeleteGroupByIdRequest>
 	{
 		_mediator = mediator;
 	}
-	
+
 	public override void Configure()
 	{
 		AllowAnonymous();

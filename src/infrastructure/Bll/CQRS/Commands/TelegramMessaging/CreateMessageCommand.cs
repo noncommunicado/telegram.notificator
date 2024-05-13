@@ -15,16 +15,19 @@ public sealed class CreateMessageCommandHandler : IRequestHandler<CreateMessageC
 	private readonly MainDbContext _context;
 	private readonly IMapper _mapper;
 	private readonly IMessageCache _messageCache;
+
 	public CreateMessageCommandHandler(MainDbContext context, IMapper mapper, IMessageCache messageCache)
 	{
 		_context = context;
 		_mapper = mapper;
 		_messageCache = messageCache;
 	}
+
 	public async Task<Guid> Handle(CreateMessageCommand request, CancellationToken ct)
 	{
 		request.Message.Id = Guid.NewGuid();
-		Log.Information("New message registration {MessageId}. Message text: {Text}", request.Message.Id, request.Message.Text);
+		Log.Information("New message registration {MessageId}. Message text: {Text}", request.Message.Id,
+			request.Message.Text);
 
 		var entity = _mapper.Map<MessageEntity>(request.Message);
 		await _context.Messages.AddAsync(entity, ct);

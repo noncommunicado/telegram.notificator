@@ -1,12 +1,12 @@
 using System.Globalization;
 using Application.Interfaces;
+using Bll;
 using FastEndpoints.Swagger;
 using FluentValidation;
 using Persistence;
-using TelegramBot;
-using Neftm.Telegram.Notificator.Rabbit;
 using Serilog;
 using Services;
+using TelegramBot;
 using WebApi;
 using WebApi.Configuration;
 using WebApi.Middlewares;
@@ -43,12 +43,10 @@ try {
 		c.Versioning.Prefix = "v";
 		c.Versioning.PrependToRoute = true;
 		c.Versioning.DefaultVersion = 1;
-	}).UseSwaggerGen(settings => {
+	}).UseSwaggerGen(settings => { });
 
-	});
-	
 	app.UseMiddleware<ExceptionMiddleware>();
-	
+
 	await WarmUp.RunAsync(app);
 	Log.Information("Application Start");
 	await app.RunAsync();

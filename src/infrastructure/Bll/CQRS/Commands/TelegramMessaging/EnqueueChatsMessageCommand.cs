@@ -9,8 +9,9 @@ public sealed record EnqueueChatsMessageCommand(IEnumerable<long> Chats, Message
 
 public sealed class EnqueueChatsMessageCommandHandler : IRequestHandler<EnqueueChatsMessageCommand>
 {
-	private readonly IPublishEndpoint _pEnd;
 	private readonly IMediator _mediator;
+	private readonly IPublishEndpoint _pEnd;
+
 	public EnqueueChatsMessageCommandHandler(
 		IPublishEndpoint pEnd, IMediator mediator)
 	{

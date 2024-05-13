@@ -1,4 +1,3 @@
-
 namespace WebApi.Web;
 
 public sealed class CustomHeaderNames

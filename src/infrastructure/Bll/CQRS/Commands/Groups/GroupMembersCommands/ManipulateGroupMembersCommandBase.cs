@@ -12,29 +12,32 @@ public record ManipulateGroupMembersCommandBase : IRequest
 	public Guid? GroupId { get; init; }
 	public string? GroupCode { get; init; }
 	public IEnumerable<long> Chats { get; init; }
-} 
+}
 
 public sealed class ManipulateGroupMembersCommandBaseHandler
 {
 	private readonly MainDbContext _context;
+
 	public ManipulateGroupMembersCommandBaseHandler(MainDbContext context)
 	{
 		_context = context;
 	}
-	
-	public async Task Handle(ManipulateGroupMembersCommandBase request, EntityState entityState, CancellationToken ct) {
+
+	public async Task Handle(ManipulateGroupMembersCommandBase request, EntityState entityState, CancellationToken ct)
+	{
 		await using var transaction = await _context.Database.BeginTransactionAsync(ct);
 		try {
-			(Guid? groupId, IEnumerable<long> dbChats) groupTuple = await GetGroupChatsAsync(request, ct);
+			var groupTuple = await GetGroupChatsAsync(request, ct);
 			if (groupTuple.groupId == null)
 				throw new DomainException(404, "Gorup not found");
 
 			var chatsToEdit = entityState switch {
 				EntityState.Added => request.Chats.Except(groupTuple.dbChats),
 				EntityState.Deleted => request.Chats.Intersect(groupTuple.dbChats),
-				_ => throw new ArgumentOutOfRangeException(nameof(entityState), entityState, "Action with input state not supported")
+				_ => throw new ArgumentOutOfRangeException(nameof(entityState), entityState,
+					"Action with input state not supported")
 			};
-			
+
 			foreach (var chat in chatsToEdit)
 				_context.GroupMembers
 					.Entry(new GroupMemberEntity(chat, groupTuple.groupId.Value)).State = entityState;
@@ -46,13 +49,14 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 			await transaction.RollbackAsync(ct);
 			throw;
 		}
-
-		return;
 	}
 
-	private async Task<(Guid? groupId, IEnumerable<long> dbChats)> GetGroupChatsAsync(ManipulateGroupMembersCommandBase request, CancellationToken ct) {
-		if (request.GroupId.HasValue) { // search by id
-			GroupEntity? group = await _context.Groups
+	private async Task<(Guid? groupId, IEnumerable<long> dbChats)> GetGroupChatsAsync(
+		ManipulateGroupMembersCommandBase request, CancellationToken ct)
+	{
+		if (request.GroupId.HasValue) {
+			// search by id
+			var group = await _context.Groups
 				.AsNoTrackingWithIdentityResolution()
 				.Include(x => x.Members)
 				.FirstOrDefaultAsync(x => x.Id == request.GroupId, ct);
@@ -66,7 +70,7 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 
 		// search by code
 		{
-			GroupEntity? group = await _context.Groups
+			var group = await _context.Groups
 				.AsNoTrackingWithIdentityResolution()
 				.Include(x => x.Members)
 				.FirstOrDefaultAsync(x => x.SysCode == request.GroupCode, ct);

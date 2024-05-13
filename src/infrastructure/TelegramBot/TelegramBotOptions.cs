@@ -1,4 +1,3 @@
-
 namespace TelegramBot;
 
 public sealed class TelegramBotOptions

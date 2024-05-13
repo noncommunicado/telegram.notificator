@@ -9,10 +9,14 @@ public sealed record AddMembersCommand : ManipulateGroupMembersCommandBase, IReq
 public sealed class AddMembersCommandHandler : IRequestHandler<AddMembersCommand>
 {
 	private readonly MainDbContext _context;
-	public AddMembersCommandHandler(MainDbContext context) {
+
+	public AddMembersCommandHandler(MainDbContext context)
+	{
 		_context = context;
 	}
-	public Task Handle(AddMembersCommand request, CancellationToken ct) {
+
+	public Task Handle(AddMembersCommand request, CancellationToken ct)
+	{
 		return new ManipulateGroupMembersCommandBaseHandler(_context).Handle(request, EntityState.Added, ct);
 	}
 }

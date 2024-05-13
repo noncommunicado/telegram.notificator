@@ -2,7 +2,4 @@ using Microsoft.Extensions.Hosting;
 
 namespace Application.Interfaces;
 
-public interface IBotHostedService : IBotService, IHostedService
-{
-	
-}
+public interface IBotHostedService : IBotService, IHostedService { }

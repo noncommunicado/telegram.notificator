@@ -1,7 +1,3 @@
-
 namespace Persistence;
 
-public abstract record AssemblyInfo
-{
-	
-}
+public abstract record AssemblyInfo { }

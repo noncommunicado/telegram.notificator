@@ -1,17 +1,19 @@
-
 using Telegram.Bot.Types;
 
 namespace TelegramBot.Cache;
 
 /// <summary>
-/// Singletone
+///     Singletone
 /// </summary>
 public class BotIdentityCache
 {
-	private static BotIdentityCache? I = null;
-	private static object Locker = new();
+	private static BotIdentityCache? I;
+	private static readonly object Locker = new();
+
+	private BotIdentityCache() { }
+
 	public User? BotUser { get; private set; }
-	
+
 	public static BotIdentityCache Instance {
 		get {
 			lock (Locker) {
@@ -19,11 +21,9 @@ public class BotIdentityCache
 			}
 		}
 	}
-	private BotIdentityCache() {
-		
-	}
 
-	public void SetIdentity(User user) {
+	public void SetIdentity(User user)
+	{
 		BotUser = user;
 	}
 }

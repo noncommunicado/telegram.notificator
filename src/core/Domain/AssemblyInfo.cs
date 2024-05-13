@@ -1,7 +1,3 @@
-
 namespace Domain;
 
-public abstract record AssemblyInfo
-{
-	
-}
+public abstract record AssemblyInfo { }

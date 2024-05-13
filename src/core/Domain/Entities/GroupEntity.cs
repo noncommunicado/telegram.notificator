@@ -7,7 +7,7 @@ namespace Domain.Entities;
 public class GroupEntity : EntityBase
 {
 	public string Name { get; set; }
-	
+
 	public string SysCode { get; set; }
 
 	public virtual ICollection<GroupMemberEntity>? Members { get; set; }
