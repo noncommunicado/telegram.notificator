@@ -4,13 +4,12 @@ using Domain.Entities.Base;
 
 namespace Domain.Entities;
 
-[Table("Message")]
+[Table("message")]
 public sealed class MessageEntity :  ICreatedDateTimeEntity
 {
 	[Key]
 	public Guid Id { get; set; }
 	
-	[MaxLength(1500)]
 	public string Text { get; set; }
 	
 	/// <summary>

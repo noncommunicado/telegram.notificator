@@ -1,5 +1,4 @@
-
-using Application.CQRS.Commands.Groups;
+using Bll.CQRS.Commands.Groups;
 
 namespace WebApi.Web.Endpoints.V1.Group.Delete;
 

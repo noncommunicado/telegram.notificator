@@ -1,9 +1,6 @@
-
-using System.ComponentModel.DataAnnotations;
-
 namespace Domain.Entities.Base;
 
-public interface IIdEntity
+public interface IIdEntity<T>
 {
-	int Id { get; set; }
+	T Id { get; set; }
 }

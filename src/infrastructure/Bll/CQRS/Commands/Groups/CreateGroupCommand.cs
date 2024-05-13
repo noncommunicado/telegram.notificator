@@ -1,21 +1,21 @@
-using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
+using Persistence.Contexts;
 using Serilog;
 
-namespace Application.CQRS.Commands.Groups;
+namespace Bll.CQRS.Commands.Groups;
 
-public sealed record CreateGroupCommand(string Name, string Code, IEnumerable<long>? Chats) : IRequest<int>;
+public sealed record CreateGroupCommand(string Name, string Code, IEnumerable<long>? Chats) : IRequest<Guid>;
 
-public sealed class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, int>
+public sealed class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, Guid>
 {
-	private readonly IMainDbContext _context;
-	public CreateGroupCommandHandler(IMainDbContext context)
+	private readonly MainDbContext _context;
+	public CreateGroupCommandHandler(MainDbContext context)
 	{
 		_context = context;
 	}
 
-	public async Task<int> Handle(CreateGroupCommand request, CancellationToken ct)
+	public async Task<Guid> Handle(CreateGroupCommand request, CancellationToken ct)
 	{
 		var group = new GroupEntity { Name = request.Name, SysCode = request.Code };
 

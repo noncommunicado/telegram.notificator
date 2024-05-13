@@ -1,5 +1,5 @@
-using Application.CQRS.Commands.Messages;
-using MediatR;
+
+using Bll.CQRS.Commands.Messages;
 using Quartz;
 using Serilog;
 

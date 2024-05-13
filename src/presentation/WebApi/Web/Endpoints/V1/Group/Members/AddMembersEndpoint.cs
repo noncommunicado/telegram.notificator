@@ -1,4 +1,4 @@
-using Application.CQRS.Commands.Groups.GroupMembersCommands;
+using Bll.CQRS.Commands.Groups.GroupMembersCommands;
 
 namespace WebApi.Web.Endpoints.V1.Group.Members;
 

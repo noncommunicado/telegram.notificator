@@ -4,20 +4,21 @@ using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using Persistence.Contexts;
 
 namespace Services;
 
 public sealed class MessageCache : IMessageCache
 {
 	private readonly IMapper _mapper;
-	private readonly IMainDbContext _context;
+	private readonly MainDbContext _context;
 	private readonly MemoryCache _cache;
 	private SemaphoreSlim Semaphore = new(1);
 	public MessageCache(IServiceScopeFactory scopeFactory)
 	{
 		var scope = scopeFactory.CreateScope();
 		_mapper = scope.ServiceProvider.GetService<IMapper>()!;
-		_context = scope.ServiceProvider.GetService<IMainDbContext>()!;
+		_context = scope.ServiceProvider.GetService<MainDbContext>()!;
 		_cache = new(new MemoryDistributedCacheOptions());
 	}
 	public async Task<MessageModel?> GetById(Guid messageId, CancellationToken ct)

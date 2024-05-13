@@ -1,7 +1,5 @@
-using Application.CQRS.Commands;
-using Application.CQRS.Commands.Groups.GroupMembersCommands;
-using Application.CQRS.Commands.TelegramMessaging;
-using AutoMapper;
+using Bll.CQRS.Commands.Groups.GroupMembersCommands;
+using Bll.CQRS.Commands.TelegramMessaging;
 using WebApi.Web.Endpoints.V1.Group.Members;
 using WebApi.Web.Endpoints.V1.Telegram.SendToChats;
 using WebApi.Web.Endpoints.V1.Telegram.SendToGroups;

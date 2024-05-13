@@ -8,7 +8,7 @@ using Persistence.Contexts;
 
 #nullable disable
 
-namespace Persistence.Migrations
+namespace Persistence.Contexts.Migrations
 {
     [DbContext(typeof(MainDbContext))]
     partial class MainDbContextModelSnapshot : ModelSnapshot
@@ -17,78 +17,89 @@ namespace Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Domain.Entities.GroupEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
 
                     b.Property<string>("SysCode")
                         .IsRequired()
-                        .HasMaxLength(24)
-                        .HasColumnType("character varying(24)");
+                        .HasColumnType("text")
+                        .HasColumnName("sys_code");
 
                     b.Property<DateTime?>("SysCreated")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("sys_created");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_group");
 
                     b.HasIndex("SysCode")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasDatabaseName("ix_group_sys_code");
 
-                    b.ToTable("Group");
+                    b.ToTable("group", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.GroupMemberEntity", b =>
                 {
                     b.Property<long>("ChatId")
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("chat_id");
 
-                    b.Property<int>("GroupId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("group_id");
 
                     b.Property<DateTime?>("SysCreated")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("sys_created");
 
-                    b.HasKey("ChatId", "GroupId");
+                    b.HasKey("ChatId", "GroupId")
+                        .HasName("pk_group_member");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("GroupId")
+                        .HasDatabaseName("ix_group_member_group_id");
 
-                    b.ToTable("GroupMember");
+                    b.ToTable("group_member", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.MessageEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
 
                     b.Property<bool>("DisableNotification")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("disable_notification");
 
                     b.Property<DateTime?>("SysCreated")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("sys_created");
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(1500)
-                        .HasColumnType("character varying(1500)");
+                        .HasColumnType("text")
+                        .HasColumnName("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_message");
 
-                    b.ToTable("Message");
+                    b.ToTable("message", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.GroupMemberEntity", b =>
@@ -97,7 +108,8 @@ namespace Persistence.Migrations
                         .WithMany("Members")
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_group_member_group_group_id");
 
                     b.Navigation("Group");
                 });

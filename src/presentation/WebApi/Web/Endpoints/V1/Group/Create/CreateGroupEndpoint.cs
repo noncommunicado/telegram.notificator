@@ -1,11 +1,11 @@
-using Application.CQRS.Commands.Groups;
+using Bll.CQRS.Commands.Groups;
 
 namespace WebApi.Web.Endpoints.V1.Group.Create;
 
 /// <summary>
 /// Создать новую группу пользователей
 /// </summary>
-public sealed class CreateGroupEndpoint : Endpoint<CreateGroupRequest, int>
+public sealed class CreateGroupEndpoint : Endpoint<CreateGroupRequest, Guid>
 {
 	private readonly IMediator _mediator;
 	private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ public sealed class CreateGroupEndpoint : Endpoint<CreateGroupRequest, int>
 		});
 	}
 
-	public override async Task<int> ExecuteAsync(CreateGroupRequest request, CancellationToken ct)
+	public override async Task<Guid> ExecuteAsync(CreateGroupRequest request, CancellationToken ct)
 	{
 		var command = _mapper.Map<CreateGroupCommand>(request);
 		return await _mediator.Send(command, ct);

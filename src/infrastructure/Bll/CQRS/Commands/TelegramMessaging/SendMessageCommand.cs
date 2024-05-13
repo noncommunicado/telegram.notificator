@@ -3,7 +3,7 @@ using Domain.BotService;
 using MediatR;
 using Serilog;
 
-namespace Application.CQRS.Commands.TelegramMessaging;
+namespace Bll.CQRS.Commands.TelegramMessaging;
 
 public sealed record SendMessageCommand(long ChatId, Guid MessageId) : IRequest;
 

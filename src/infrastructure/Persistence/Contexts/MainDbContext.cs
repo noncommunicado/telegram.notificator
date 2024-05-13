@@ -1,10 +1,9 @@
-using Application.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Contexts;
 
-public sealed class MainDbContext : DbContext, IMainDbContext
+public sealed class MainDbContext : DbContext
 {
 	public MainDbContext(DbContextOptions<MainDbContext> options) : base(options) { }
 	

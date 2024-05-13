@@ -1,21 +1,20 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities.Base;
 
 namespace Domain.Entities;
 
-[Table("GroupMember")]
+[Table("group_member")]
 public class GroupMemberEntity : ICreatedDateTimeEntity
 {
 	public GroupMemberEntity() { }
-	public GroupMemberEntity(long chatId, int groupId)
+	public GroupMemberEntity(long chatId, Guid groupId)
 	{
 		ChatId = chatId;
 		GroupId = groupId;
 	}
 	
 	public long ChatId { get; set; }
-	public int GroupId { get; set; }
+	public Guid GroupId { get; set; }
 	public virtual GroupEntity Group { get; set; }
 	
 	[Column(TypeName = "timestamp without time zone")]

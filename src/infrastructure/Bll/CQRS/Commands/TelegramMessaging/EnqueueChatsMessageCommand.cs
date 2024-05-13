@@ -3,7 +3,7 @@ using Domain.MqModels;
 using MassTransit;
 using MediatR;
 
-namespace Application.CQRS.Commands.TelegramMessaging;
+namespace Bll.CQRS.Commands.TelegramMessaging;
 
 public sealed record EnqueueChatsMessageCommand(IEnumerable<long> Chats, MessageModel Message) : IRequest;
 

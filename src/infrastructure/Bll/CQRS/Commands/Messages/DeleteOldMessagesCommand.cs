@@ -1,18 +1,17 @@
-
-using Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Commands.Messages;
+namespace Bll.CQRS.Commands.Messages;
 
 
 public sealed record DeleteOldMessagesCommand : IRequest;
 
 public sealed class DeleteOldMessagesCommandHandler : IRequestHandler<DeleteOldMessagesCommand>
 {
-	private readonly IMainDbContext _context;
+	private readonly MainDbContext _context;
 	private readonly IMediator _mediator;
-	public DeleteOldMessagesCommandHandler(IMainDbContext context, IMediator mediator)
+	public DeleteOldMessagesCommandHandler(MainDbContext context, IMediator mediator)
 	{
 		_context = context;
 		_mediator = mediator;

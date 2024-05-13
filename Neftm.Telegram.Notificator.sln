@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neftm.Telegram.Notificator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitlab", "src\infrastructure\Gitlab\Gitlab.csproj", "{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll", "src\Infrastructure\Bll\Bll.csproj", "{AAEF010F-1760-4698-AA47-48361BDFA3E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,7 @@ Global
 		{E4BE5DBE-9F8F-4E5E-84FC-9EBB6CA5C5AD} = {346A0695-FB93-42F1-8857-AB3F9211336C}
 		{3662716B-6D43-41F6-8110-F2EC2848DBDE} = {C08C6176-6968-4929-8184-F0EA44C3B903}
 		{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8} = {346A0695-FB93-42F1-8857-AB3F9211336C}
+		{AAEF010F-1760-4698-AA47-48361BDFA3E8} = {346A0695-FB93-42F1-8857-AB3F9211336C}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{68B98814-DCF5-47BB-93D2-FA33C44AB115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -86,5 +89,9 @@ Global
 		{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55DBB8DA-CAA5-4CFA-9FAB-A8E823736EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAEF010F-1760-4698-AA47-48361BDFA3E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEF010F-1760-4698-AA47-48361BDFA3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEF010F-1760-4698-AA47-48361BDFA3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEF010F-1760-4698-AA47-48361BDFA3E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

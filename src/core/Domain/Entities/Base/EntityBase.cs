@@ -3,17 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Base;
 
-public abstract class EntityBase : IIdEntity, ICreatedDateTimeEntity
+public abstract class EntityBase : IIdEntity<Guid>, ICreatedDateTimeEntity
 {
 	public EntityBase() { }
 
-	protected EntityBase(int id)
+	protected EntityBase(Guid id)
 	{
 		Id = id;
 	}
 	
 	[Key]
-	public int Id { get; set; }
+	public Guid Id { get; set; }
 	
 	[Column(TypeName = "timestamp without time zone")]
 	public  DateTime? SysCreated { get; set; } = DateTime.Now;

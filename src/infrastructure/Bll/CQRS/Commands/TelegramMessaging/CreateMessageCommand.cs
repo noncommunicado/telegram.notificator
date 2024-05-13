@@ -3,18 +3,19 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Models;
 using MediatR;
+using Persistence.Contexts;
 using Serilog;
 
-namespace Application.CQRS.Commands.TelegramMessaging;
+namespace Bll.CQRS.Commands.TelegramMessaging;
 
 public sealed record CreateMessageCommand(MessageModel Message) : IRequest<Guid>;
 
 public sealed class CreateMessageCommandHandler : IRequestHandler<CreateMessageCommand, Guid>
 {
-	private readonly IMainDbContext _context;
+	private readonly MainDbContext _context;
 	private readonly IMapper _mapper;
 	private readonly IMessageCache _messageCache;
-	public CreateMessageCommandHandler(IMainDbContext context, IMapper mapper, IMessageCache messageCache)
+	public CreateMessageCommandHandler(MainDbContext context, IMapper mapper, IMessageCache messageCache)
 	{
 		_context = context;
 		_mapper = mapper;

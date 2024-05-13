@@ -7,6 +7,7 @@ using TelegramBot;
 using Neftm.Telegram.Notificator.Rabbit;
 using Serilog;
 using Services;
+using WebApi;
 using WebApi.Configuration;
 using WebApi.Middlewares;
 using AssemblyInfo = Application.AssemblyInfo;
@@ -22,7 +23,7 @@ try {
 	builder.Services.AddMainDbContext(builder.Configuration.GetConnectionString("Main")!);
 	builder.Services.AddTgBotSender(builder.Configuration.GetSection("Telegram").Get<TelegramBotOptions>()!);
 	builder.Services.AddMassTransitConfiguration(builder.Configuration);
-	builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(AssemblyInfo).Assembly));
+	builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Bll.AssemblyInfo).Assembly));
 	builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 	builder.Services.AddAutoMapper(typeof(Program), typeof(Domain.AssemblyInfo), typeof(AssemblyInfo));
 	builder.Services.AddSingleton<IMessageCache, MessageCache>();
@@ -47,7 +48,8 @@ try {
 	});
 	
 	app.UseMiddleware<ExceptionMiddleware>();
-
+	
+	await WarmUp.RunAsync(app);
 	Log.Information("Application Start");
 	await app.RunAsync();
 }

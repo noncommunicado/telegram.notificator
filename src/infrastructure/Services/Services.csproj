@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\core\Application\Application.csproj" />
+      <ProjectReference Include="..\Persistence\Persistence.csproj" />
     </ItemGroup>
 
     <ItemGroup>

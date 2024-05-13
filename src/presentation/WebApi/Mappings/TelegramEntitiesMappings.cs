@@ -1,6 +1,4 @@
-
-using Application.CQRS.Commands.Groups;
-using AutoMapper;
+using Bll.CQRS.Commands.Groups;
 using WebApi.Web.Endpoints.V1.Group.Create;
 using WebApi.Web.Endpoints.V1.Group.Update;
 

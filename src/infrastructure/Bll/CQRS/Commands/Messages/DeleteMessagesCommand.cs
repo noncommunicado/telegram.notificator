@@ -1,16 +1,16 @@
-using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Commands.Messages;
+namespace Bll.CQRS.Commands.Messages;
 
 public sealed record DeleteMessagesCommand(IEnumerable<Guid> Messages) : IRequest;
 
 public sealed class DeleteMessagesCommandHandler : IRequestHandler<DeleteMessagesCommand>
 {
-	private readonly IMainDbContext _context;
-	public DeleteMessagesCommandHandler(IMainDbContext context) {
+	private readonly MainDbContext _context;
+	public DeleteMessagesCommandHandler(MainDbContext context) {
 		_context = context;
 	}
 	public async Task Handle(DeleteMessagesCommand request, CancellationToken cancellationToken)

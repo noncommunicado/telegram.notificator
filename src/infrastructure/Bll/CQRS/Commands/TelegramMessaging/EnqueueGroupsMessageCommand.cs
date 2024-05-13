@@ -1,24 +1,24 @@
-using Application.Interfaces;
 using Domain.Models;
 using Domain.MqModels;
 using MassTransit;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Commands.TelegramMessaging;
+namespace Bll.CQRS.Commands.TelegramMessaging;
 
-public sealed record EnqueueGroupsMessageCommand(IEnumerable<int> GroupIds, IEnumerable<string> GroupCodes, MessageModel Message) : IRequest;
+public sealed record EnqueueGroupsMessageCommand(IEnumerable<Guid> GroupIds, IEnumerable<string> GroupCodes, MessageModel Message) : IRequest;
 
 public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<EnqueueGroupsMessageCommand>
 {
-	private readonly IMainDbContext _context;
+	private readonly MainDbContext _context;
 	private readonly IPublishEndpoint _pEnd;
 	private readonly IMediator _mediator;
 
 	public EnqueueGroupsMessageCommandHandler(
 		IPublishEndpoint pEnd,
 		IMediator mediator, 
-		IMainDbContext context)
+		MainDbContext context)
 	{
 		_pEnd = pEnd;
 		_mediator = mediator;

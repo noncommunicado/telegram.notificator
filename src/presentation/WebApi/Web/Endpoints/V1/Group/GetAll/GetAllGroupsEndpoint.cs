@@ -1,4 +1,4 @@
-using Application.CQRS.Queries.Groups;
+using Bll.CQRS.Queries.Groups;
 using Domain.Dto;
 
 namespace WebApi.Web.Endpoints.V1.Group.GetAll;

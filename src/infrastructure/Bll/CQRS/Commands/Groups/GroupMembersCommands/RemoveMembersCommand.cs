@@ -1,18 +1,15 @@
-using Application.Interfaces;
-using Domain.Entities;
-using Domain.Exceptions;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Commands.Groups.GroupMembersCommands;
+namespace Bll.CQRS.Commands.Groups.GroupMembersCommands;
 
 public sealed record RemoveMembersCommand : ManipulateGroupMembersCommandBase, IRequest;
 
 public sealed class RemoveMembersCommandHandler : IRequestHandler<RemoveMembersCommand>
 {
-	private readonly IMainDbContext _context;
-	public RemoveMembersCommandHandler(IMainDbContext context)
+	private readonly MainDbContext _context;
+	public RemoveMembersCommandHandler(MainDbContext context)
 	{
 		_context = context;
 	}

@@ -1,4 +1,4 @@
-using Application.CQRS.Commands.TelegramMessaging;
+using Bll.CQRS.Commands.TelegramMessaging;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebApi.Web.Endpoints.V1.Telegram.SendToGroups;

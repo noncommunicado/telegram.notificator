@@ -1,10 +1,8 @@
-
-using Application.CQRS.Commands;
-using Application.CQRS.Commands.TelegramMessaging;
 using AutoMapper;
+using Bll.CQRS.Commands.TelegramMessaging;
 using Domain.MqModels;
 
-namespace Application.Mappings;
+namespace Bll.Mappings;
 
 public sealed class CommandMappings : Profile
 {

@@ -1,25 +1,23 @@
-
-using System.Diagnostics;
-using Application.Interfaces;
 using Domain.Entities;
 using Domain.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Commands.Groups.GroupMembersCommands;
+namespace Bll.CQRS.Commands.Groups.GroupMembersCommands;
 
 public record ManipulateGroupMembersCommandBase : IRequest
 {
-	public int? GroupId { get; init; }
+	public Guid? GroupId { get; init; }
 	public string? GroupCode { get; init; }
 	public IEnumerable<long> Chats { get; init; }
 } 
 
 public sealed class ManipulateGroupMembersCommandBaseHandler
 {
-	private readonly IMainDbContext _context;
-	public ManipulateGroupMembersCommandBaseHandler(IMainDbContext context)
+	private readonly MainDbContext _context;
+	public ManipulateGroupMembersCommandBaseHandler(MainDbContext context)
 	{
 		_context = context;
 	}
@@ -27,7 +25,7 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 	public async Task Handle(ManipulateGroupMembersCommandBase request, EntityState entityState, CancellationToken ct) {
 		await using var transaction = await _context.Database.BeginTransactionAsync(ct);
 		try {
-			(int? groupId, IEnumerable<long> dbChats) groupTuple = await GetGroupChatsAsync(request, ct);
+			(Guid? groupId, IEnumerable<long> dbChats) groupTuple = await GetGroupChatsAsync(request, ct);
 			if (groupTuple.groupId == null)
 				throw new DomainException(404, "Gorup not found");
 
@@ -52,7 +50,7 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 		return;
 	}
 
-	private async Task<(int? groupId, IEnumerable<long> dbChats)> GetGroupChatsAsync(ManipulateGroupMembersCommandBase request, CancellationToken ct) {
+	private async Task<(Guid? groupId, IEnumerable<long> dbChats)> GetGroupChatsAsync(ManipulateGroupMembersCommandBase request, CancellationToken ct) {
 		if (request.GroupId.HasValue) { // search by id
 			GroupEntity? group = await _context.Groups
 				.AsNoTrackingWithIdentityResolution()

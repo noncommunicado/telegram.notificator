@@ -1,15 +1,15 @@
-using Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Commands.Groups.GroupMembersCommands;
+namespace Bll.CQRS.Commands.Groups.GroupMembersCommands;
 
 public sealed record AddMembersCommand : ManipulateGroupMembersCommandBase, IRequest;
 
 public sealed class AddMembersCommandHandler : IRequestHandler<AddMembersCommand>
 {
-	private readonly IMainDbContext _context;
-	public AddMembersCommandHandler(IMainDbContext context) {
+	private readonly MainDbContext _context;
+	public AddMembersCommandHandler(MainDbContext context) {
 		_context = context;
 	}
 	public Task Handle(AddMembersCommand request, CancellationToken ct) {

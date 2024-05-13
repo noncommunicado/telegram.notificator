@@ -1,17 +1,17 @@
-using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 using Serilog;
 
-namespace Application.CQRS.Commands.Groups;
+namespace Bll.CQRS.Commands.Groups;
 
-public sealed record UpdateGroupCommand(int Id, string Name, string Code, IEnumerable<long>? Chats) : IRequest;
+public sealed record UpdateGroupCommand(Guid Id, string Name, string Code, IEnumerable<long>? Chats) : IRequest;
 
 public sealed class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand>
 {
-	private readonly IMainDbContext _context;
-	public UpdateGroupCommandHandler(IMainDbContext context)
+	private readonly MainDbContext _context;
+	public UpdateGroupCommandHandler(MainDbContext context)
 	{
 		_context = context;
 	}

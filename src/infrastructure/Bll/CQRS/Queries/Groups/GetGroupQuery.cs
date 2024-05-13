@@ -1,20 +1,20 @@
-using Application.Interfaces;
 using AutoMapper;
 using Domain.Dto;
 using Domain.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 
-namespace Application.CQRS.Queries.Groups;
+namespace Bll.CQRS.Queries.Groups;
 
-public sealed record GetGroupQuery(int GroupId) : IRequest<GroupExtendedDto>;
+public sealed record GetGroupQuery(Guid GroupId) : IRequest<GroupExtendedDto>;
 
 public sealed class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, GroupExtendedDto>
 {
-	private readonly IMainDbContext _context;
+	private readonly MainDbContext _context;
 	private readonly IMapper _mapper;
-	public GetGroupQueryHandler(IMainDbContext context, IMapper mapper)
+	public GetGroupQueryHandler(MainDbContext context, IMapper mapper)
 	{
 		_context = context;
 		_mapper = mapper;

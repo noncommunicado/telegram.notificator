@@ -1,17 +1,17 @@
-using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Contexts;
 using Serilog;
 
-namespace Application.CQRS.Commands.Groups;
+namespace Bll.CQRS.Commands.Groups;
 
-public sealed record DeleteGroupByIdCommand(int Id) : IRequest;
+public sealed record DeleteGroupByIdCommand(Guid Id) : IRequest;
 
 public sealed class DeleteGroupByIdCommandHandler : IRequestHandler<DeleteGroupByIdCommand>
 {
-	private readonly IMainDbContext _context;
-	public DeleteGroupByIdCommandHandler(IMainDbContext context)
+	private readonly MainDbContext _context;
+	public DeleteGroupByIdCommandHandler(MainDbContext context)
 	{
 		_context = context;
 	}
