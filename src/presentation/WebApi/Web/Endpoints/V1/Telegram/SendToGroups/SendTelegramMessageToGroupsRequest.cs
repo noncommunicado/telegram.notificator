@@ -6,13 +6,13 @@ public sealed class SendTelegramMessageToGroupsRequest : SendTelegramMessageRequ
 {
 	public SendTelegramMessageToGroupsRequest() { }
 
-	public SendTelegramMessageToGroupsRequest(string text, bool isDisableNotification, IEnumerable<int> groupsIds)
+	public SendTelegramMessageToGroupsRequest(string text, bool isDisableNotification, IEnumerable<Guid> groupsIds)
 		: base(text, isDisableNotification)
 	{
 		GroupIds = groupsIds;
 	}
 
-	public IEnumerable<int>? GroupIds { get; set; }
+	public IEnumerable<Guid>? GroupIds { get; set; }
 	public IEnumerable<string>? GroupCodes { get; set; }
 }
 

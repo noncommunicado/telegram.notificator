@@ -23,6 +23,7 @@ public sealed class BotService : IBotHostedService
 		await _botClient.SendTextMessageAsync(
 				request.ChatId,
 				request.Message.Text,
+				messageThreadId: request.ThreadId < 0 ? null : request.ThreadId,
 				parseMode: ParseMode.Html,
 				disableNotification: request.Message.DisableNotification,
 				cancellationToken: ct)
@@ -50,6 +51,7 @@ public sealed class BotService : IBotHostedService
 	// all contol for exceptions will be outside
 	private Task PollingErrorHandler(ITelegramBotClient client, Exception ex, CancellationToken ct)
 	{
+		Log.Error(ex, "Telegram Bot Polling error");
 		return Task.CompletedTask;
 	}
 

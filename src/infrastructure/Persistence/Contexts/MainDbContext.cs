@@ -15,7 +15,7 @@ public sealed class MainDbContext : DbContext
 	{
 		modelBuilder.Entity<GroupMemberEntity>()
 			.HasKey(x => new {
-				x.ChatId, x.GroupId
+				x.ChatId, x.GroupId, x.ThreadId
 			});
 
 		modelBuilder.Entity<GroupEntity>().HasIndex(x => x.SysCode).IsUnique();

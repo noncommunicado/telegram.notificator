@@ -6,7 +6,7 @@ using Telegram.Bot.Exceptions;
 
 namespace Bll.CQRS.Commands.TelegramMessaging;
 
-public sealed record SendMessageCommand(long ChatId, Guid MessageId) : IRequest;
+public sealed record SendMessageCommand(long ChatId, int ThreadId, Guid MessageId) : IRequest;
 
 public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageCommand>
 {
@@ -23,9 +23,9 @@ public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageComman
 	public async Task Handle(SendMessageCommand request, CancellationToken ct)
 	{
 		var msg = await _messageCache.GetById(request.MessageId, ct);
-		Log.Information("Sending Telegram message {MessageId} to chat {ChatId}", request.MessageId, request.ChatId);
+		Log.Information("Sending Telegram message {MessageId} to chat {ChatId}, thread {ThreadId}", request.MessageId, request.ChatId, request.ThreadId);
 		try {
-			await _botService.SendAsync(new SendMessageModel(request.ChatId, msg), ct);
+			await _botService.SendAsync(new SendMessageModel(request.ChatId, request.ThreadId, msg), ct);
 		}
 		catch (ApiRequestException arex) when (arex.ErrorCode == 400) {
 			// dont throw - because nothing to do with it - swallow

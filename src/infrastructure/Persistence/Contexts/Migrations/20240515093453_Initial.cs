@@ -43,13 +43,14 @@ namespace Persistence.Contexts.Migrations
                 name: "group_member",
                 columns: table => new
                 {
-                    chat_id = table.Column<long>(type: "bigint", nullable: false),
                     group_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    chat_id = table.Column<long>(type: "bigint", nullable: false),
+                    thread_id = table.Column<int>(type: "integer", nullable: false),
                     sys_created = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_group_member", x => new { x.chat_id, x.group_id });
+                    table.PrimaryKey("pk_group_member", x => new { x.chat_id, x.group_id, x.thread_id });
                     table.ForeignKey(
                         name: "fk_group_member_group_group_id",
                         column: x => x.group_id,

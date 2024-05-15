@@ -1,3 +1,4 @@
+using Bll.CQRS.Commands.TelegramMessaging;
 using FluentValidation;
 
 namespace WebApi.Web.Endpoints.V1.Telegram.SendToChats;
@@ -6,13 +7,13 @@ public sealed class SendTelegramMessageToChatsRequest : SendTelegramMessageReque
 {
 	public SendTelegramMessageToChatsRequest() { }
 
-	public SendTelegramMessageToChatsRequest(string text, bool isDisableNotification, IEnumerable<long> chats) : base(
+	public SendTelegramMessageToChatsRequest(string text, bool isDisableNotification, IEnumerable<EnqueueChatsDto> chats) : base(
 		text, isDisableNotification)
 	{
 		Chats = chats;
 	}
 
-	public IEnumerable<long> Chats { get; set; }
+	public IEnumerable<EnqueueChatsDto> Chats { get; set; }
 }
 
 public class SendToChatsRequestValidator : SendRequestBaseValidator<SendTelegramMessageToChatsRequest>

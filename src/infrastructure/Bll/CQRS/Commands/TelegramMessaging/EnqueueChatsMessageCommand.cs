@@ -5,7 +5,8 @@ using MediatR;
 
 namespace Bll.CQRS.Commands.TelegramMessaging;
 
-public sealed record EnqueueChatsMessageCommand(IEnumerable<long> Chats, MessageModel Message) : IRequest;
+public sealed record EnqueueChatsDto(long ChatId, int ThreadId = -1);
+public sealed record EnqueueChatsMessageCommand(IEnumerable<EnqueueChatsDto> Chats, MessageModel Message) : IRequest;
 
 public sealed class EnqueueChatsMessageCommandHandler : IRequestHandler<EnqueueChatsMessageCommand>
 {
@@ -22,7 +23,7 @@ public sealed class EnqueueChatsMessageCommandHandler : IRequestHandler<EnqueueC
 	public async Task Handle(EnqueueChatsMessageCommand request, CancellationToken ct)
 	{
 		var messageId = await _mediator.Send(new CreateMessageCommand(request.Message), ct);
-		foreach (var chatId in request.Chats)
-			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chatId, messageId), ct);
+		foreach (var chat in request.Chats)
+			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chat.ChatId, chat.ThreadId, messageId), ct);
 	}
 }

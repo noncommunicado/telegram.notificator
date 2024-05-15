@@ -21,7 +21,7 @@ public sealed class GetAllGroupsQueryHandler : IRequestHandler<GetAllGroupsQuery
 
 	public async Task<IEnumerable<GroupDto>> Handle(GetAllGroupsQuery request, CancellationToken cancellationToken)
 	{
-		return await _context.Groups.AsNoTracking()
+		return await _context.Groups.AsNoTrackingWithIdentityResolution()
 			.Include(x => x.Members)
 			.Where(x => request.chatId == null || (x.Members != null && x.Members.Any(z => z.ChatId == request.chatId)))
 			.Select(x => _mapper.Map<GroupDto>(x))

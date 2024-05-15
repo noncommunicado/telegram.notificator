@@ -9,18 +9,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="link fix">
-      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetGroupByCodeQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetByCode/Endpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetByCode/GetGroupByCodeRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/active-tab-highlighter-v2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/Domain/Dto/GroupMemberDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetGroupQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetGroupByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/BotService/SendMessageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/BotService/SendMessageModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Dto/GroupExtendedDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Dto/GroupExtendedDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/GroupMemberEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/GroupMemberEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Mappings/EntityMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Mappings/EntityMappings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/MqModels/SendTelegramNotifyMqMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/MqModels/SendTelegramNotifyMqMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/CreateGroupCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/CreateGroupCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/AddMembersCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/AddMembersCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/ManipulateGroupMembersCommandBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/ManipulateGroupMembersCommandBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/RemoveMembersCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/RemoveMembersCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/CreateMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/CreateMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueChatsMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueChatsMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueGroupsMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueGroupsMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetAllGroupsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Queries/Groups/GetAllGroupsQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/Endpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/MainDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/MainDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240513120739_Initial.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240515093453_Initial.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240513120739_Initial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240515093453_Initial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/MainDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/MainDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/StaticSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/StaticSender.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Delete/DeleteGroupEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Delete/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetGroupByIdEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetByIdEndpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddOrRemoveMemberRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddOrRemoveMemberRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToChats/SendTelegramMessageToChatsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToChats/SendTelegramMessageToChatsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToGroups/SendTelegramMessageToGroupsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/SendToGroups/SendTelegramMessageToGroupsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +63,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/hamaronooo/Documents/Development/NEFTM/telegram.notificator/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/AddMembersCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3edec1170e48a0a2478d8743508635c8e910/cc/f365519b/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="SWEA" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -61,27 +85,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.WebApi.executor&quot;: &quot;Debug&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;migrate__to__fastendpoints&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.WebApi.executor": "Debug",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/hamaronooo/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/hamaronooo/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/hamaronooo/Library/Application Support/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\kutumov.n\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.WebApi">
     <configuration name="WebApi" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/presentation/WebApi/bin/Debug/net8.0/WebApi.dll" />
@@ -133,6 +158,7 @@
       <workItem from="1715589186959" duration="11069000" />
       <workItem from="1715608585550" duration="1651000" />
       <workItem from="1715610789673" duration="4116000" />
+      <workItem from="1715753837543" duration="14007000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -220,5 +246,50 @@
     <MESSAGE value="project fix" />
     <MESSAGE value="link fix" />
     <option name="LAST_COMMIT_MESSAGE" value="link fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/Endpoint.cs</url>
+          <line>27</line>
+          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\presentation\WebApi\Web\Endpoints\V1\Group\Create\Endpoint.cs" containingFunctionPresentation="Method 'ExecuteAsync'">
+            <startOffsets>
+              <option value="654" />
+            </startOffsets>
+            <endOffsets>
+              <option value="655" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/CreateGroupCommand.cs</url>
+          <line>23</line>
+          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\infrastructure\Bll\CQRS\Commands\Groups\CreateGroupCommand.cs" containingFunctionPresentation="Method 'Handle'">
+            <startOffsets>
+              <option value="663" />
+            </startOffsets>
+            <endOffsets>
+              <option value="664" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/GroupMembersCommands/ManipulateGroupMembersCommandBase.cs</url>
+          <line>34</line>
+          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\infrastructure\Bll\CQRS\Commands\Groups\GroupMembersCommands\ManipulateGroupMembersCommandBase.cs" containingFunctionPresentation="Method 'Handle'">
+            <startOffsets>
+              <option value="1007" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1038" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

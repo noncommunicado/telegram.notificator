@@ -12,7 +12,7 @@ using Persistence.Contexts;
 namespace Persistence.Contexts.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20240513120739_Initial")]
+    [Migration("20240515093453_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace Persistence.Contexts.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -66,11 +66,15 @@ namespace Persistence.Contexts.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("group_id");
 
+                    b.Property<int>("ThreadId")
+                        .HasColumnType("integer")
+                        .HasColumnName("thread_id");
+
                     b.Property<DateTime?>("SysCreated")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("sys_created");
 
-                    b.HasKey("ChatId", "GroupId")
+                    b.HasKey("ChatId", "GroupId", "ThreadId")
                         .HasName("pk_group_member");
 
                     b.HasIndex("GroupId")

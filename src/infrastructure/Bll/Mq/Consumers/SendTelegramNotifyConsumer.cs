@@ -15,7 +15,8 @@ public sealed class SendTelegramNotifyConsumer : IConsumer<SendTelegramNotifyMqM
 
 	public async Task Consume(ConsumeContext<SendTelegramNotifyMqMessage> context)
 	{
-		await _mediator.Send(new SendMessageCommand(context.Message.ChatId, context.Message.MessageId))
+		await _mediator.Send(
+				new SendMessageCommand(context.Message.ChatId, context.Message.ThreadId, context.Message.MessageId))
 			.ConfigureAwait(false);
 	}
 }

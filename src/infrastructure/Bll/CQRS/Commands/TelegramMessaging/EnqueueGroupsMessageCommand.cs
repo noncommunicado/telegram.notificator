@@ -38,11 +38,11 @@ public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<Enqueue
 			.Include(x => x.Members)
 			.Where(x => groupIds.Contains(x.Id) || groupCodes.Contains(x.SysCode))
 			.SelectMany(x => x.Members)
-			.Select(x => x.ChatId)
+			.Select(x => new {x.ChatId, x.ThreadId})
 			.Distinct()
 			.ToArrayAsync(ct);
 
-		foreach (var chatId in users)
-			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chatId, messageId), ct);
+		foreach (var chat in users)
+			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chat.ChatId, chat.ThreadId, messageId), ct);
 	}
 }

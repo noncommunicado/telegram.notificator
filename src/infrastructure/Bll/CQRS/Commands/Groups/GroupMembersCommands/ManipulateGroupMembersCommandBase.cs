@@ -1,3 +1,5 @@
+using AutoMapper;
+using Domain.Dto;
 using Domain.Entities;
 using Domain.Exceptions;
 using MediatR;
@@ -11,16 +13,18 @@ public record ManipulateGroupMembersCommandBase : IRequest
 {
 	public Guid? GroupId { get; init; }
 	public string? GroupCode { get; init; }
-	public IEnumerable<long> Chats { get; init; }
+	public IEnumerable<GroupMemberDto> Members { get; init; }
 }
 
 public sealed class ManipulateGroupMembersCommandBaseHandler
 {
 	private readonly MainDbContext _context;
+	private readonly IMapper _mapper;
 
-	public ManipulateGroupMembersCommandBaseHandler(MainDbContext context)
+	public ManipulateGroupMembersCommandBaseHandler(MainDbContext context, IMapper mapper)
 	{
 		_context = context;
+		_mapper = mapper;
 	}
 
 	public async Task Handle(ManipulateGroupMembersCommandBase request, EntityState entityState, CancellationToken ct)
@@ -32,16 +36,15 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 				throw new DomainException(404, "Gorup not found");
 
 			var chatsToEdit = entityState switch {
-				EntityState.Added => request.Chats.Except(groupTuple.dbChats),
-				EntityState.Deleted => request.Chats.Intersect(groupTuple.dbChats),
+				EntityState.Added => request.Members.Except(groupTuple.dbChats, new GroupMemberDtoEqulityComparer()),
+				EntityState.Deleted => request.Members.Intersect(groupTuple.dbChats, new GroupMemberDtoEqulityComparer()),
 				_ => throw new ArgumentOutOfRangeException(nameof(entityState), entityState,
 					"Action with input state not supported")
 			};
 
 			foreach (var chat in chatsToEdit)
 				_context.GroupMembers
-					.Entry(new GroupMemberEntity(chat, groupTuple.groupId.Value)).State = entityState;
-
+					.Entry(_mapper.Map<GroupMemberEntity>(chat with {GroupId = groupTuple.groupId.Value})).State = entityState;
 			await _context.SaveChangesAsync(ct);
 			await transaction.CommitAsync(ct);
 		}
@@ -51,7 +54,7 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 		}
 	}
 
-	private async Task<(Guid? groupId, IEnumerable<long> dbChats)> GetGroupChatsAsync(
+	private async Task<(Guid? groupId, IEnumerable<GroupMemberDto> dbChats)> GetGroupChatsAsync(
 		ManipulateGroupMembersCommandBase request, CancellationToken ct)
 	{
 		if (request.GroupId.HasValue) {
@@ -60,8 +63,8 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 				.AsNoTrackingWithIdentityResolution()
 				.Include(x => x.Members)
 				.FirstOrDefaultAsync(x => x.Id == request.GroupId, ct);
-			if (group == null) return (null, ArraySegment<long>.Empty);
-			return (group.Id, (group.Members ?? ArraySegment<GroupMemberEntity>.Empty).Select(x => x.ChatId));
+			if (group == null) return (null, ArraySegment<GroupMemberDto>.Empty);
+			return (group.Id, (group.Members ?? ArraySegment<GroupMemberEntity>.Empty).Select(x => _mapper.Map<GroupMemberDto>(x)));
 		}
 
 		// throw if no presented id either code 
@@ -74,8 +77,9 @@ public sealed class ManipulateGroupMembersCommandBaseHandler
 				.AsNoTrackingWithIdentityResolution()
 				.Include(x => x.Members)
 				.FirstOrDefaultAsync(x => x.SysCode == request.GroupCode, ct);
-			if (group == null) return (null, ArraySegment<long>.Empty);
-			return (group.Id, (group.Members ?? ArraySegment<GroupMemberEntity>.Empty).Select(x => x.ChatId));
+			if (group == null) return (null, ArraySegment<GroupMemberDto>.Empty);
+			return (group.Id, (group.Members ?? ArraySegment<GroupMemberEntity>.Empty)
+				.Select(x => _mapper.Map<GroupMemberDto>(x)));
 		}
 	}
 }

@@ -1,3 +1,4 @@
+using Domain.Dto;
 using FluentValidation;
 
 namespace WebApi.Web.Endpoints.V1.Group.Create;
@@ -6,7 +7,7 @@ public class CreateGroupRequest
 {
 	public string Name { get; set; }
 	public string Code { get; set; }
-	public IEnumerable<long>? Chats { get; set; }
+	public IEnumerable<GroupMemberEditCreateDto>? Members { get; set; }
 }
 
 public sealed class CreateGroupRequestValidator : AbstractValidator<CreateGroupRequest>
