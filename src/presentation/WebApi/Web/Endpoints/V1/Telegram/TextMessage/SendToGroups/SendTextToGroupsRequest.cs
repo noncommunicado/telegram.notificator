@@ -1,12 +1,12 @@
 using FluentValidation;
 
-namespace WebApi.Web.Endpoints.V1.Telegram.SendToGroups;
+namespace WebApi.Web.Endpoints.V1.Telegram.TextMessage.SendToGroups;
 
-public sealed class SendTelegramMessageToGroupsRequest : SendTelegramMessageRequestBase
+public sealed class SendTextToGroupsRequest : SendTextRequestBase
 {
-	public SendTelegramMessageToGroupsRequest() { }
+	public SendTextToGroupsRequest() { }
 
-	public SendTelegramMessageToGroupsRequest(string text, bool isDisableNotification, IEnumerable<Guid> groupsIds)
+	public SendTextToGroupsRequest(string text, bool isDisableNotification, IEnumerable<Guid> groupsIds)
 		: base(text, isDisableNotification)
 	{
 		GroupIds = groupsIds;
@@ -16,9 +16,9 @@ public sealed class SendTelegramMessageToGroupsRequest : SendTelegramMessageRequ
 	public IEnumerable<string>? GroupCodes { get; set; }
 }
 
-public class SendToGroupsRequestValidator : SendRequestBaseValidator<SendTelegramMessageToGroupsRequest>
+public class SendTextToGroupsRequestValidator : SendTextRequestBaseValidator<SendTextToGroupsRequest>
 {
-	public SendToGroupsRequestValidator()
+	public SendTextToGroupsRequestValidator()
 	{
 		RuleFor(x => x.GroupIds)
 			.NotEmpty().When(x => x.GroupCodes == null || x.GroupCodes.Any() == false)

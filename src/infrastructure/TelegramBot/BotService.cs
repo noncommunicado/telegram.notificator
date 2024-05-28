@@ -27,7 +27,7 @@ public sealed class BotService : IBotHostedService
 				parseMode: ParseMode.Html,
 				disableNotification: request.Message.DisableNotification,
 				cancellationToken: ct)
-			.ConfigureAwait(false);
+			.ConfigureAwait(false); 
 	}
 
 	public async Task StartAsync(CancellationToken cancellationToken)

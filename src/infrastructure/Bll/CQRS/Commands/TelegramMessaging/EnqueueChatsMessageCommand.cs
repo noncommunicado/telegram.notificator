@@ -1,5 +1,5 @@
+using Bll.Mq.Consumers;
 using Domain.Models;
-using Domain.MqModels;
 using MassTransit;
 using MediatR;
 

@@ -10,15 +10,22 @@ public sealed class MainDbContext : DbContext
 	public DbSet<GroupEntity> Groups { get; set; }
 	public DbSet<MessageEntity> Messages { get; set; }
 	public DbSet<GroupMemberEntity> GroupMembers { get; set; }
+	public DbSet<AttachmentEntity> Attachments { get; set; }
 
-	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	protected override void OnModelCreating(ModelBuilder mb)
 	{
-		modelBuilder.Entity<GroupMemberEntity>()
+		mb.Entity<GroupMemberEntity>()
 			.HasKey(x => new {
 				x.ChatId, x.GroupId, x.ThreadId
 			});
 
-		modelBuilder.Entity<GroupEntity>().HasIndex(x => x.SysCode).IsUnique();
-		base.OnModelCreating(modelBuilder);
+		mb.Entity<GroupEntity>().HasIndex(x => x.SysCode).IsUnique();
+
+		mb.Entity<AttachmentEntity>()
+			.HasMany(x => x.Messages)
+			.WithMany(x => x.Attachments)
+			.UsingEntity(x => x.ToTable("message_x_attachment"));
+		
+		base.OnModelCreating(mb);
 	}
 }

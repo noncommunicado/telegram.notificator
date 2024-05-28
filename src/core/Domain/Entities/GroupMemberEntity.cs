@@ -26,4 +26,6 @@ public class GroupMemberEntity : ICreatedDateTimeEntity
 
 	[Column(TypeName = "timestamp without time zone")]
 	public DateTime? SysCreated { get; set; } = DateTime.Now;
+	
+	public override string ToString() => $"{ChatId} (Thread: {ThreadId})";
 }

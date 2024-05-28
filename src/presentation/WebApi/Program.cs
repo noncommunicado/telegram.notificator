@@ -28,6 +28,7 @@ try {
 	builder.Services.AddAutoMapper(typeof(Program), typeof(Domain.AssemblyInfo), typeof(AssemblyInfo));
 	builder.Services.AddSingleton<IMessageCache, MessageCache>();
 	builder.Services.AddSingleton<ExceptionMiddleware>();
+	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(builder.Environment.WebRootPath));
 
 // quartz
 	builder.Services.ConfigureQuartz();

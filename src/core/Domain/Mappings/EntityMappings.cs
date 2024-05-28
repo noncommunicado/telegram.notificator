@@ -21,5 +21,6 @@ public sealed class EntityMappings : Profile
 		CreateMap<GroupMemberEntity, GroupMemberEditCreateDto>().ReverseMap();
 		CreateMap<GroupMemberEntity, GroupMemberDto>().ReverseMap();
 		CreateMap<GroupMemberEditCreateDto, GroupMemberDto>().ReverseMap();
+		CreateMap<AttachmentEntity, AttachmentDto>().ReverseMap();
 	}
 }

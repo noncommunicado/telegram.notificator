@@ -12,7 +12,7 @@ using Persistence.Contexts;
 namespace Persistence.Contexts.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20240515093453_Initial")]
+    [Migration("20240528145817_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -24,6 +24,51 @@ namespace Persistence.Contexts.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("AttachmentEntityMessageEntity", b =>
+                {
+                    b.Property<Guid>("AttachmentsId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("attachments_id");
+
+                    b.Property<Guid>("MessagesId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("messages_id");
+
+                    b.HasKey("AttachmentsId", "MessagesId")
+                        .HasName("pk_message_x_attachment");
+
+                    b.HasIndex("MessagesId")
+                        .HasDatabaseName("ix_message_x_attachment_messages_id");
+
+                    b.ToTable("message_x_attachment", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.AttachmentEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("file_name");
+
+                    b.Property<DateTime?>("SysCreated")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("sys_created");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id")
+                        .HasName("pk_attachment");
+
+                    b.ToTable("attachment", (string)null);
+                });
 
             modelBuilder.Entity("Domain.Entities.GroupEntity", b =>
                 {
@@ -94,6 +139,10 @@ namespace Persistence.Contexts.Migrations
                         .HasColumnType("boolean")
                         .HasColumnName("disable_notification");
 
+                    b.Property<bool?>("GroupContent")
+                        .HasColumnType("boolean")
+                        .HasColumnName("group_content");
+
                     b.Property<DateTime?>("SysCreated")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("sys_created");
@@ -107,6 +156,23 @@ namespace Persistence.Contexts.Migrations
                         .HasName("pk_message");
 
                     b.ToTable("message", (string)null);
+                });
+
+            modelBuilder.Entity("AttachmentEntityMessageEntity", b =>
+                {
+                    b.HasOne("Domain.Entities.AttachmentEntity", null)
+                        .WithMany()
+                        .HasForeignKey("AttachmentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_message_x_attachment_attachment_attachments_id");
+
+                    b.HasOne("Domain.Entities.MessageEntity", null)
+                        .WithMany()
+                        .HasForeignKey("MessagesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_message_x_attachment_message_messages_id");
                 });
 
             modelBuilder.Entity("Domain.Entities.GroupMemberEntity", b =>
