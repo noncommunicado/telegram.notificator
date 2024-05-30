@@ -9,7 +9,6 @@ public sealed class EntityMappings : Profile
 {
 	public EntityMappings()
 	{
-		CreateMap<MessageModel, MessageEntity>().ReverseMap();
 		CreateMap<GroupEntity, GroupDto>()
 			.ForMember(x => x.Code, opt =>
 				opt.MapFrom(z => z.SysCode));

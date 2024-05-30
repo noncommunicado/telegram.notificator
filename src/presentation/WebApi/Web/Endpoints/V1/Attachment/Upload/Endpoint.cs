@@ -17,6 +17,7 @@ public sealed class Endpoint : Endpoint<Request, Response>
 		Post("attachments/upload");
 		Summary(s => {
 			s.Summary = "Upload file-attachment to send it later in notification message";
+			s.Description = "Don't forget to remind uploaded attachment ID (GUID), it'll be in response!";
 		});
 		Version(1);
 		AllowFileUploads();

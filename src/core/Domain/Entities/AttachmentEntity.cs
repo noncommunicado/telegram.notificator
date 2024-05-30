@@ -12,13 +12,11 @@ public enum AttachmentType
 [Table("attachment")]
 public sealed class AttachmentEntity : EntityBase
 {
+	public AttachmentEntity(Guid id) : base(id) { }
+	public AttachmentEntity() { }
+
 	public string FileName { get; set; }
 	public AttachmentType Type { get; set; }
-	
-	[NotMapped]
-	public string FileExtensionWithDot => Path.GetExtension(FileName).ToLower(CultureInfo.InvariantCulture);
-
-	public ICollection<MessageEntity>? Messages { get; set; }
 
 	public override string ToString() => $"{FileName} ({Type})";
 }

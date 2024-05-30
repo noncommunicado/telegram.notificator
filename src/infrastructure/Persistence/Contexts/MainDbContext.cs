@@ -21,11 +21,6 @@ public sealed class MainDbContext : DbContext
 
 		mb.Entity<GroupEntity>().HasIndex(x => x.SysCode).IsUnique();
 
-		mb.Entity<AttachmentEntity>()
-			.HasMany(x => x.Messages)
-			.WithMany(x => x.Attachments)
-			.UsingEntity(x => x.ToTable("message_x_attachment"));
-		
 		base.OnModelCreating(mb);
 	}
 }

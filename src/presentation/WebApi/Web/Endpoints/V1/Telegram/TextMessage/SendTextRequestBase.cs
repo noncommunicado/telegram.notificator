@@ -3,6 +3,7 @@ using FluentValidation;
 
 namespace WebApi.Web.Endpoints.V1.Telegram.TextMessage;
 
+
 /// <summary>
 ///     Базовый запрос на отправку сообщения
 /// </summary>
@@ -12,12 +13,12 @@ public abstract class SendTextRequestBase
 
 	public SendTextRequestBase(string text, bool isDisableNotification)
 	{
-		Message = new MessageBase {
+		Message = new SendMessageRequest {
 			Text = text, DisableNotification = isDisableNotification
 		};
 	}
 
-	public virtual MessageBase Message { get; set; }
+	public SendMessageRequest Message { get; set; }
 }
 
 /// <summary>

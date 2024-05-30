@@ -33,6 +33,7 @@ public sealed class Endpoint : Endpoint<SendTextToGroupsRequest>
 	public override async Task HandleAsync(SendTextToGroupsRequest request, CancellationToken ct)
 	{
 		var command = _mapper.Map<EnqueueGroupsMessageCommand>(request);
+		command.Message.AttachmentsIds = request.Message.AttachmentsIds;
 		await _mediator.Send(command, ct);
 		await SendOkAsync(ct);
 	}

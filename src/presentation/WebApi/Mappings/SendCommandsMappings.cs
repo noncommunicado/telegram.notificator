@@ -10,8 +10,14 @@ public sealed class SendCommandsMappings : Profile
 {
 	public SendCommandsMappings()
 	{
-		CreateMap<SendTextToChatsRequest, EnqueueChatsMessageCommand>();
-		CreateMap<SendTextToGroupsRequest, EnqueueGroupsMessageCommand>();
+		CreateMap<SendTextToChatsRequest, EnqueueChatsMessageCommand>()
+			.ForMember(m => m.Message, 
+				o => o.MapFrom(x => x.Message))
+			.ReverseMap();
+		CreateMap<SendTextToGroupsRequest, EnqueueGroupsMessageCommand>()
+			.ForMember(m => m.Message, 
+				o => o.MapFrom(x => x.Message))
+			.ReverseMap();
 
 		CreateMap<AddOrRemoveMembersRequest, AddMembersCommand>();
 		CreateMap<AddOrRemoveMembersRequest, RemoveMembersCommand>();

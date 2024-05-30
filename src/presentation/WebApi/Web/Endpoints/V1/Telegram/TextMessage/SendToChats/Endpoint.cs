@@ -33,6 +33,7 @@ public sealed class Endpoint : Endpoint<SendTextToChatsRequest>
 	public override async Task HandleAsync(SendTextToChatsRequest request, CancellationToken ct)
 	{
 		var command = _mapper.Map<EnqueueChatsMessageCommand>(request);
+		command.Message.AttachmentsIds = request.Message.AttachmentsIds;
 		await _mediator.Send(command, ct);
 		await SendOkAsync(ct);
 	}

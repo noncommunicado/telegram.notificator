@@ -1,11 +1,17 @@
-using Domain.Entities;
-using Microsoft.AspNetCore.Http;
-
 namespace Domain.Models;
 
-public class MessageModel : MessageBase
+public class SendCreatedMessageRequest : MessageBase
 {
 	public Guid Id { get; set; }
+
+	public List<Guid> AttachmentsIds { get; set; }
+}
+
+
+public class SendMessageRequest : MessageBase
+{
+
+	public List<Guid> AttachmentsIds { get; set; }
 }
 
 public class MessageBase
@@ -21,6 +27,4 @@ public class MessageBase
 	public virtual bool DisableNotification { get; set; } = false;
 	
 	public bool? GroupContent { get; set; } = true;
-	
-	public List<Guid> Attachments { get; set; }
 }
