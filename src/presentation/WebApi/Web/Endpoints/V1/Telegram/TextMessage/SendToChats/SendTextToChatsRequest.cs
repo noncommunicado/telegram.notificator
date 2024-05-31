@@ -13,7 +13,7 @@ public sealed class SendTextToChatsRequest : SendTextRequestBase
 		Chats = chats;
 	}
 
-	public IEnumerable<EnqueueChatsDto> Chats { get; set; }
+	public IEnumerable<EnqueueChatsDto> Chats { get; set; } = new List<EnqueueChatsDto>();
 }
 
 public class SendTextToChatsRequestValidator : SendTextRequestBaseValidator<SendTextToChatsRequest>
