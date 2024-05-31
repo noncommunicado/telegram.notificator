@@ -1,5 +1,5 @@
+using Bll.Mq.Consumers;
 using Domain.Models;
-using Domain.MqModels;
 using MassTransit;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -8,9 +8,10 @@ using Persistence.Contexts;
 namespace Bll.CQRS.Commands.TelegramMessaging;
 
 public sealed record EnqueueGroupsMessageCommand(
+	SendMessageRequest Message,
 	IEnumerable<Guid> GroupIds,
-	IEnumerable<string> GroupCodes,
-	MessageModel Message) : IRequest;
+	IEnumerable<string> GroupCodes
+	) : IRequest;
 
 public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<EnqueueGroupsMessageCommand>
 {
@@ -43,6 +44,6 @@ public sealed class EnqueueGroupsMessageCommandHandler : IRequestHandler<Enqueue
 			.ToArrayAsync(ct);
 
 		foreach (var chat in users)
-			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chat.ChatId, chat.ThreadId, messageId), ct);
+			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chat.ChatId, chat.ThreadId, messageId, request.Message.AttachmentsIds), ct);
 	}
 }

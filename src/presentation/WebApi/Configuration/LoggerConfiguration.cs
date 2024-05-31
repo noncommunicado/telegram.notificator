@@ -2,6 +2,9 @@ using System.Reflection;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
+using Serilog.Filters;
+using Serilog.Sinks.Elasticsearch;
+using WebApi.Helpers;
 
 namespace WebApi.Configuration;
 
@@ -9,20 +12,29 @@ internal static class LoggerConfiguration
 {
 	internal static WebApplicationBuilder ConfigureLogging(this WebApplicationBuilder builder)
 	{
-		var basePath = new FileInfo(Assembly.GetEntryAssembly()!.Location).Directory!.FullName;
+		var config = builder.Configuration.GetRequiredSection("Elastic").Get<LogConfig>()!;
+		var elasticTemplateName = ElasticsearchHelper.GetTemplateName(config);
 		builder.Logging.ClearProviders();
 
-		builder.Host.UseSerilog((context, services, configuration) => {
+		builder.Host.UseSerilog((_, _, configuration) => {
 			configuration
 				.Enrich.FromLogContext()
 				.Enrich.WithExceptionDetails()
-				.WriteTo.Logger(c => c
-					.Filter.ByExcluding(le => le.Properties.GetValueOrDefault("SourceContext") is ScalarValue sv
-					                          && ((bool) sv.Value?.ToString()?.StartsWith("Microsoft") ||
-					                              (bool) sv.Value?.ToString()?.StartsWith("System")))
-					.WriteTo.File(Path.Combine(basePath, "logs", "_.log"), rollingInterval: RollingInterval.Day)
+				.WriteTo.Logger(c =>
+					c.WriteTo.File(Path.Combine("logs", "_.log"),
+						rollingInterval: RollingInterval.Day,
+						restrictedToMinimumLevel: LogEventLevel.Error)
 				)
-				.WriteTo.Console();
+				.WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Fatal)
+				.WriteTo.Elasticsearch(
+					new ElasticsearchSinkOptions(new Uri(config.ElasticUri)) {
+						AutoRegisterTemplate = true,
+						OverwriteTemplate = true,
+						TemplateName = elasticTemplateName,
+						IndexFormat = $"{elasticTemplateName}-{DateTime.UtcNow:yyyy-MM}",
+						MinimumLogEventLevel = LogEventLevel.Information
+					})
+				.Filter.ByExcluding(Matching.FromSource("Microsoft.EntityFrameworkCore"));
 		});
 		return builder;
 	}

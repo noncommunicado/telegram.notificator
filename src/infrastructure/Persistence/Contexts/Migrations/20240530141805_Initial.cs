@@ -12,6 +12,20 @@ namespace Persistence.Contexts.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "attachment",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    file_name = table.Column<string>(type: "text", nullable: false),
+                    type = table.Column<int>(type: "integer", nullable: false),
+                    sys_created = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_attachment", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "group",
                 columns: table => new
                 {
@@ -32,6 +46,7 @@ namespace Persistence.Contexts.Migrations
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     text = table.Column<string>(type: "text", nullable: false),
                     disable_notification = table.Column<bool>(type: "boolean", nullable: false),
+                    group_content = table.Column<bool>(type: "boolean", nullable: true),
                     sys_created = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
                 },
                 constraints: table =>
@@ -74,6 +89,9 @@ namespace Persistence.Contexts.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "attachment");
+
             migrationBuilder.DropTable(
                 name: "group_member");
 

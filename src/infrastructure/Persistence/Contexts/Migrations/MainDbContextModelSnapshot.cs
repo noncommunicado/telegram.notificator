@@ -17,10 +17,36 @@ namespace Persistence.Contexts.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Domain.Entities.AttachmentEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("file_name");
+
+                    b.Property<DateTime?>("SysCreated")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("sys_created");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id")
+                        .HasName("pk_attachment");
+
+                    b.ToTable("attachment", (string)null);
+                });
 
             modelBuilder.Entity("Domain.Entities.GroupEntity", b =>
                 {
@@ -90,6 +116,10 @@ namespace Persistence.Contexts.Migrations
                     b.Property<bool>("DisableNotification")
                         .HasColumnType("boolean")
                         .HasColumnName("disable_notification");
+
+                    b.Property<bool?>("GroupContent")
+                        .HasColumnType("boolean")
+                        .HasColumnName("group_content");
 
                     b.Property<DateTime?>("SysCreated")
                         .HasColumnType("timestamp without time zone")

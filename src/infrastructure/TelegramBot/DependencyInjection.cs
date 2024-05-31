@@ -1,4 +1,4 @@
-using Application.Interfaces;
+using Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace TelegramBot;

@@ -1,6 +1,6 @@
 using AutoMapper;
 using Bll.CQRS.Commands.TelegramMessaging;
-using Domain.MqModels;
+using Bll.Mq.Consumers;
 
 namespace Bll.Mappings;
 
