@@ -35,6 +35,7 @@ public sealed class BotService : IBotHostedService
 			// sending without attachments, just text msg (4000 symb. limit)
 			await SendSimpleTextAsync(request, ct).ConfigureAwait(false);
 		}
+		Log.Information("Message sent {Uid}", request.Message.Id);
 	}
 
 	private async Task SendMessageWithAttachmentsAsync(SendTelegramMessageCommand request, CancellationToken ct)

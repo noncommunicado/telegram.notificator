@@ -12,11 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="Attachments first view">
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Helpers/ElasticsearchHelper.cs" afterDir="false" />
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="elastic logging">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/appsettings/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/appsettings/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c77173b4dbdac69ea17b864754ccc536672c88948b96eea7ec3f1314f9eca1/ReflectionHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/telegram.notificator/src/presentation/WebApi/appsettings/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -63,30 +62,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.WebApi.executor&quot;: &quot;Debug&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.WebApi: http.executor": "Debug",
+    ".NET Project.WebApi.executor": "Debug",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "dev",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\kutumov.n\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\kutumov.n\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
-  <component name="RunManager" selected=".NET Project.WebApi">
+}]]></component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.WebApi: http">
     <configuration name="WebApi" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/presentation/WebApi/bin/Debug/net8.0/WebApi.dll" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -146,7 +146,7 @@
       <workItem from="1716468766906" duration="7661000" />
       <workItem from="1716887827517" duration="6549000" />
       <workItem from="1716896678918" duration="36337000" />
-      <workItem from="1717071399451" duration="13053000" />
+      <workItem from="1717071399451" duration="15154000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -228,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717081292449</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="elastic logging">
+      <option name="closed" value="true" />
+      <created>1717138870242</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717138870242</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +278,8 @@
     <MESSAGE value="group thread support" />
     <MESSAGE value="create attachment api method" />
     <MESSAGE value="Attachments first view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attachments first view" />
+    <MESSAGE value="elastic logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="elastic logging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -287,6 +296,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Program.cs</url>
+          <line>51</line>
+          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\presentation\WebApi\Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="1641" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1642" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs</url>
+          <line>12</line>
+          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\presentation\WebApi\Configuration\LoggerConfiguration.cs" containingFunctionPresentation="Method 'ConfigureLogging'">
+            <startOffsets>
+              <option value="316" />
+            </startOffsets>
+            <endOffsets>
+              <option value="317" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

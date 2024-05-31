@@ -16,7 +16,7 @@ CultureInfo.CurrentUICulture = new CultureInfo("ru-RU");
 try {
 	var builder = WebApplication.CreateBuilder(args);
 
-	builder.ConfigureLogging().ConfigureAppSettings().AddFastEndpointsConfiguration();
+	builder.ConfigureAppSettings().AddFastEndpointsConfiguration().ConfigureLogging();
 
 // api
 	builder.Services.AddMainDbContext(builder.Configuration.GetConnectionString("Main")!);
