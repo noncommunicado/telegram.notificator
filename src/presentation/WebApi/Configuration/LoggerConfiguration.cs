@@ -2,6 +2,7 @@ using System.Reflection;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
+using Serilog.Filters;
 using Serilog.Sinks.Elasticsearch;
 using WebApi.Helpers;
 
@@ -32,7 +33,8 @@ internal static class LoggerConfiguration
 						TemplateName = elasticTemplateName,
 						IndexFormat = $"{elasticTemplateName}-{DateTime.UtcNow:yyyy-MM}",
 						MinimumLogEventLevel = LogEventLevel.Information
-					});
+					})
+				.Filter.ByExcluding(Matching.FromSource("Microsoft.EntityFrameworkCore"));
 		});
 		return builder;
 	}
