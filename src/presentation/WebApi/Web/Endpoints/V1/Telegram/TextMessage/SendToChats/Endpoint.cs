@@ -1,4 +1,5 @@
 using Bll.CQRS.Commands.TelegramMessaging;
+using Domain.Models;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebApi.Web.Endpoints.V1.Telegram.TextMessage.SendToChats;
@@ -26,6 +27,15 @@ public sealed class Endpoint : Endpoint<SendTextToChatsRequest>
 			s.Summary = "Send simple text message to chat or group by it number Id (long)";
 			s.Description = "Text can be HTML-formatted with <a href=\"https://core.telegram.org/api/entities#allowed-entities\" target=\"_blank\">Telegram HTML rules</a><br/>" +
 			                "Simple text messages allowes to be 4096 chars length only.";
+
+			s.ExampleRequest = new SendTextToChatsRequest {
+				Message = new SendMessageRequest {
+					DisableNotification = false,
+					GroupContent = true, Text = "Hello, Dolly! <pre>This text with telgram HTML parse mode!</pre>",
+					AttachmentsIds = new List<Guid> {Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid()}
+				},
+				Chats = new []{new EnqueueChatsDto(24694612),new EnqueueChatsDto(-1237649141, 3)}
+			};
 		});
 		Version(1);
 	}

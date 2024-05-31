@@ -14,7 +14,23 @@
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/SendTextToChatsRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/SendTextToChatsRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Constants.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/DependencyInjection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/INotificatorRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/NotificatorRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/MessageModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendRequestBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToChatsRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToGroupsRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Attachment/Upload/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Attachment/Upload/Endpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/Endpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToGroups/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToGroups/Endpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +54,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3edec1170e48a0a2478d8743508635c8e910/cc/f365519b/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/474bbd9de7d198b70f9e1f82c1386021ad1bbcd151629a7e81c37a49805e3e/TelegramBotClientExtensions.ApiMethods.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c77173b4dbdac69ea17b864754ccc536672c88948b96eea7ec3f1314f9eca1/ReflectionHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/telegram.notificator/src/core/Domain/Models/SendCreatedMessageRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/telegram.notificator/src/presentation/WebApi/appsettings/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/telegram.notificator/src/presentation/WebApi/appsettings/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/telegram.notificator/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -147,7 +163,8 @@
       <workItem from="1716887827517" duration="6549000" />
       <workItem from="1716896678918" duration="36337000" />
       <workItem from="1717071399451" duration="15890000" />
-      <workItem from="1717143013360" duration="389000" />
+      <workItem from="1717143013360" duration="5140000" />
+      <workItem from="1717152785414" duration="5423000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -245,7 +262,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717142169678</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix">
+      <option name="closed" value="true" />
+      <created>1717143600315</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717143600315</updated>
+    </task>
+    <task id="LOCAL-00014" summary="exclude efcore logs">
+      <option name="closed" value="true" />
+      <created>1717148853335</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717148853335</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +322,8 @@
     <MESSAGE value="Attachments first view" />
     <MESSAGE value="elastic logging" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="exclude efcore logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="exclude efcore logs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -309,29 +343,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/presentation/WebApi/Program.cs</url>
-          <line>51</line>
+          <line>65</line>
           <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\presentation\WebApi\Program.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="1641" />
+              <option value="2183" />
             </startOffsets>
             <endOffsets>
-              <option value="1642" />
+              <option value="2184" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs</url>
-          <line>12</line>
-          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\presentation\WebApi\Configuration\LoggerConfiguration.cs" containingFunctionPresentation="Method 'ConfigureLogging'">
-            <startOffsets>
-              <option value="316" />
-            </startOffsets>
-            <endOffsets>
-              <option value="317" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

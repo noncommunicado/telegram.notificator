@@ -18,6 +18,10 @@ public sealed class Endpoint : Endpoint<Request, Response>
 		Summary(s => {
 			s.Summary = "Upload file-attachment to send it later in notification message";
 			s.Description = "Don't forget to remind uploaded attachment ID (GUID), it'll be in response!";
+			s.Responses[200] = "Files successfully uploaded";
+			s.ResponseExamples.Add(200, new Response() {UploadStates = new () {
+				new Response.AttachmentUploadState("image_of_20sm_18plus.png", true, Guid.NewGuid())
+			}});
 		});
 		Version(1);
 		AllowFileUploads();
