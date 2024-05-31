@@ -12,46 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/Domain/BotService/TelegramMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/Domain/Models/CachedSendMessageRequest.cs" afterDir="false" />
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="Attachments first view">
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Helpers/ElasticsearchHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Application/Application.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Application/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IBotHostedService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Interfaces/IBotHostedService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IBotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Interfaces/IBotService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Application/Interfaces/IMessageCache.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/BotService/SendMessageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/BotService/SendTelegramMessageCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/AttachmentEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/AttachmentEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Entities/MessageEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Entities/MessageEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Mappings/EntityMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Mappings/EntityMappings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Mappings/ModelsMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Mappings/ModelsMappings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Models/MessageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Models/SendCreatedMessageRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/CreateMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/CreateMessageCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueChatsMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueChatsMessageCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueGroupsMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/EnqueueGroupsMessageCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/MainDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/MainDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240528145817_Initial.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240530141805_Initial.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240528145817_Initial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/20240530141805_Initial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/MainDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Contexts/Migrations/MainDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/MessageCache.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Mappings/SendCommandsMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Mappings/SendCommandsMappings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendTextRequestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendTextRequestBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToGroups/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToGroups/Endpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/appsettings/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/appsettings/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +146,7 @@
       <workItem from="1716468766906" duration="7661000" />
       <workItem from="1716887827517" duration="6549000" />
       <workItem from="1716896678918" duration="36337000" />
-      <workItem from="1717071399451" duration="8902000" />
+      <workItem from="1717071399451" duration="13053000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -254,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716908718530</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Attachments first view">
+      <option name="closed" value="true" />
+      <created>1717081292448</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717081292449</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +269,8 @@
     <MESSAGE value="link fix" />
     <MESSAGE value="group thread support" />
     <MESSAGE value="create attachment api method" />
-    <option name="LAST_COMMIT_MESSAGE" value="create attachment api method" />
+    <MESSAGE value="Attachments first view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attachments first view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
