@@ -22,6 +22,7 @@
         <PackageReference Include="FastEndpoints" Version="5.25.0"/>
         <PackageReference Include="FastEndpoints.Attributes" Version="5.25.0"/>
         <PackageReference Include="FastEndpoints.ClientGen" Version="5.25.0"/>
+        <PackageReference Include="FastEndpoints.ClientGen.Kiota" Version="5.26.0" />
         <PackageReference Include="FastEndpoints.Generator" Version="5.25.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

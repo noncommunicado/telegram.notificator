@@ -1,8 +1,10 @@
 using System.Globalization;
 using Bll;
 using Domain.Interfaces;
+using FastEndpoints.ClientGen.Kiota;
 using FastEndpoints.Swagger;
 using FluentValidation;
+using Kiota.Builder;
 using Persistence;
 using Serilog;
 using Services;
@@ -36,6 +38,18 @@ try {
 	app.UseAuthentication();
 	app.UseAuthorization();
 
+	app.MapApiClientEndpoint("/api/v1/generate-client/csharp", c => {
+		c.SwaggerDocumentName = "v1"; 
+		c.Language = GenerationLanguage.CSharp;
+		c.ClientNamespaceName = "Neftm.Notificator";
+		c.ClientClassName = "NotificatorRepository";
+	});
+	app.MapApiClientEndpoint("/api/v1/generate-client/typescript", c => {
+		c.SwaggerDocumentName = "v1"; 
+		c.Language = GenerationLanguage.TypeScript;
+		c.ClientNamespaceName = "notificator";
+		c.ClientClassName = "NotificatorRepository";
+	});
 	app.UseFastEndpoints(c => {
 		c.Endpoints.RoutePrefix = "api";
 		c.Versioning.Prefix = "v";
