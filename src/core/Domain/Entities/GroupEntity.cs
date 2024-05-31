@@ -11,4 +11,6 @@ public class GroupEntity : EntityBase
 	public string SysCode { get; set; }
 
 	public virtual ICollection<GroupMemberEntity>? Members { get; set; }
+
+	public override string ToString() => $"{Name} ({SysCode})";
 }

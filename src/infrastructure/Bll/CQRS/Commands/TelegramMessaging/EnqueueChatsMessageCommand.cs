@@ -1,12 +1,12 @@
+using Bll.Mq.Consumers;
 using Domain.Models;
-using Domain.MqModels;
 using MassTransit;
 using MediatR;
 
 namespace Bll.CQRS.Commands.TelegramMessaging;
 
 public sealed record EnqueueChatsDto(long ChatId, int ThreadId = -1);
-public sealed record EnqueueChatsMessageCommand(IEnumerable<EnqueueChatsDto> Chats, MessageModel Message) : IRequest;
+public sealed record EnqueueChatsMessageCommand(IEnumerable<EnqueueChatsDto> Chats, SendMessageRequest Message) : IRequest;
 
 public sealed class EnqueueChatsMessageCommandHandler : IRequestHandler<EnqueueChatsMessageCommand>
 {
@@ -24,6 +24,6 @@ public sealed class EnqueueChatsMessageCommandHandler : IRequestHandler<EnqueueC
 	{
 		var messageId = await _mediator.Send(new CreateMessageCommand(request.Message), ct);
 		foreach (var chat in request.Chats)
-			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chat.ChatId, chat.ThreadId, messageId), ct);
+			await _pEnd.Publish(new SendTelegramNotifyMqMessage(chat.ChatId, chat.ThreadId, messageId, request.Message.AttachmentsIds), ct);
 	}
 }
