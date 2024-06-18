@@ -43,12 +43,22 @@ try {
 		c.Language = GenerationLanguage.CSharp;
 		c.ClientNamespaceName = "Neftm.Notificator";
 		c.ClientClassName = "NotificatorRepository";
+	},
+	o => //endpoint customization settings
+	{
+		o.CacheOutput(p => p.Expire(TimeSpan.FromDays(365))); //cache the zip
+		o.ExcludeFromDescription(); //hides this endpoint from swagger docs
 	});
 	app.MapApiClientEndpoint("/api/v1/generate-client/typescript", c => {
 		c.SwaggerDocumentName = "v1"; 
 		c.Language = GenerationLanguage.TypeScript;
 		c.ClientNamespaceName = "notificator";
 		c.ClientClassName = "NotificatorRepository";
+	},
+	o => //endpoint customization settings
+	{
+		o.CacheOutput(p => p.Expire(TimeSpan.FromDays(365))); //cache the zip
+		o.ExcludeFromDescription(); //hides this endpoint from swagger docs
 	});
 	app.UseFastEndpoints(c => {
 		c.Endpoints.RoutePrefix = "api";

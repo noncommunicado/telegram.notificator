@@ -14,22 +14,9 @@
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Neftm.Telegram.Notificator.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Constants.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/DependencyInjection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/INotificatorRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Neftm.Telegram.Notificator.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/NotificatorRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/MessageModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendRequestBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToChatsRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuget/Neftm.Telegram.Notificator/Requests/SendToGroupsRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Attachment/Upload/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Attachment/Upload/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToChats/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToGroups/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendToGroups/Endpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +72,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -165,6 +152,7 @@
       <workItem from="1717071399451" duration="15890000" />
       <workItem from="1717143013360" duration="5140000" />
       <workItem from="1717152785414" duration="5423000" />
+      <workItem from="1718698947657" duration="553000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -340,19 +328,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Program.cs</url>
-          <line>65</line>
-          <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\presentation\WebApi\Program.cs" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="2183" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2184" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
