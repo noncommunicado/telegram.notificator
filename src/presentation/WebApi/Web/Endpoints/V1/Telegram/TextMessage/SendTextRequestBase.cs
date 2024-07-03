@@ -28,6 +28,10 @@ public abstract class SendTextRequestBaseValidator<T> : AbstractValidator<T> whe
 {
 	public SendTextRequestBaseValidator()
 	{
-		RuleFor(x => x.Message.Text).NotEmpty().NotNull().Length(1, 4096);
+		RuleFor(x => x.Message.Text)
+			.NotEmpty().NotNull().Length(1, 4096)
+			.When(x => x.Message.AttachmentsIds.Count == 0)
+			.MaximumLength(4096)
+			.When(x => x.Message.AttachmentsIds.Count > 0);
 	}
 }
