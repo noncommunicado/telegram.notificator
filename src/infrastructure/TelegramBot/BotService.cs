@@ -31,9 +31,13 @@ public sealed class BotService : IBotHostedService
 					await a.FileStream.DisposeAsync();
 			}
 		}
-		else { 
+		else if (string.IsNullOrWhiteSpace(request.Message.Text) is false) { 
 			// sending without attachments, just text msg (4000 symb. limit)
 			await SendSimpleTextAsync(request, ct).ConfigureAwait(false);
+		}
+		else {
+			Log.Warning("Message {Uid} hasn't any attachments, text is empty also!", request.Message.Id);
+			return;
 		}
 		Log.Information("Message sent {Uid}", request.Message.Id);
 	}

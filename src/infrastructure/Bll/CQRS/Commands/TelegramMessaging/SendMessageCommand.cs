@@ -1,8 +1,6 @@
 using Domain.BotService;
 using Domain.Interfaces;
-using Domain.Models;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Persistence.Contexts;
 using Serilog;
 using Services;
@@ -29,10 +27,9 @@ public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageComman
 	public async Task Handle(SendMessageCommand request, CancellationToken ct)
 	{
 		var dbMessage = await _context.Messages.FindAsync(request.MessageId, ct);
-		if (dbMessage is null) {
+		if (dbMessage is null)
 			throw new Exception("Message not found in database");
-		}
-
+		
 		var attachments = new List<TelegramMessageAttachment>(request.AttachmentsIds.Count);
 		foreach (var a in request.AttachmentsIds) {
 			var dbAttachment = await _context.Attachments.FindAsync(a, ct);
