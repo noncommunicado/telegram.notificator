@@ -49,24 +49,15 @@ public sealed class BotService : IBotHostedService
 		
 		// отправляем контент группами
 		if (request.Message.GroupContent is true) {
-			await SendGroupedMediaTextAsync(request, AttachmentType.File, ct).ConfigureAwait(false);
-			await SendGroupedMediaTextAsync(request, AttachmentType.Photo, ct).ConfigureAwait(false);
 			if (hastText)
 				await SendSimpleTextAsync(request, ct).ConfigureAwait(false);
+			await SendGroupedMediaTextAsync(request, AttachmentType.Photo, ct).ConfigureAwait(false);
+            await SendGroupedMediaTextAsync(request, AttachmentType.File, ct).ConfigureAwait(false);
 		}
 		// отправляем контент по одному, если attachment всего 1, добавляем caption
 		else {
-			foreach (var a in request.Message.Attachments) {
-				if (a.Type == AttachmentType.File)
-					await _botClient.SendDocumentAsync(
-						request.ChatId, 
-						new InputFileStream(a.FileStream, a.FileName),
-						disableNotification: request.Message.DisableNotification,
-						messageThreadId: request.ThreadId < 0 ? null : request.ThreadId,
-						parseMode: ParseMode.Html,
-						caption: sendCaption ? request.Message.Text : null
-					).ConfigureAwait(false);
-				else if (a.Type == AttachmentType.Photo)
+			foreach (var a in request.Message.Attachments.OrderBy(x => x.Type)) {
+				if (a.Type == AttachmentType.Photo)
 					await _botClient.SendPhotoAsync(
 						request.ChatId, 
 						new InputFileStream(a.FileStream, a.FileName),
@@ -74,6 +65,15 @@ public sealed class BotService : IBotHostedService
 						disableNotification: request.Message.DisableNotification,
 						parseMode: ParseMode.Html,
 						messageThreadId: request.ThreadId < 0 ? null : request.ThreadId
+					).ConfigureAwait(false);
+				else if (a.Type == AttachmentType.File)
+					await _botClient.SendDocumentAsync(
+						request.ChatId, 
+						new InputFileStream(a.FileStream, a.FileName),
+						disableNotification: request.Message.DisableNotification,
+						messageThreadId: request.ThreadId < 0 ? null : request.ThreadId,
+						parseMode: ParseMode.Html,
+						caption: sendCaption ? request.Message.Text : null
 					).ConfigureAwait(false);
 			}
 			if (sendCaption is false)
