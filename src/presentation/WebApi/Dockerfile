@@ -3,7 +3,7 @@ FROM registry.neftm.local/dotnet/sdk:8.0 as build
 COPY . /src
 WORKDIR /src
 
-RUN dotnet restore --source http://nuget.neftm.local/nuget --source https://api.nuget.org/v3/index.json
+RUN dotnet restore --source http://nuget.neftm.local/nuget --source https://api.nuget.org/v3/index.json --source https://nuget.voids.site/v3/index.json
 RUN dotnet publish ./src/presentation/WebApi/WebApi.csproj -c Release -o ./out --no-restore
 #----------------------------------------------
 FROM registry.neftm.local/dotnet/aspnet:8.0 as prod

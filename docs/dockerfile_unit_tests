@@ -3,6 +3,5 @@ FROM registry.neftm.local/dotnet/sdk:8.0 as build
 COPY . /src
 WORKDIR /src
 
-RUN dotnet restore --source http://nuget.neftm.local/nuget --source https://api.nuget.org/v3/index.json
-RUN dotnet build -c Release --no-restore
+RUN dotnet restore --source http://nuget.neftm.local/nuget --source https://api.nuget.org/v3/index.json --source https://nuget.voids.site/v3/index.json
 ENTRYPOINT [ "dotnet", "--version" ]
