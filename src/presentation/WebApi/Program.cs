@@ -32,12 +32,15 @@ try {
 	builder.Services.AddSingleton<JwtTokenGenerator>();
 	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(builder.Environment.WebRootPath));
 	builder.Services.AddKutCodeLdapRepository(builder.Configuration.GetRequiredSection("Ldap"), ServiceLifetime.Scoped);
+	builder.Services.AddCors();
 
 // quartz
 	builder.Services.ConfigureQuartz();
 
 	var app = builder.Build();
 
+	app.UseCors(c => c.SetIsOriginAllowed(_ => true)
+		.AllowCredentials().AllowAnyHeader().AllowAnyMethod());
 	app.UseAuthentication();
 	app.UseAuthorization();
 

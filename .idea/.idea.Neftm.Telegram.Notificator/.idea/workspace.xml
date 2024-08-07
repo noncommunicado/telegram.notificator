@@ -14,8 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/appsettings/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/appsettings/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d16ec9b6bbfdc18456dbcf6a897afb46dd6f241635537b3973f3955626751331/InputFileStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddMembersEndpoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/presentation/WebApi/appsettings/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -148,7 +146,8 @@
       <workItem from="1722953985896" duration="1557000" />
       <workItem from="1722955578370" duration="2079000" />
       <workItem from="1723011649235" duration="5598000" />
-      <workItem from="1723023893603" duration="1289000" />
+      <workItem from="1723023893603" duration="2137000" />
+      <workItem from="1723031291684" duration="662000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -318,7 +317,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723020306598</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix ldap auth">
+      <option name="closed" value="true" />
+      <created>1723026786658</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1723026786658</updated>
+    </task>
+    <task id="LOCAL-00023" summary="v1.1.2">
+      <option name="closed" value="true" />
+      <created>1723027158047</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1723027158047</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +385,9 @@
     <MESSAGE value="authorization started" />
     <MESSAGE value="Group endpoints closed by authentication" />
     <MESSAGE value="package info improve" />
-    <option name="LAST_COMMIT_MESSAGE" value="package info improve" />
+    <MESSAGE value="fix ldap auth" />
+    <MESSAGE value="v1.1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.1.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -380,19 +397,6 @@
           <line>34</line>
           <properties documentPath="D:\Local Projects\Uncategorized\telegram.notificator\src\infrastructure\Bll\CQRS\Commands\Groups\GroupMembersCommands\ManipulateGroupMembersCommandBase.cs" containingFunctionPresentation="Method 'Handle'" />
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/Auth/Login/LoginEndpoint.cs</url>
-          <line>33</line>
-          <properties documentPath="D:\Local Projects\Uncategorized\Notificator\telegram.notificator\src\presentation\WebApi\Web\Endpoints\Auth\Login\LoginEndpoint.cs" containingFunctionPresentation="Method 'ExecuteAsync'">
-            <startOffsets>
-              <option value="956" />
-            </startOffsets>
-            <endOffsets>
-              <option value="957" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
