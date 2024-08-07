@@ -1,4 +1,6 @@
 using Bll.CQRS.Commands.Groups.GroupMembersCommands;
+using Microsoft.Extensions.Options;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Group.Members;
 
@@ -7,24 +9,19 @@ namespace WebApi.Web.Endpoints.V1.Group.Members;
 /// </summary>
 public sealed class RemoveMembersEndpoint : Endpoint<AddOrRemoveMembersRequest>
 {
-	private readonly IMapper _mapper;
-	private readonly IMediator _mediator;
-
-	public RemoveMembersEndpoint(IMediator mediator, IMapper mapper)
-	{
-		_mediator = mediator;
-		_mapper = mapper;
-	}
+	public IMapper Mapper { get; set; }
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 
 	public override void Configure()
 	{
-		AllowAnonymous();
+		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Delete("group/members");
 		Version(1);
 	}
 
 	public override async Task HandleAsync(AddOrRemoveMembersRequest request, CancellationToken ct)
 	{
-		await _mediator.Send(_mapper.Map<RemoveMembersCommand>(request), ct);
+		await Mediator.Send(Mapper.Map<RemoveMembersCommand>(request), ct);
 	}
 }

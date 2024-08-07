@@ -1,4 +1,6 @@
 using Bll.CQRS.Commands.Groups;
+using Microsoft.Extensions.Options;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Group.Create;
 
@@ -7,18 +9,13 @@ namespace WebApi.Web.Endpoints.V1.Group.Create;
 /// </summary>
 public sealed class Endpoint : Endpoint<CreateGroupRequest, Guid>
 {
-	private readonly IMapper _mapper;
-	private readonly IMediator _mediator;
-
-	public Endpoint(IMediator mediator, IMapper mapper)
-	{
-		_mediator = mediator;
-		_mapper = mapper;
-	}
+	public IMapper Mapper { get; set; }
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 
 	public override void Configure()
 	{
-		AllowAnonymous();
+		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Post("group");
 		Version(1);
 		Summary(s => { s.Responses[200] = "Id созданной группы"; });
@@ -26,7 +23,7 @@ public sealed class Endpoint : Endpoint<CreateGroupRequest, Guid>
 
 	public override async Task<Guid> ExecuteAsync(CreateGroupRequest request, CancellationToken ct)
 	{
-		var command = _mapper.Map<CreateGroupCommand>(request);
-		return await _mediator.Send(command, ct);
+		var command = Mapper.Map<CreateGroupCommand>(request);
+		return await Mediator.Send(command, ct);
 	}
 }

@@ -1,4 +1,6 @@
 using Bll.CQRS.Commands.Groups;
+using Microsoft.Extensions.Options;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Group.Delete;
 
@@ -7,22 +9,18 @@ namespace WebApi.Web.Endpoints.V1.Group.Delete;
 /// </summary>
 public sealed class Endpoint : Endpoint<DeleteGroupByIdRequest>
 {
-	private readonly IMediator _mediator;
-
-	public Endpoint(IMediator mediator)
-	{
-		_mediator = mediator;
-	}
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 
 	public override void Configure()
 	{
-		AllowAnonymous();
+		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Delete("group/{GroupId}");
 		Version(1);
 	}
 
 	public override async Task HandleAsync(DeleteGroupByIdRequest req, CancellationToken ct)
 	{
-		await _mediator.Send(new DeleteGroupByIdCommand(req.GroupId), ct);
+		await Mediator.Send(new DeleteGroupByIdCommand(req.GroupId), ct);
 	}
 }

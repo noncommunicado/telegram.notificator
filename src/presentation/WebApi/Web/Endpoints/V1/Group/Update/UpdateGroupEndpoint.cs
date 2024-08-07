@@ -1,4 +1,6 @@
 using Bll.CQRS.Commands.Groups;
+using Microsoft.Extensions.Options;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Group.Update;
 
@@ -10,25 +12,20 @@ namespace WebApi.Web.Endpoints.V1.Group.Update;
 /// </remarks>
 public sealed class UpdateGroupEndpoint : Endpoint<UpdateGroupRequest>
 {
-	private readonly IMapper _mapper;
-	private readonly IMediator _mediator;
-
-	public UpdateGroupEndpoint(IMediator mediator, IMapper mapper)
-	{
-		_mediator = mediator;
-		_mapper = mapper;
-	}
+	public IMapper Mapper { get; set; }
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 
 	public override void Configure()
 	{
-		AllowAnonymous();
+		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Put("group");
 		Version(1);
 	}
 
 	public override async Task HandleAsync(UpdateGroupRequest request, CancellationToken ct)
 	{
-		var command = _mapper.Map<UpdateGroupCommand>(request);
-		await _mediator.Send(command, ct);
+		var command = Mapper.Map<UpdateGroupCommand>(request);
+		await Mediator.Send(command, ct);
 	}
 }

@@ -1,6 +1,5 @@
 using System.Globalization;
 using Bll;
-using Domain.Interfaces;
 using FastEndpoints.ClientGen.Kiota;
 using FastEndpoints.Swagger;
 using FluentValidation;
@@ -12,6 +11,7 @@ using TelegramBot;
 using WebApi;
 using WebApi.Configuration;
 using WebApi.Middlewares;
+using WebApi.Services;
 
 CultureInfo.CurrentUICulture = new CultureInfo("ru-RU");
 
@@ -28,6 +28,7 @@ try {
 	builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 	builder.Services.AddAutoMapper(typeof(Program), typeof(Domain.AssemblyInfo));
 	builder.Services.AddSingleton<ExceptionMiddleware>();
+	builder.Services.AddSingleton<JwtTokenGenerator>();
 	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(builder.Environment.WebRootPath));
 
 // quartz
@@ -47,7 +48,7 @@ try {
 	o => //endpoint customization settings
 	{
 		o.CacheOutput(p => p.Expire(TimeSpan.FromDays(365))); //cache the zip
-		o.ExcludeFromDescription(); //hides this endpoint from swagger docs
+		//o.ExcludeFromDescription(); //hides this endpoint from swagger docs
 	});
 	app.MapApiClientEndpoint("/api/v1/generate-client/typescript", c => {
 		c.SwaggerDocumentName = "v1"; 
@@ -58,14 +59,16 @@ try {
 	o => //endpoint customization settings
 	{
 		o.CacheOutput(p => p.Expire(TimeSpan.FromDays(365))); //cache the zip
-		o.ExcludeFromDescription(); //hides this endpoint from swagger docs
+		//o.ExcludeFromDescription(); //hides this endpoint from swagger docs
 	});
 	app.UseFastEndpoints(c => {
 		c.Endpoints.RoutePrefix = "api";
 		c.Versioning.Prefix = "v";
 		c.Versioning.PrependToRoute = true;
 		c.Versioning.DefaultVersion = 1;
-	}).UseSwaggerGen(settings => { });
+	}).UseSwaggerGen(settings => {
+		
+	});
 
 	app.UseMiddleware<ExceptionMiddleware>();
 
@@ -74,6 +77,7 @@ try {
 	await app.RunAsync();
 }
 catch (Exception ex) {
+	Console.WriteLine(ex.Message);
 	Log.Fatal(ex, "Fatal error");
 }
 finally {

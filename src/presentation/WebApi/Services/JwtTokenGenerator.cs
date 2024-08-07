@@ -1,27 +1,31 @@
-using System.Security.Claims;
 using FastEndpoints.Security;
+using KutCode.Security.Ldap.Models;
 using Microsoft.Extensions.Options;
 using WebApi.Settings;
+using WebApi.Static;
 
 namespace WebApi.Services;
 
 public sealed class JwtTokenGenerator
 {
-	private readonly AuthorizationSettings _settings;
-
+	private readonly IOptions<AuthorizationSettings> _settings;
 	public JwtTokenGenerator(IOptions<AuthorizationSettings> settings)
 	{
-		_settings = settings.Value;
+		_settings = settings;
 	}
 
-	public string GenerateToken(string displayName, string principal, string[] roles)
+	public string GenerateToken(LdapUserData ldapUserData)
 	{
-		return JwtBearer.CreateToken(options => {
-			options.SigningKey = _settings.Jwt.SignInKey;
-			options.ExpireAt = DateTime.UtcNow.AddDays(_settings.Jwt.LifetimeDays);
-			options.User.Roles.AddRange(roles);
-			options.User.Claims.Add(new Claim("name", displayName));
-			options.User.Claims.Add(new Claim("principal", principal));
-		});
+		return JWTBearer.CreateToken(
+			signingKey: _settings.Value.Jwt.SignInKey,
+			expireAt: DateTime.UtcNow.AddDays(_settings.Value.Jwt.LifetimeDays),
+			audience: _settings.Value.Jwt.Audience,
+			issuer: _settings.Value.Jwt.Issuer,
+			privileges: u =>
+			{
+				u.Roles.AddRange(ldapUserData.MemberOfGroups);
+				u.Claims.Add(new(ClaimNames.Name, ldapUserData.UserDisplayName));
+				u.Claims.Add(new(ClaimNames.EMail, ldapUserData.UserEmail));
+			});
 	}
 }

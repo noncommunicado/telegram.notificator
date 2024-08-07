@@ -1,5 +1,7 @@
 using Bll.CQRS.Queries.Groups;
 using Domain.Dto;
+using Microsoft.Extensions.Options;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Group.GetAll;
 
@@ -8,22 +10,18 @@ namespace WebApi.Web.Endpoints.V1.Group.GetAll;
 /// </summary>
 public sealed class GetAllGroupsEndpoint : Endpoint<GetAllGroupsRequest, IEnumerable<GroupDto>>
 {
-	private readonly IMediator _mediator;
-
-	public GetAllGroupsEndpoint(IMediator mediator)
-	{
-		_mediator = mediator;
-	}
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 
 	public override void Configure()
 	{
-		AllowAnonymous();
+		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Get("group/all");
 		Version(1);
 	}
 
 	public override async Task<IEnumerable<GroupDto>> ExecuteAsync(GetAllGroupsRequest req, CancellationToken ct)
 	{
-		return await _mediator.Send(new GetAllGroupsQuery(req.ByChatIdFilter), ct);
+		return await Mediator.Send(new GetAllGroupsQuery(req.ByChatIdFilter), ct);
 	}
 }

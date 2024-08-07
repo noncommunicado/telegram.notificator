@@ -1,6 +1,7 @@
 using Bll.CQRS.Commands.TelegramMessaging;
-using Domain.Models;
+using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Annotations;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Telegram.TextMessage.SendToGroups;
 
@@ -10,17 +11,12 @@ namespace WebApi.Web.Endpoints.V1.Telegram.TextMessage.SendToGroups;
 [SwaggerResponse(StatusCodes.Status200OK, "Поставлено в очередь на отправку")]
 public sealed class Endpoint : Endpoint<SendTextToGroupsRequest>
 {
-	private readonly IMapper _mapper;
-	private readonly IMediator _mediator;
-
-	public Endpoint(IMapper mapper, IMediator mediator)
-	{
-		_mapper = mapper;
-		_mediator = mediator;
-	}
-
+	public IMapper Mapper { get; set; }
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 	public override void Configure()
 	{
+		//if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		AllowAnonymous();
 		Post("telegram/send/text/to-groups");
 		Summary(s => {
@@ -43,9 +39,9 @@ public sealed class Endpoint : Endpoint<SendTextToGroupsRequest>
 
 	public override async Task HandleAsync(SendTextToGroupsRequest request, CancellationToken ct)
 	{
-		var command = _mapper.Map<EnqueueGroupsMessageCommand>(request);
+		var command = Mapper.Map<EnqueueGroupsMessageCommand>(request);
 		command.Message.AttachmentsIds = request.Message.AttachmentsIds;
-		await _mediator.Send(command, ct);
+		await Mediator.Send(command, ct);
 		await SendOkAsync(ct);
 	}
 }
