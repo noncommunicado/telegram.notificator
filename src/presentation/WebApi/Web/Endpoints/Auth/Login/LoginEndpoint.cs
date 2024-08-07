@@ -9,15 +9,8 @@ public sealed record Response(bool Success, string Token = "", string? Error = n
 
 public sealed class LoginEndpoint : Endpoint<Request, Response>
 {
-	private IKutCodeLdapRepository? LdapRepository { get; set; }
-	private JwtTokenGenerator? TokenGenerator { get; set; }
-
-	public LoginEndpoint()
-	{
-		LdapRepository = TryResolve<IKutCodeLdapRepository>();
-		TokenGenerator = TryResolve<JwtTokenGenerator>();
-	}
-
+	public IKutCodeLdapRepository LdapRepository { get; set; }
+	public JwtTokenGenerator TokenGenerator { get; set; }
 	public override void Configure()
 	{
 		Post("auth/ldap/login");

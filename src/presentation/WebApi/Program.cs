@@ -4,6 +4,7 @@ using FastEndpoints.ClientGen.Kiota;
 using FastEndpoints.Swagger;
 using FluentValidation;
 using Kiota.Builder;
+using KutCode.Security.Ldap.DependencyInjection;
 using Persistence;
 using Serilog;
 using Services;
@@ -30,6 +31,7 @@ try {
 	builder.Services.AddSingleton<ExceptionMiddleware>();
 	builder.Services.AddSingleton<JwtTokenGenerator>();
 	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(builder.Environment.WebRootPath));
+	builder.Services.AddKutCodeLdapRepository(builder.Configuration.GetRequiredSection("Ldap"), ServiceLifetime.Scoped);
 
 // quartz
 	builder.Services.ConfigureQuartz();
