@@ -18,6 +18,7 @@ public sealed class RemoveMembersEndpoint : Endpoint<AddOrRemoveMembersRequest>
 		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Delete("group/members");
 		Version(1);
+		Summary(s => s.Description = "⚠️ Either GroupId or GroupCode must be presented");
 	}
 
 	public override async Task HandleAsync(AddOrRemoveMembersRequest request, CancellationToken ct)

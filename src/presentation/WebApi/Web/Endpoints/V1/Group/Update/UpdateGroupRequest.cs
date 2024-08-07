@@ -1,14 +1,15 @@
 using FluentValidation;
-using WebApi.Web.Endpoints.V1.Group.Create;
 
 namespace WebApi.Web.Endpoints.V1.Group.Update;
 
-public sealed class UpdateGroupRequest : CreateGroupRequest
+public sealed class UpdateGroupRequest 
 {
-	public Guid Id { get; set; }
+	public Guid GroupId { get; set; }
+	public string Name { get; set; }
+	public string Code { get; set; }
 }
 
-public sealed class UpdateGroupRequestValidator : AbstractValidator<UpdateGroupRequest>
+public class UpdateGroupRequestValidator : Validator<UpdateGroupRequest>
 {
 	public UpdateGroupRequestValidator()
 	{

@@ -10,7 +10,7 @@ public class CreateGroupRequest
 	public IEnumerable<GroupMemberEditCreateDto>? Members { get; set; }
 }
 
-public sealed class CreateGroupRequestValidator : AbstractValidator<CreateGroupRequest>
+public class CreateGroupRequestValidator : Validator<CreateGroupRequest>
 {
 	public CreateGroupRequestValidator()
 	{

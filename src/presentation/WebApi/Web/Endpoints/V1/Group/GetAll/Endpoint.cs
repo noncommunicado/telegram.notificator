@@ -8,7 +8,7 @@ namespace WebApi.Web.Endpoints.V1.Group.GetAll;
 /// <summary>
 ///     Все группы
 /// </summary>
-public sealed class GetAllGroupsEndpoint : Endpoint<GetAllGroupsRequest, IEnumerable<GroupDto>>
+public sealed class Endpoint : Endpoint<GetAllGroupsRequest, IEnumerable<GroupDto>>
 {
 	public IMediator Mediator { get; set; }
 	public IOptions<AuthorizationSettings> AuthSettings { get; set; }

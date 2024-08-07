@@ -19,10 +19,12 @@ public sealed class Endpoint : Endpoint<CreateGroupRequest, Guid>
 		Post("group");
 		Version(1);
 		Summary(s => { s.Responses[200] = "Id созданной группы"; });
+		Validator<CreateGroupRequestValidator>();
 	}
 
 	public override async Task<Guid> ExecuteAsync(CreateGroupRequest request, CancellationToken ct)
 	{
+		ThrowIfAnyErrors();
 		var command = Mapper.Map<CreateGroupCommand>(request);
 		return await Mediator.Send(command, ct);
 	}

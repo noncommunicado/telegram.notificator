@@ -24,7 +24,7 @@ public abstract class SendTextRequestBase
 /// <summary>
 ///     Базовый валидатор запроса на отправку сообщения
 /// </summary>
-public abstract class SendTextRequestBaseValidator<T> : AbstractValidator<T> where T : SendTextRequestBase
+public abstract class SendTextRequestBaseValidator<T> : Validator<T> where T : SendTextRequestBase
 {
 	public SendTextRequestBaseValidator()
 	{

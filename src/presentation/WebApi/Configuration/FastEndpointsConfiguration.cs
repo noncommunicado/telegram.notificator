@@ -24,6 +24,7 @@ public static class FastEndpointsConfiguration
 
 		builder.Services.AddSingleton<JwtTokenGenerator>();
 
+		builder.Services.AddValidatorsFromAssemblyContaining<Program>(ServiceLifetime.Singleton);
 		builder.Services.AddFastEndpoints(o => {
 			o.IncludeAbstractValidators = true;
 		});

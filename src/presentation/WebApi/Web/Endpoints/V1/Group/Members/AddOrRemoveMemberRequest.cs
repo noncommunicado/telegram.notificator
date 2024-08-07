@@ -10,7 +10,7 @@ public sealed class AddOrRemoveMembersRequest
 	public IEnumerable<GroupMemberEditCreateDto> Members { get; set; }
 }
 
-public sealed class AddOrRemoveMemberRequestValidator : AbstractValidator<AddOrRemoveMembersRequest>
+public sealed class AddOrRemoveMemberRequestValidator : Validator<AddOrRemoveMembersRequest>
 {
 	public AddOrRemoveMemberRequestValidator()
 	{

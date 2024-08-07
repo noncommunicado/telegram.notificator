@@ -8,7 +8,7 @@ namespace WebApi.Web.Endpoints.V1.Group.GetById;
 /// <summary>
 ///     Данные группы с ее участниками
 /// </summary>
-public sealed class GetByIdEndpoint : Endpoint<GetGroupByIdRequest, GroupExtendedDto>
+public sealed class Endpoint : Endpoint<GetGroupByIdRequest, GroupExtendedDto>
 {
 	public IMediator Mediator { get; set; }
 	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
