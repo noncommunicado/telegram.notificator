@@ -1,5 +1,7 @@
 using Bll.CQRS.Queries.Groups;
 using Domain.Dto;
+using Microsoft.Extensions.Options;
+using WebApi.Settings;
 
 namespace WebApi.Web.Endpoints.V1.Group.GetById;
 
@@ -8,16 +10,12 @@ namespace WebApi.Web.Endpoints.V1.Group.GetById;
 /// </summary>
 public sealed class GetByIdEndpoint : Endpoint<GetGroupByIdRequest, GroupExtendedDto>
 {
-	private readonly IMediator _mediator;
-
-	public GetByIdEndpoint(IMediator mediator)
-	{
-		_mediator = mediator;
-	}
+	public IMediator Mediator { get; set; }
+	public IOptions<AuthorizationSettings> AuthSettings { get; set; }
 
 	public override void Configure()
 	{
-		AllowAnonymous();
+		if (!AuthSettings.Value.Enabled) AllowAnonymous();
 		Get("group/by-id/{GroupId}");
 		Summary(s => {
 			s.Summary = "Группа рассылки по UID";
@@ -27,6 +25,6 @@ public sealed class GetByIdEndpoint : Endpoint<GetGroupByIdRequest, GroupExtende
 
 	public override async Task<GroupExtendedDto> ExecuteAsync(GetGroupByIdRequest request, CancellationToken ct)
 	{
-		return await _mediator.Send(new GetGroupByIdQuery(request.GroupId), ct);
+		return await Mediator.Send(new GetGroupByIdQuery(request.GroupId), ct);
 	}
 }

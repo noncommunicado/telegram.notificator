@@ -14,9 +14,13 @@ public sealed class BotService : IBotHostedService
 {
 	private readonly BaseUpdateHandler _baseUpdateHandler = new();
 	private readonly TelegramBotClient _botClient;
+	private readonly TelegramBotOptions _options;
 
 	public BotService(TelegramBotOptions options)
 	{
+		_options = options;
+		if (options.IsEnabled is false) return;
+		ArgumentException.ThrowIfNullOrWhiteSpace(options.Token, "Telegram bot token");
 		_botClient = new TelegramBotClient(options.Token);
 	}
 
@@ -114,6 +118,7 @@ public sealed class BotService : IBotHostedService
 	}
 	public async Task StartAsync(CancellationToken ct = default)
 	{
+		if (_options.IsEnabled is false) return;
 		_botClient.StartReceiving(_baseUpdateHandler.UpdateHandler,
 			PollingErrorHandler,
 			cancellationToken: ct
@@ -127,6 +132,7 @@ public sealed class BotService : IBotHostedService
 
 	public async Task StopAsync(CancellationToken ct = default)
 	{
+		if (_options.IsEnabled is false) return;
 		await _botClient.CloseAsync(ct);
 	}
 
@@ -139,6 +145,7 @@ public sealed class BotService : IBotHostedService
 
 	~BotService()
 	{
+		if (_options.IsEnabled is false) return;
 		_botClient.CloseAsync().Wait();
 	}
 }

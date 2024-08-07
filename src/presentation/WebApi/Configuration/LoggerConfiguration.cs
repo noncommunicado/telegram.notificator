@@ -25,7 +25,7 @@ internal static class LoggerConfiguration
 						rollingInterval: RollingInterval.Day,
 						restrictedToMinimumLevel: LogEventLevel.Error)
 				)
-				.WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Fatal)
+				.WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Error)
 				.WriteTo.Elasticsearch(
 					new ElasticsearchSinkOptions(new Uri(config.ElasticUri)) {
 						AutoRegisterTemplate = true,
