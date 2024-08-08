@@ -24,8 +24,8 @@ public sealed class GetAllGroupsQueryHandler : IRequestHandler<GetAllGroupsQuery
 		return await _context.Groups.AsNoTrackingWithIdentityResolution()
 			.Include(x => x.Members)
 			.Where(x => request.chatId == null || (x.Members != null && x.Members.Any(z => z.ChatId == request.chatId)))
-			.Select(x => _mapper.Map<GroupDto>(x))
 			.OrderByDescending(x => x.SysCreated)
+			.Select(x => _mapper.Map<GroupDto>(x))
 			.ToArrayAsync(cancellationToken);
 	}
 }
