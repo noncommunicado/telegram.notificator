@@ -24,7 +24,7 @@ public sealed class GetGroupByIdQueryHandler : IRequestHandler<GetGroupByIdQuery
 	public async Task<GroupExtendedDto> Handle(GetGroupByIdQuery request, CancellationToken ct)
 	{
 		var entity = await _context.Groups.AsNoTrackingWithIdentityResolution()
-			.Include(x => x.Members)
+			.Include(x => x.Members.OrderByDescending(x => x.SysCreated))
 			.FirstOrDefaultAsync(x => x.Id == request.GroupId, ct);
 		if (entity == null) throw new DomainException(StatusCodes.Status404NotFound, "Not found");
 		return _mapper.Map<GroupExtendedDto>(entity);

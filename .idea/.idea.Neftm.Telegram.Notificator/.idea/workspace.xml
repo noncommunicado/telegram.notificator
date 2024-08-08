@@ -12,24 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="cors fix">
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="bug fix and Update method improve">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/UpdateGroupCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Groups/UpdateGroupCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/FastEndpointsConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/CreateGroupRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/Endpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Create/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetAll/GetAllGroupsEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetAll/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/GetByIdEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/GetById/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddMembersEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddMembersEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddOrRemoveMemberRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddOrRemoveMemberRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/RemoveMembersEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/RemoveMembersEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Update/UpdateGroupEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Update/Endpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Update/UpdateGroupRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Group/Update/UpdateGroupRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendTextRequestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/TextMessage/SendTextRequestBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/presentation/WebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/presentation/WebApi/Web/Endpoints/V1/Group/Members/AddMembersEndpoint.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -164,7 +149,7 @@
       <workItem from="1722955578370" duration="2079000" />
       <workItem from="1723011649235" duration="5598000" />
       <workItem from="1723023893603" duration="2137000" />
-      <workItem from="1723031291684" duration="6538000" />
+      <workItem from="1723031291684" duration="8088000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -358,7 +343,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723032969995</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="bug fix and Update method improve">
+      <option name="closed" value="true" />
+      <created>1723047522833</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1723047522833</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +406,8 @@
     <MESSAGE value="fix ldap auth" />
     <MESSAGE value="v1.1.2" />
     <MESSAGE value="cors fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="cors fix" />
+    <MESSAGE value="bug fix and Update method improve" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix and Update method improve" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
