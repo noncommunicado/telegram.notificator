@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="bug fix and Update method improve">
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +42,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9adab85ca087f2e1d1be324af287fa6e71cc96d4ccf2c6e37d22af678f68a2/InputFile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d16ec9b6bbfdc18456dbcf6a897afb46dd6f241635537b3973f3955626751331/InputFileStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/Bll/CQRS/Commands/Groups/UpdateGroupCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/Bll/CQRS/Queries/Groups/GetAllGroupsQuery.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/Bll/CQRS/Queries/Groups/GetAllGroupsQuery.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/presentation/WebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -149,7 +151,7 @@
       <workItem from="1722955578370" duration="2079000" />
       <workItem from="1723011649235" duration="5598000" />
       <workItem from="1723023893603" duration="2137000" />
-      <workItem from="1723031291684" duration="8088000" />
+      <workItem from="1723031291684" duration="9424000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -351,7 +353,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723047522833</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="ordering in GET methods">
+      <option name="closed" value="true" />
+      <created>1723104821648</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1723104821648</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix">
+      <option name="closed" value="true" />
+      <created>1723105066354</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1723105066354</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +412,6 @@
     <MESSAGE value="create attachment api method" />
     <MESSAGE value="Attachments first view" />
     <MESSAGE value="elastic logging" />
-    <MESSAGE value="fix" />
     <MESSAGE value="exclude efcore logs" />
     <MESSAGE value="libs update" />
     <MESSAGE value="send order changed" />
@@ -407,7 +424,9 @@
     <MESSAGE value="v1.1.2" />
     <MESSAGE value="cors fix" />
     <MESSAGE value="bug fix and Update method improve" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix and Update method improve" />
+    <MESSAGE value="ordering in GET methods" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

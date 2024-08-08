@@ -6,4 +6,5 @@ public record GroupDto
 	public string Name { get; init; }
 	public string Code { get; init; }
 	public DateTime? SysCreated { get; init; }
+	public int MembersCount { get; init; }
 }
