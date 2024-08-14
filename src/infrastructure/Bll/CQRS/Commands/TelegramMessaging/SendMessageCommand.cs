@@ -27,8 +27,10 @@ public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageComman
 	public async Task Handle(SendMessageCommand request, CancellationToken ct)
 	{
 		var dbMessage = await _context.Messages.FindAsync(request.MessageId, ct);
-		if (dbMessage is null)
-			throw new Exception(String.Format("Message {0} not found in database; {1}", request.MessageId, request));
+		if (dbMessage is null) {
+			Log.Error("Message {MessageId} not found in database; {MessageMetadata}", request.MessageId, request);
+			return; // swallow not found messages
+		}
 		
 		var attachments = new List<TelegramMessageAttachment>(request.AttachmentsIds.Count);
 		foreach (var a in request.AttachmentsIds) {

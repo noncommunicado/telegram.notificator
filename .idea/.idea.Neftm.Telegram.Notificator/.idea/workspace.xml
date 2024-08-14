@@ -12,7 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="" />
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="Logs added">
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,9 +41,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/96f059728e76911843ccc034d22e5f4f534d65e27e403ce68f29ce336bab3/TelegramBotClientOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9adab85ca087f2e1d1be324af287fa6e71cc96d4ccf2c6e37d22af678f68a2/InputFile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d16ec9b6bbfdc18456dbcf6a897afb46dd6f241635537b3973f3955626751331/InputFileStream.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/presentation/WebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -147,6 +149,7 @@
       <workItem from="1723023893603" duration="2137000" />
       <workItem from="1723031291684" duration="10854000" />
       <workItem from="1723630266730" duration="1521000" />
+      <workItem from="1723636543009" duration="538000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -380,7 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723632845698</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Logs added">
+      <option name="closed" value="true" />
+      <created>1723636711424</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1723636711424</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +423,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="folders renamed" />
     <MESSAGE value="case" />
     <MESSAGE value="case issue fix" />
     <MESSAGE value="project fix" />
@@ -437,7 +447,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="members count in GET requests" />
     <MESSAGE value="spa support" />
-    <option name="LAST_COMMIT_MESSAGE" value="spa support" />
+    <MESSAGE value="Logs added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logs added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
