@@ -1,10 +1,12 @@
 using System.Globalization;
+using System.Reflection;
 using Bll;
 using FastEndpoints.ClientGen.Kiota;
 using FastEndpoints.Swagger;
 using FluentValidation;
 using Kiota.Builder;
 using KutCode.Security.Ldap.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Persistence;
 using Serilog;
 using Services;
@@ -30,9 +32,11 @@ try {
 	builder.Services.AddAutoMapper(typeof(Program), typeof(Domain.AssemblyInfo));
 	builder.Services.AddSingleton<ExceptionMiddleware>();
 	builder.Services.AddSingleton<JwtTokenGenerator>();
-	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(builder.Environment.WebRootPath));
+	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(Path.Combine(builder.Environment.WebRootPath, "files")));
 	builder.Services.AddKutCodeLdapRepository(builder.Configuration.GetRequiredSection("Ldap"), ServiceLifetime.Scoped);
 	builder.Services.AddCors();
+	var webRootPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly()!.Location).Directory!.FullName, "wwwroot");
+	builder.Services.AddSpaStaticFiles(x => x.RootPath = webRootPath);
 
 // quartz
 	builder.Services.ConfigureQuartz();
@@ -74,7 +78,13 @@ try {
 	}).UseSwaggerGen(settings => {
 		
 	});
-
+	app.UseSpaStaticFiles();
+	app.UseSpa(c => {
+		c.Options.DefaultPageStaticFileOptions = new StaticFileOptions {
+			FileProvider = new PhysicalFileProvider(webRootPath),
+		};
+	});
+	app.MapFallbackToFile("index.html");
 	app.UseMiddleware<ExceptionMiddleware>();
 
 	await WarmUp.RunAsync(app);
