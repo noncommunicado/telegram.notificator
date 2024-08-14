@@ -12,10 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
-    </list>
+    <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +146,7 @@
       <workItem from="1723011649235" duration="5598000" />
       <workItem from="1723023893603" duration="2137000" />
       <workItem from="1723031291684" duration="10854000" />
-      <workItem from="1723630266730" duration="1260000" />
+      <workItem from="1723630266730" duration="1521000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -375,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723106394116</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="spa support">
+      <option name="closed" value="true" />
+      <created>1723632845698</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1723632845698</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +412,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Bll proj added" />
     <MESSAGE value="folders renamed" />
     <MESSAGE value="case" />
     <MESSAGE value="case issue fix" />
@@ -432,7 +436,8 @@
     <MESSAGE value="ordering in GET methods" />
     <MESSAGE value="fix" />
     <MESSAGE value="members count in GET requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="members count in GET requests" />
+    <MESSAGE value="spa support" />
+    <option name="LAST_COMMIT_MESSAGE" value="spa support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
