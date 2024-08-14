@@ -1,3 +1,5 @@
+using Humanizer;
+using Serilog;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -10,16 +12,20 @@ public sealed class BaseUpdateHandler
 {
 	public async Task UpdateHandler(ITelegramBotClient client, Update update, CancellationToken ct)
 	{
+		Log.Information("Bot. Id: {UpdateId}; Type: {UpdateType}", update.Id, update.Type);
+		if (update.Type == UpdateType.Message && update.Message is not null)
+			Log.Information("Bot. Id: {UpdateId}; ChatId: {ChatId}; Text: {UpdateText}", 
+				update.Id, update.Message.Chat.Id, update.Message.Text.Truncate(50));
+		
 		UpdateHandlerContext context = new(client, update, ct);
 
 		if (update is {Type: UpdateType.Message, Message: not null}) {
 			if (update.Message.Chat is {Type: ChatType.Private})
 				await HandlePrivateChatAsync(context).ConfigureAwait(false);
-			if (update.Message.Chat is {Type: ChatType.Group or ChatType.Supergroup})
+			if (update.Message.Chat is {Type: ChatType.Group or ChatType.Supergroup or ChatType.Channel})
 				await HandleGroupMessageAsync(context).ConfigureAwait(false);
 		}
 	}
-
 	private Task HandlePrivateChatAsync(UpdateHandlerContext context)
 	{
 		return StaticSender.SendUserIdAsync(context);
