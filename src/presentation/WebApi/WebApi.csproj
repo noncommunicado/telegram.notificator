@@ -36,24 +36,25 @@
         <PackageReference Include="FastEndpoints.Swagger" Version="5.28.0" />
         <PackageReference Include="FluentValidation" Version="11.9.2" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
+        <PackageReference Include="KutCode.AutoMapper.Extensions" Version="1.0.0" />
         <PackageReference Include="KutCode.Security.Ldap" Version="1.5.0" />
         <PackageReference Include="KutCode.Security.Ldap.DependencyInjection" Version="1.5.0"/>
-        <PackageReference Include="MassTransit" Version="8.2.3" />
-        <PackageReference Include="MassTransit.Abstractions" Version="8.2.3" />
-        <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.3" />
+        <PackageReference Include="MassTransit" Version="8.2.4" />
+        <PackageReference Include="MassTransit.Abstractions" Version="8.2.4" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.4" />
         <PackageReference Include="MediatR" Version="12.4.0" />
         <PackageReference Include="MediatR.Contracts" Version="2.0.1"/>
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
         <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="8.0.8" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Quartz" Version="3.12.0" />
-        <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.12.0" />
-        <PackageReference Include="Quartz.Extensions.Hosting" Version="3.12.0" />
+        <PackageReference Include="Quartz" Version="3.13.0" />
+        <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.13.0" />
+        <PackageReference Include="Quartz.Extensions.Hosting" Version="3.13.0" />
         <PackageReference Include="Serilog" Version="4.0.1" />
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
         <PackageReference Include="Serilog.Exceptions" Version="8.4.0"/>
@@ -61,8 +62,8 @@
         <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
         <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="10.0.0" />
         <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.7.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.7.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -112,6 +113,9 @@
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\files\.gitkeep">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
 

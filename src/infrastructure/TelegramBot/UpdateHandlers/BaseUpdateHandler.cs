@@ -26,18 +26,39 @@ public sealed class BaseUpdateHandler
 				await HandleGroupMessageAsync(context).ConfigureAwait(false);
 		}
 	}
-	private Task HandlePrivateChatAsync(UpdateHandlerContext context)
+	private async Task HandlePrivateChatAsync(UpdateHandlerContext context)
 	{
-		return StaticSender.SendUserIdAsync(context);
+		if (await HandleCommandsAsync(context)) return;
+		await StaticSender.SendUserIdAsync(context);
 	}
-
-	private Task HandleGroupMessageAsync(UpdateHandlerContext context)
+	private async  Task HandleGroupMessageAsync(UpdateHandlerContext context)
 	{
+		if (await HandleCommandsAsync(context)) return;
 		if (IsMentionOfMe(context))
-			return StaticSender.SendGroupIdAsync(context);
-
-		return Task.CompletedTask;
+			await  StaticSender.SendGroupIdAsync(context);
 	}
+	
+	private async Task<bool> HandleCommandsAsync(UpdateHandlerContext context)
+	{
+		if (false == context.Update.Message?.Text?.StartsWith("/"))
+			return false;
+		// todo: finish command handling
+		// switch (expression) {
+		// 	
+		// }
+		// var emojies = context.Update.Message!
+		// 	.Entities?.Where(x => x.Type == MessageEntityType.CustomEmoji).ToList();
+		// if (emojies is null || emojies.Count == 0) {
+		// 	await context.Client.SendTextMessageAsync(context.Update.Message!.Chat.Id, "",
+		// 		cancellationToken: context.CancellationToken);
+		// }
+		// foreach (var command in emojies) {
+		// 	
+		// }
+
+		return true;
+	}
+
 
 	/// <summary>
 	///     Проверка, содержится ли в сообщение упоминание бота (через @)

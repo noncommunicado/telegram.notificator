@@ -20,11 +20,19 @@ internal static class LoggerConfiguration
 			configuration
 				.Enrich.FromLogContext()
 				.Enrich.WithExceptionDetails()
+#if DEBUG
+				.WriteTo.Logger(c =>
+					c.WriteTo.File(Path.Combine("logs", "_.log"),
+						rollingInterval: RollingInterval.Day,
+						restrictedToMinimumLevel: LogEventLevel.Information)
+				)
+#else 
 				.WriteTo.Logger(c =>
 					c.WriteTo.File(Path.Combine("logs", "_.log"),
 						rollingInterval: RollingInterval.Day,
 						restrictedToMinimumLevel: LogEventLevel.Error)
 				)
+#endif
 				.WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Error)
 				.WriteTo.Elasticsearch(
 					new ElasticsearchSinkOptions(new Uri(config.ElasticUri)) {

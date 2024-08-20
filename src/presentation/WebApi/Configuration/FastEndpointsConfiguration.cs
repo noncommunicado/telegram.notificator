@@ -53,9 +53,10 @@ public static class FastEndpointsConfiguration
 			{
 				t["default"] = "Client generators";
 				t["Attachments"] = "Upload attachments";
-				t["Auth"] = "Authentication emthods";
+				t["Auth"] = "Authentication methods";
 				t["Group"] = "Manipualitions with send-groups";
 				t["Telegram"] = "Send to telegram methods";
+				t["Forum"] = "Forum interaction methods";
 			};
 		});
 

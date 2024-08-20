@@ -30,6 +30,7 @@ try {
 	builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Bll.AssemblyInfo).Assembly));
 	builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 	builder.Services.AddAutoMapper(typeof(Program), typeof(Domain.AssemblyInfo));
+	builder.Services.AddAllMappings();
 	builder.Services.AddSingleton<ExceptionMiddleware>();
 	builder.Services.AddSingleton<JwtTokenGenerator>();
 	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(Path.Combine(builder.Environment.WebRootPath, "files")));

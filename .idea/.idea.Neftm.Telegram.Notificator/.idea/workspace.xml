@@ -13,7 +13,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/CreateForumTopicCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Create/Endpoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Create/Request.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Create/Response.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Domain/Interfaces/IBotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Interfaces/IBotService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +50,17 @@
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Private.CoreLib/src/System/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a4324a6b6da49d6af87f7b57b73a219a8b0/9a/f4959f04/IWebHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/781590a6c8e24e6b9f85d75a1ac30c8198b0/ea/09bf55bd/IFileProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c05a9f56cce41eba9451cc4a5a099ccc8a0/0e/ea9b6f37/IHostedService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3edec1170e48a0a2478d8743508635c8e910/cc/f365519b/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/474bbd9de7d198b70f9e1f82c1386021ad1bbcd151629a7e81c37a49805e3e/TelegramBotClientExtensions.ApiMethods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5189cdf63c2f02ce063b14352fc22f6173e947c5547cca3e57bfe55fc76e28/TelegramBotClientExtensions.ApiMethods.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c77173b4dbdac69ea17b864754ccc536672c88948b96eea7ec3f1314f9eca1/ReflectionHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/96f059728e76911843ccc034d22e5f4f534d65e27e403ce68f29ce336bab3/TelegramBotClientOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9adab85ca087f2e1d1be324af287fa6e71cc96d4ccf2c6e37d22af678f68a2/InputFile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d16ec9b6bbfdc18456dbcf6a897afb46dd6f241635537b3973f3955626751331/InputFileStream.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f954599149e27458ea855b2b43a7b2bf1671edb26af585a7c7d87457b3523f0/ForumTopic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -152,6 +167,8 @@
       <workItem from="1723031291684" duration="10854000" />
       <workItem from="1723630266730" duration="1521000" />
       <workItem from="1723636543009" duration="3903000" />
+      <workItem from="1723641331448" duration="248000" />
+      <workItem from="1724146551207" duration="9396000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -409,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723638540070</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="added compiled frontend">
+      <option name="closed" value="true" />
+      <created>1723641510893</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1723641510893</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +466,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="project fix" />
     <MESSAGE value="link fix" />
     <MESSAGE value="group thread support" />
     <MESSAGE value="create attachment api method" />
@@ -466,7 +490,8 @@
     <MESSAGE value="Logs added" />
     <MESSAGE value="swallow not found in db messages" />
     <MESSAGE value="more logs added" />
-    <option name="LAST_COMMIT_MESSAGE" value="more logs added" />
+    <MESSAGE value="added compiled frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="added compiled frontend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -489,6 +514,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/presentation/WebApi/Program.cs</url>
+          <line>94</line>
+          <properties documentPath="D:\Local Projects\Uncategorized\Notificator\telegram.notificator\src\presentation\WebApi\Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="3451" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3452" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -13,15 +13,15 @@ namespace TelegramBot;
 public sealed class BotService : IBotHostedService
 {
 	private readonly BaseUpdateHandler _baseUpdateHandler = new();
-	private readonly TelegramBotClient _botClient;
 	private readonly TelegramBotOptions _options;
+	public TelegramBotClient BotClient { get; private set; }
 
 	public BotService(TelegramBotOptions options)
 	{
 		_options = options;
 		if (options.IsEnabled is false) return;
 		ArgumentException.ThrowIfNullOrWhiteSpace(options.Token, "Telegram bot token");
-		_botClient = new TelegramBotClient(options.Token);
+		BotClient = new TelegramBotClient(options.Token);
 	}
 
 	public async Task SendAsync(SendTelegramMessageCommand request, CancellationToken ct = default)
@@ -62,7 +62,7 @@ public sealed class BotService : IBotHostedService
 		else {
 			foreach (var a in request.Message.Attachments.OrderBy(x => x.Type)) {
 				if (a.Type == AttachmentType.Photo)
-					await _botClient.SendPhotoAsync(
+					await BotClient.SendPhotoAsync(
 						request.ChatId, 
 						new InputFileStream(a.FileStream, a.FileName),
 						caption: sendCaption ? request.Message.Text : null,
@@ -71,7 +71,7 @@ public sealed class BotService : IBotHostedService
 						messageThreadId: request.ThreadId < 0 ? null : request.ThreadId
 					).ConfigureAwait(false);
 				else if (a.Type == AttachmentType.File)
-					await _botClient.SendDocumentAsync(
+					await BotClient.SendDocumentAsync(
 						request.ChatId, 
 						new InputFileStream(a.FileStream, a.FileName),
 						disableNotification: request.Message.DisableNotification,
@@ -86,7 +86,7 @@ public sealed class BotService : IBotHostedService
 	}
 
 	private Task SendSimpleTextAsync(SendTelegramMessageCommand request, CancellationToken ct = default) =>
-		_botClient.SendTextMessageAsync(
+		BotClient.SendTextMessageAsync(
 			request.ChatId,
 			request.Message.Text,
 			messageThreadId: request.ThreadId < 0 ? null : request.ThreadId,
@@ -111,21 +111,24 @@ public sealed class BotService : IBotHostedService
 		}
 
 		if (media.Count == 0) return Task.CompletedTask;
-		return _botClient.SendMediaGroupAsync(request.ChatId, media,
+		return BotClient.SendMediaGroupAsync(request.ChatId, media,
 			disableNotification: request.Message.DisableNotification,
 			messageThreadId: request.ThreadId < 0 ? null : request.ThreadId
 		);
 	}
+
+	#region tech
+
 	public async Task StartAsync(CancellationToken ct = default)
 	{
 		if (_options.IsEnabled is false) return;
-		_botClient.StartReceiving(_baseUpdateHandler.UpdateHandler,
+		BotClient.StartReceiving(_baseUpdateHandler.UpdateHandler,
 			PollingErrorHandler,
 			cancellationToken: ct
 		);
 
 		// setting global tg-bot-user context for access from handlers
-		BotIdentityCache.Instance.SetIdentity(await _botClient.GetMeAsync(ct));
+		BotIdentityCache.Instance.SetIdentity(await BotClient.GetMeAsync(ct));
 
 		Log.Information("Bot {Name} start receiving", BotIdentityCache.Instance.BotUser!.Username);
 	}
@@ -133,7 +136,7 @@ public sealed class BotService : IBotHostedService
 	public async Task StopAsync(CancellationToken ct = default)
 	{
 		if (_options.IsEnabled is false) return;
-		await _botClient.CloseAsync(ct);
+		await BotClient.CloseAsync(ct);
 	}
 
 	// all contol for exceptions will be outside
@@ -146,6 +149,8 @@ public sealed class BotService : IBotHostedService
 	~BotService()
 	{
 		if (_options.IsEnabled is false) return;
-		_botClient.CloseAsync().Wait();
+		BotClient.CloseAsync().Wait();
 	}
+
+	#endregion
 }
