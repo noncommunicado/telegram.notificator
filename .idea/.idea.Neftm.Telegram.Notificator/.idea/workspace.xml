@@ -13,22 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/CreateForumTopicCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Create/Endpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Create/Request.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Create/Response.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/DeleteForumTopicCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Delete/Endpoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Delete/Request.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Interfaces/IBotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Interfaces/IBotService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/Bll.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Persistence/Persistence.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Services/Services.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/BotService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/TelegramBot.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Configuration/LoggerConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +49,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f954599149e27458ea855b2b43a7b2bf1671edb26af585a7c7d87457b3523f0/ForumTopic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -168,7 +157,8 @@
       <workItem from="1723630266730" duration="1521000" />
       <workItem from="1723636543009" duration="3903000" />
       <workItem from="1723641331448" duration="248000" />
-      <workItem from="1724146551207" duration="9396000" />
+      <workItem from="1724146551207" duration="9904000" />
+      <workItem from="1724161303287" duration="726000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -434,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723641510893</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Forum topic creation">
+      <option name="closed" value="true" />
+      <created>1724160156612</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1724160156612</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +464,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="link fix" />
     <MESSAGE value="group thread support" />
     <MESSAGE value="create attachment api method" />
     <MESSAGE value="Attachments first view" />
@@ -491,7 +488,8 @@
     <MESSAGE value="swallow not found in db messages" />
     <MESSAGE value="more logs added" />
     <MESSAGE value="added compiled frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="added compiled frontend" />
+    <MESSAGE value="Forum topic creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forum topic creation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
