@@ -13,10 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/DeleteForumTopicCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Delete/Endpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Delete/Request.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/CheckForumTopicCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/ForumTopic/Check/Endpoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/CreateForumTopicCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/Forum/Topic/CreateForumTopicCommand.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +37,21 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Private.CoreLib/src/System/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a4324a6b6da49d6af87f7b57b73a219a8b0/9a/f4959f04/IWebHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/686003a6094d4b92a87e4cf052addca712e00/92/4220770d/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/781590a6c8e24e6b9f85d75a1ac30c8198b0/ea/09bf55bd/IFileProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c05a9f56cce41eba9451cc4a5a099ccc8a0/0e/ea9b6f37/IHostedService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9de85ef61604c57bb50b8cac968bd371a00/e8/275fba24/IRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3edec1170e48a0a2478d8743508635c8e910/cc/f365519b/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/474bbd9de7d198b70f9e1f82c1386021ad1bbcd151629a7e81c37a49805e3e/TelegramBotClientExtensions.ApiMethods.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5189cdf63c2f02ce063b14352fc22f6173e947c5547cca3e57bfe55fc76e28/TelegramBotClientExtensions.ApiMethods.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c77173b4dbdac69ea17b864754ccc536672c88948b96eea7ec3f1314f9eca1/ReflectionHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/96f059728e76911843ccc034d22e5f4f534d65e27e403ce68f29ce336bab3/TelegramBotClientOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9adab85ca087f2e1d1be324af287fa6e71cc96d4ccf2c6e37d22af678f68a2/InputFile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a525e772c62d4ae52712ac443684f1f37b5445e92b54f2abab7c89185756/IRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d16ec9b6bbfdc18456dbcf6a897afb46dd6f241635537b3973f3955626751331/InputFileStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f954599149e27458ea855b2b43a7b2bf1671edb26af585a7c7d87457b3523f0/ForumTopic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Bll/Mq/Consumers/SendTelegramNotifyConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/infrastructure/Services/FileService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Local Projects/Uncategorized/Notificator/telegram.notificator/src/infrastructure/TelegramBot/UpdateHandlers/BaseUpdateHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -96,6 +98,21 @@
   }
 }</component>
   <component name="RunManager">
+    <configuration name="WebApi: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="WebApi: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -158,7 +175,8 @@
       <workItem from="1723636543009" duration="3903000" />
       <workItem from="1723641331448" duration="248000" />
       <workItem from="1724146551207" duration="9904000" />
-      <workItem from="1724161303287" duration="726000" />
+      <workItem from="1724161303287" duration="1211000" />
+      <workItem from="1724234817388" duration="4207000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -432,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724160156612</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="delete forum topic endpoint">
+      <option name="closed" value="true" />
+      <created>1724162056146</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1724162056146</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +490,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="group thread support" />
     <MESSAGE value="create attachment api method" />
     <MESSAGE value="Attachments first view" />
     <MESSAGE value="elastic logging" />
@@ -489,7 +514,8 @@
     <MESSAGE value="more logs added" />
     <MESSAGE value="added compiled frontend" />
     <MESSAGE value="Forum topic creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forum topic creation" />
+    <MESSAGE value="delete forum topic endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete forum topic endpoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

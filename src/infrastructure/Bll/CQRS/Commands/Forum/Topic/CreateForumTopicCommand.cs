@@ -1,5 +1,6 @@
 using Domain.Interfaces;
 using MediatR;
+using Serilog;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -18,9 +19,10 @@ public sealed class CreateForumTopicCommandHandler : IRequestHandler<CreateForum
 		_botService = botService;
 	}
 
-	public Task<ForumTopic> Handle(CreateForumTopicCommand request, CancellationToken cancellationToken)
+	public async Task<ForumTopic> Handle(CreateForumTopicCommand request, CancellationToken cancellationToken)
 	{
-		return _botService.BotClient.CreateForumTopicAsync(request.ChatId, request.Name, request.IconColor,
+		Log.Information("Creating forum's thread. Forum {ForumId}, thread name {ThreadName}", request.ChatId, request.Name);
+		return await _botService.BotClient.CreateForumTopicAsync(request.ChatId, request.Name, request.IconColor,
 			request.IconCustomEmojiId, cancellationToken);
 	}
 }
