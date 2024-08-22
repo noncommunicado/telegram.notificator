@@ -8,7 +8,7 @@ using Telegram.Bot.Exceptions;
 
 namespace Bll.CQRS.Commands.TelegramMessaging;
 
-public sealed record SendMessageCommand(long ChatId, int ThreadId, Guid MessageId, List<Guid> AttachmentsIds) : IRequest;
+public  record SendMessageCommand(long ChatId, int ThreadId, Guid MessageId, List<Guid> AttachmentsIds) : IRequest;
 
 public sealed class SendNotifyCommandHandler : IRequestHandler<SendMessageCommand>
 {

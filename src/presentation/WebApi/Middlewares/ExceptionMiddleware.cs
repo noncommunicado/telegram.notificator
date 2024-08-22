@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using Serilog;
+using Telegram.Bot.Exceptions;
 
 namespace WebApi.Middlewares;
 
@@ -36,6 +37,11 @@ public sealed class ExceptionMiddleware : IMiddleware
 		catch (DomainException ex) {
 			Log.Error(ex, "Domain exception");
 			context.Response.StatusCode = ex.HttpStatusCode;
+			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode, ex.Message));
+		}
+		catch (ApiRequestException ex) {
+			Log.Error(ex, "Telegram exception");
+			context.Response.StatusCode = ex.ErrorCode;
 			await context.Response.WriteAsJsonAsync(new ExceptionResponse(context.Response.StatusCode, ex.Message));
 		}
 		catch (Exception ex) {

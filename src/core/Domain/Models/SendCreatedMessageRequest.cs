@@ -1,12 +1,5 @@
 namespace Domain.Models;
 
-public class SendCreatedMessageRequest : MessageBase
-{
-	public Guid Id { get; set; }
-
-	public List<Guid> AttachmentsIds { get; set; } = new();
-}
-
 
 public class SendMessageRequest : MessageBase
 {
