@@ -13,21 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b09a02-a177-4fca-8b24-c70ebc4ede03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/Immediate/DeleteMessageImmediatelyCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/Immediate/EditMessageImmediatelyCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/Immediate/SendMessageImmediatelyCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/Delete/Endpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/Edit/Endpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/Edit/Response.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/Edit/Validator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/SendToChats/Endpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/SendToChats/Response.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/presentation/WebApi/Web/Endpoints/V1/Telegram/Immediate/SendToChats/Validator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Neftm.Telegram.Notificator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Mappings/ModelsMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Mappings/ModelsMappings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Domain/Models/SendCreatedMessageRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Domain/Models/SendCreatedMessageRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/Bll/CQRS/Commands/TelegramMessaging/SendMessageCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Middlewares/ExceptionMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Middlewares/ExceptionMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,31 +74,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.WebApi: http.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Project.WebApi.executor&quot;: &quot;Debug&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Local Projects/Uncategorized/telegram.notificator/Neftm.Telegram.Notificator.sln&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.WebApi: http.executor": "Run",
+    ".NET Project.WebApi.executor": "Debug",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Local Projects/Uncategorized/telegram.notificator/Neftm.Telegram.Notificator.sln",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\kutumov.n\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kutumov.n\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\kutumov.n\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="WebApi: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/presentation/WebApi/WebApi.csproj" />
@@ -191,7 +179,9 @@
       <workItem from="1724146551207" duration="9904000" />
       <workItem from="1724161303287" duration="1211000" />
       <workItem from="1724234817388" duration="5181000" />
-      <workItem from="1724332773354" duration="4293000" />
+      <workItem from="1724332773354" duration="6007000" />
+      <workItem from="1724839613678" duration="193000" />
+      <workItem from="1725435495777" duration="1807000" />
     </task>
     <task id="LOCAL-00001" summary="stable">
       <option name="closed" value="true" />
@@ -481,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724239237787</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="immidiate crud chat messages">
+      <option name="closed" value="true" />
+      <created>1724340400082</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1724340400082</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +511,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Attachments first view" />
     <MESSAGE value="elastic logging" />
     <MESSAGE value="exclude efcore logs" />
     <MESSAGE value="libs update" />
@@ -538,7 +535,8 @@
     <MESSAGE value="Forum topic creation" />
     <MESSAGE value="delete forum topic endpoint" />
     <MESSAGE value="check topic endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="check topic endpoint" />
+    <MESSAGE value="immidiate crud chat messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="immidiate crud chat messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -564,13 +562,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/presentation/WebApi/Program.cs</url>
-          <line>94</line>
+          <line>99</line>
           <properties documentPath="D:\Local Projects\Uncategorized\Notificator\telegram.notificator\src\presentation\WebApi\Program.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="3451" />
+              <option value="3561" />
             </startOffsets>
             <endOffsets>
-              <option value="3452" />
+              <option value="3562" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="19" />

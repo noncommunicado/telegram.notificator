@@ -8,6 +8,7 @@ using Kiota.Builder;
 using KutCode.Security.Ldap.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Persistence;
+using Prometheus;
 using Serilog;
 using Services;
 using TelegramBot;
@@ -36,6 +37,7 @@ try {
 	builder.Services.AddSingleton<IFileService, FileService>(_ => new FileService(Path.Combine(builder.Environment.WebRootPath, "files")));
 	builder.Services.AddKutCodeLdapRepository(builder.Configuration.GetRequiredSection("Ldap"), ServiceLifetime.Scoped);
 	builder.Services.AddCors();
+	builder.Services.UseHttpClientMetrics(); 
 	var webRootPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly()!.Location).Directory!.FullName, "wwwroot");
 	builder.Services.AddSpaStaticFiles(x => x.RootPath = webRootPath);
 
@@ -87,6 +89,9 @@ try {
 	});
 	app.MapFallbackToFile("index.html");
 	app.UseMiddleware<ExceptionMiddleware>();
+	app.UseMetricServer();
+	app.UseHttpMetrics();
+	
 
 	await WarmUp.RunAsync(app);
 	Log.Information("Application Start");

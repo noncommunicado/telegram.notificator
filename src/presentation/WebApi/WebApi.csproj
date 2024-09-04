@@ -52,6 +52,9 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="prometheus-net" Version="8.2.1" />
+        <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="8.2.1" />
         <PackageReference Include="Quartz" Version="3.13.0" />
         <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.13.0" />
         <PackageReference Include="Quartz.Extensions.Hosting" Version="3.13.0" />
@@ -116,6 +119,9 @@
       </Content>
       <Content Update="wwwroot\files\.gitkeep">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\index.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
 
